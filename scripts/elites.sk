@@ -1,0 +1,838 @@
+#-----------------------------------------------------------------------------------------------------
+options:
+    amount: 5                       #Amount of particles, big difference
+    samount: 5                      #Amount of particles, small difference
+    height: 1                       #Height of point from where is blood spawned
+    type: "all"                     #Set type of victim, which should drop blood(all/player/monster/mob)
+    color: redstone block break     #Color of blood(redstone/blue wool/green wool/lime wool)
+#function
+    #Description    #JPBlood(<location>, "particle name" , integer , integer , height of spawn)
+    #Example        #JPBlood(location of victim , "blue wool block break" , 10 , 10 , 1.25)
+#-----------------------------------------------------------------------------------------------------
+
+function JPBlood(loc: location, color: particle effect, samount: integer, amount: integer, height: number):
+    loop {_amount} times:
+        play {_samount} {_color} at ({_loc} ~ vector(0,{_height},0))
+
+on spawn:
+	event-entity is a phantom:
+		cancel event
+
+
+on right-click:
+	player's tool is a soul lantern named "&bNeverending Lummus":
+		inventory of player contains a black dye named "&fNight Fuel" with lore "&7A Part of the own night.":
+			cancel event
+			remove 1 black dye named "&fNight Fuel" with lore "&7A Part of the own night." from player's inventory
+			send "&e<!> &aYour Powerfull lamp light your eyes."
+			remove night vision from player
+			apply night vision to the player for 5 minutes
+		else:
+			send "&e<!>&cNot enough Night Fuel" to player
+
+
+on right-click:
+	player's tool is a magma cream named "&bMagmatic Charm":
+		inventory of player contains a black dye named "&fNight Fuel" with lore "&7A Part of the own night.":
+			cancel event
+			remove 1 black dye named "&fNight Fuel" with lore "&7A Part of the own night." from player's inventory
+			send "&e<!> &aYour Magmatic Charm protect you."
+			remove Fire Resistance from player
+			apply Fire Resistance to the player for 30 seconds
+		else:
+			send "&e<!>&cNot enough Night Fuel" to player
+
+on right-click:
+	if player's tool is a anvil named "&bPortable Powerhammer":
+		cancel event
+		send "&e<!>&c You cant place this item"
+
+
+on eat:
+	event-item is a golden apple named "&bApollo's Treat":
+		inventory of player contains a black dye named "&fNight Fuel" with lore "&7A Part of the own night.":
+			remove 1 black dye named "&fNight Fuel" with lore "&7A Part of the own night." from player's inventory
+			cancel event
+			feed player by 10
+			remove regeneration from the player
+			send "&e<!>&aThis perfect apple regenerates itself as you eat it."
+		else:
+			cancel event
+			send "&e<!>&cNot enough Night Fuel" to player
+
+on inventory click:
+	if event-inventoryaction is swap with cursor:	
+		if cursor slot of player is anvil named "&bPortable Powerhammer":
+			cancel event
+			if player's inventory contains a black dye named "&fNight Fuel" with lore "&7A Part of the own night.":
+				remove 1 black dye named "&fNight Fuel" with lore "&7A Part of the own night." from player's inventory
+				repair clicked slot by 80
+				send "&e<!>&aPortable Powerhammer repaired your item." 
+			else:
+				cancel event
+				send "&e<!>&cNot enough Night Fuel" to player
+
+
+				repair clicked slot by 60
+
+command /spawnloc1:
+	permission: op
+	trigger:
+		set {miner.spawned} to true
+		spawn 1 zombie at {eliteloc1}
+		set name of last spawned zombie to "bossminer1"
+		spawn 1 skeleton at {eliteloc1}
+		set name of last spawned skeleton to "minerminion"
+		spawn 1 skeleton at {eliteloc1}
+		set name of last spawned skeleton to "minerminion"
+		spawn 1 skeleton at {eliteloc1}
+		set name of last spawned skeleton to "minerminion"
+		spawn 1 skeleton at {eliteloc1}
+		set name of last spawned skeleton to "minerminion"
+
+
+
+
+
+command /testfunc:
+	trigger:
+		give liplu() to player
+		give hvest() to player
+		give mkscal() to player
+		give jawbrek() to player
+
+
+
+
+on spawn:
+	if event-entity is a monsters:
+		if name of event-entity contains "&e":
+			loop all entities in radius 25 of event-entity:
+				if size of loop-entity in radius 10 of event-entity is bigger or equal to 20:
+					if loop-entity is a monster:
+						teleport loop-entity to {mobtrash} 
+
+
+
+on right-click:
+	event-item is a glass bottle:
+		name of event-item is "&eElionas Soul":
+			cancel event
+			spawn 1 zombie at {eliteloc1}
+			set name of last spawned zombie to "bossminer1"
+			spawn 1 skeleton at {eliteloc1}
+			set name of last spawned skeleton to "minerminion"
+			spawn 1 skeleton at {eliteloc1}
+			set name of last spawned skeleton to "minerminion"
+			spawn 1 skeleton at {eliteloc1}
+			set name of last spawned skeleton to "minerminion"
+			spawn 1 skeleton at {eliteloc1}
+			set name of last spawned skeleton to "minerminion"
+			broadcast "&e<!> &eElionas has been summoned at &f-470 75 820&e."
+			clear player's tool
+		name of event-item is "&eResurrection Soul":
+			cancel event
+			spawn 1 skeleton at {eliteloc2}
+			set name of last spawned skeleton to "boss2"
+			broadcast "&e<!> &eResurrection has been summoned at &f-600 55 340&e."
+			clear player's tool
+
+every tick:
+	loop all zombies:
+		if name of loop-zombie is "bossminer1":
+			set name of loop-zombie to "&d&lElionas, The Experiment"
+			set max health of loop-zombie to 145
+			apply speed 1 to the loop-zombie for 25 days
+			apply resistance 1 to the loop-zombie for 25 days
+			heal loop-zombie
+			set {_h} to iron helmet
+			set {_c} to iron chestplate
+			set {_l} to iron leggings
+			set {_b} to iron boots
+			set {_w} to diamond pickaxe
+			enchant {_c} with protection 3
+			enchant {_l} with protection 5
+			enchant {_b} with protection 5
+			enchant {_w} with efficiency 2
+			enchant {_w} with sharpness 7
+			equip loop-zombie with {_h}
+			equip loop-zombie with {_c}
+			equip loop-zombie with {_l}
+			equip loop-zombie with {_b}
+			set loop-zombie's tool to {_w}
+	loop all skeletons:
+		if name of loop-skeleton is "minerminion":
+			set name of loop-skeleton to "&c&oCorrupted Miner"
+			set max health of loop-skeleton to 26
+			heal loop-skeleton
+			set {_c} to iron chestplate
+			set {_l} to leather leggings
+			set {_b} to leather boots
+			set {_w} to iron pickaxe
+			set {_h} to gravel
+			dye {_l} black
+			dye {_b} black
+			enchant {_w} with sharpness 5
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+		if name of loop-skeleton is "boss2":
+			set name of loop-skeleton to "&d&lResurrection from the woods"
+			set max health of loop-skeleton to 220
+			apply speed 2 to the loop-skeleton for 25 days
+			apply strength 2 to the loop-skeleton for 25 days
+			heal loop-skeleton
+			set {_h} to spore blossom
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to leather boots
+			set {_w} to golden hoe
+			dye {_h} white
+			dye {_c} white
+			dye {_l} white
+			dye {_b} white
+			enchant {_c} with protection 3
+			enchant {_l} with protection 5
+			enchant {_b} with protection 5
+			enchant {_w} with efficiency 2
+			enchant {_w} with sharpness 7
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+	loop all zombies:
+		if name of loop-zombie is "dg1zb1":
+			set name of loop-zombie to "&c&oInfected Beast"
+			set max health of loop-zombie to 12
+			apply speed 2 to the loop-zombie for 25 days
+			heal loop-zombie
+			set {_h} to ("Mr_Kaboose" parsed as offline player)'s skull
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to leather boots
+			set {_w} to stone sword
+			dye {_l} brown
+			dye {_c} red
+			dye {_b} brown
+			enchant {_w} with sharpness 2
+			equip loop-zombie with {_h}
+			equip loop-zombie with {_c}
+			equip loop-zombie with {_l}
+			equip loop-zombie with {_b}
+			set loop-zombie's tool to {_w}
+			wait 1 minute
+			teleport loop-zombie to {mobtrash}
+		if name of loop-zombie is "dg1zb2":
+			set name of loop-zombie to "&c&oInfected Beast"
+			set max health of loop-zombie to 35
+			apply weakness 1 to the loop-zombie for 25 days
+			heal loop-zombie
+			set {_h} to ("Mr_Kaboose" parsed as offline player)'s skull
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to chain boots
+			set {_w} to iron sword
+			dye {_l} brown
+			dye {_c} brown
+			enchant {_w} with sharpness 2
+			equip loop-zombie with {_h}
+			equip loop-zombie with {_c}
+			equip loop-zombie with {_l}
+			equip loop-zombie with {_b}
+			set loop-zombie's tool to {_w}
+			wait 1 minute
+			teleport loop-zombie to {mobtrash}
+	loop all skeletons:
+		if name of loop-skeleton is "dg1sk1":
+			set name of loop-skeleton to "&c&oRotten Bones"
+			set max health of loop-skeleton to 12
+			apply strength 1 to the loop-skeleton for 25 days
+			heal loop-skeleton
+			set {_h} to ("Mr_Kaboose" parsed as offline player)'s skull
+			set {_c} to leather chestplate
+			set {_l} to iron leggings
+			set {_b} to iron boots
+			set {_w} to bow
+			dye {_c} red
+			enchant {_w} with power 2
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+			wait 1 minute
+			teleport loop-skeleton to {mobtrash}
+		if name of loop-skeleton is "dg1sk2":
+			set name of loop-skeleton to "&c&oBone Cracker"
+			apply haste 2 to the loop-skeleton for 25 days
+			set max health of loop-skeleton to 36
+			apply weakness 1 to the loop-skeleton for 25 days
+			heal loop-skeleton
+			set {_h} to ("Mr_Kaboose" parsed as offline player)'s skull
+			set {_c} to leather chestplate
+			set {_l} to iron leggings
+			set {_b} to iron boots
+			set {_w} to iron axe
+			dye {_c} red
+			enchant {_w} with sharpness 2
+			enchant {_w} with efficiency 2
+			set 1st line of the lore of {_w} to "&7Damage +"
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+			wait 1 minute
+			teleport loop-skeleton to {mobtrash}
+		if name of loop-skeleton is "oreguard":
+			set name of loop-skeleton to "&d&oMineral Guardian"
+			apply speed 1 to the loop-skeleton for 25 days
+			set max health of loop-skeleton to 42
+			apply strength 1 to the loop-skeleton for 25 days
+			heal loop-skeleton
+			set {_h} to ("Hyra" parsed as offline player)'s skull
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to diamond boots
+			set {_w} to diamond sword
+			dye {_c} purple
+			dye {_l} purple
+			enchant {_c} with protection 4
+			enchant {_l} with protection 4
+			enchant {_b} with protection 4
+			enchant {_w} with sharpness 2
+			set 1st line of the lore of {_w} to "&7Luck &6+"
+			set 2nd line of the lore of {_w} to "&7Damage &a++"
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+			wait 1 minute
+			teleport loop-skeleton to {mobtrash}
+
+		if name of loop-skeleton is "dg2sk1":
+			set name of loop-skeleton to "&c&oLiving-Wood Bolter"
+			apply speed 1 to the loop-skeleton for 25 days
+			set max health of loop-skeleton to 50
+			heal loop-skeleton
+			set {_h} to ("TreeDC" parsed as offline player)'s skull
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to netherite boots
+			set {_w} to crossbow
+			dye {_c} green
+			dye {_l} brown
+			enchant {_w} with quick charge 5
+			set 2nd line of the lore of {_w} to "&7Damage &6+++"
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+			wait 1 minute
+			teleport loop-skeleton to {mobtrash}
+		if name of loop-skeleton is "dg2sk2":
+			set name of loop-skeleton to "&c&oLiving-Wood Marksman"
+			apply speed 2 to the loop-skeleton for 25 days
+			set max health of loop-skeleton to 50
+			heal loop-skeleton
+			set {_h} to ("TreeDC" parsed as offline player)'s skull
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to netherite boots
+			set {_w} to bow
+			dye {_c} green
+			dye {_l} brown
+			enchant {_w} with power 6
+			enchant {_w} with punch 2
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+			wait 1 minute
+			teleport loop-skeleton to {mobtrash}
+		if name of loop-skeleton is "dg2sk3":
+			set name of loop-skeleton to "&c&oTree Dweller"
+			apply strength 1 to the loop-skeleton for 25 days
+			apply resistance 1 to the loop-skeleton for 2 days
+			set max health of loop-skeleton to 50
+			heal loop-skeleton
+			set {_h} to ("KiFaBu" parsed as offline player)'s skull
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to netherite boots
+			set {_w} to iron sword
+			dye {_c} brown
+			dye {_l} brown
+			enchant {_w} with sharpness 3
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+			wait 1 minute
+			teleport loop-skeleton to {mobtrash}
+		if name of loop-skeleton is "dg2sk4":
+			set name of loop-skeleton to "&c&oGuardian of The Root"
+			apply strength 2 to the loop-skeleton for 25 days
+			apply slowness 2 to the loop-skeleton for 2 days
+			apply resistance 2 to the loop-skeleton for 2 days
+			set max health of loop-skeleton to 75
+			heal loop-skeleton
+			set {_h} to birch wood
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to leather boots
+			set {_w} to netherite sword
+			set {_lh} to shield
+			dye {_c} green
+			dye {_l} white
+			dye {_b} white
+			enchant {_w} with sharpness 6
+			enchant {_w} with knockback 2
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			equip loop-skeleton with {_lh}
+			set loop-skeleton's tool to {_w}
+			wait 1 minute
+			teleport loop-skeleton to {mobtrash}
+		if name of loop-skeleton is "dg2sk5":
+			set name of loop-skeleton to "&c&oBloomong"
+			apply strength 4 to the loop-skeleton for 25 days
+			set max health of loop-skeleton to 10
+			heal loop-skeleton
+			set {_h} to flowering azalea
+			set {_c} to leather chestplate
+			set {_l} to leather leggings
+			set {_b} to leather boots
+			set {_w} to wooden sword
+			set {_lh} to shield
+			dye {_c} magenta
+			dye {_l} magenta
+			dye {_b} lime
+			enchant {_w} with sharpness 4
+			equip loop-skeleton with {_h}
+			equip loop-skeleton with {_c}
+			equip loop-skeleton with {_l}
+			equip loop-skeleton with {_b}
+			set loop-skeleton's tool to {_w}
+			wait 1 minute
+			teleport loop-skeleton to {mobtrash}
+
+
+function sack1() :: itemtype:
+	set {_i} to glow ink sac
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&8%{_n}%"
+	enchant {_i} with unbreaking 1
+
+
+
+command /eliteloc1:
+	permission: op
+	trigger:
+		set {eliteloc1} to the executor's location
+		send "&e<&c@&e> &fElionas location set"
+command /eliteloc2:
+	permission: op
+	trigger:
+		set {eliteloc2} to the executor's location
+		send "&e<&c@&e> &fElionas location set"
+
+command /tpeliteloc1:
+	permission: op
+	trigger:
+		teleport player to {eliteloc1}
+
+every 8 seconds:
+	loop all zombies:
+		if loop-zombie's name contains "&d&lElionas, The Experiment":
+			loop all players in radius 6 of loop-zombie:
+				set {_rng} to a random number between 0 and 100
+				set {_rng} to rounded {_rng}
+				if {_rng} is between 0 and 30:
+					apply slowness 255 to the loop-zombie for 1.5 seconds
+					apply regeneration 3 to the loop-zombie for 5 seconds
+					send "&dElionas&f~ You can't run from me!" to loop-player
+					wait 1.2 seconds
+					apply mining fatigue 4 to the loop-player for 4 seconds
+					send "&dElionas&f~ Are you feeling tired? Ha! Ha! Ha!" to loop-player
+				if {_rng} is between 31 and 56:
+					apply slowness 255 to the loop-zombie for 1.5 seconds
+					send "&dElionas&f~ You can't run from me! plague will catch you." to loop-player
+					wait 1.2 seconds
+					apply poison 3 to the loop-player for 2 seconds
+					send "&dElionas&f~ Can you Feel the infection? dirty blood in your veins..." to loop-player
+				if {_rng} is between 57 and 72:
+					apply slowness 255 to the loop-zombie for 1.5 seconds
+					send "&dElionas&f~ You never running from me again! ill break both of your leggs." to loop-player
+					wait 1.2 seconds
+					apply slowness 5 to the loop-player for 5 seconds
+					apply haste 3 to the loop-zombie for 7 seconds
+					damage loop-player by 5
+				if {_rng} is between 72 and 100:
+					send "&dElionas&f~ Dont you fear, child..." to loop-player
+					apply slowness 255 to the loop-zombie for 2 seconds
+					teleport loop-zombie to {eliteloc1}
+					loop all skeletons in radius 40 of loop-zombie:
+						if loop-skeleton's name contains "&c&oCorrupted Miner":
+							teleport loop-skeleton to {eliteloc1}
+					apply levitation 1 to the loop-zombie for 2 seconds
+					damage loop-player by 5
+					apply regeneration 3 to the loop-zombie for 5 seconds
+					apply blindness 255 to the loop-player for 5 seconds
+					send "&dElionas&f~ DIE!! HAHAHAHAHA" to loop-player
+	loop all skeletons:
+		if loop-skeleton's name contains "&c&lResurrection from the woods":
+			loop all players in radius 6 of loop-skeleton:
+				set {_rng} to a random number between 0 and 100
+				set {_rng} to rounded {_rng}
+				if {_rng} is between 0 and 30:
+					remove regeneration from loop-skeleton
+					apply regeneration 2 to the loop-skeleton for 20 seconds
+					send "&dResurrection&f~ Forest will aid me." to loop-player
+					wait 1.2 seconds
+					set {_location} to loop-skeleton's location
+					push loop-player (direction from {_location} to loop-player) at speed 3
+					push loop-player (direction from {_location} to loop-player) at speed 3
+					send "&dResurrection&f~ Stay away! leave our forest!" to loop-player
+				if {_rng} is between 31 and 60:
+					apply slowness 255 to the loop-skeleton for 1 second
+					send "&dResurrection&f~ Give us your vitality...yes...." to loop-player
+					heal loop-skeleton by 20
+					damage loop-player by 3
+					chance of 33%:
+						send "&dResurrection&f~ More! More!" to loop-player
+						heal loop-skeleton by 15
+						damage loop-player by 2
+				if {_rng} is between 61 and 85:
+					apply slowness 255 to the loop-skeleton for 1.5 seconds
+					send "&dResurrection&f~ LEAVE! NOW!." to loop-player
+					wait 1.2 seconds
+					push loop-player (direction from {_location} to loop-player) at speed 5
+					wait 1 second
+					push loop-player (direction from {_location} to loop-player) at speed 5
+					wait 1 second
+					push loop-player (direction from {_location} to loop-player) at speed 5
+					damage loop-player by 5
+				if {_rng} is between 85 and 100:
+					send "&dResurrection&f~ You will not survive this." to loop-player
+					apply slowness 255 to the loop-skeleton for 2 seconds
+					teleport loop-skeleton to {eliteloc2}
+					spawn 10 creepers at {eliteloc2}
+					apply levitation 1 to the loop-skeleton for 2 seconds
+					damage loop-player by 2
+
+
+
+
+on death:
+	name of victim contains "&d&lElionas, The Experiment":
+		set {miner.spawned} to false
+		loop all players in radius 10 of the victim:
+			set {_rng} to a random number between 0 and 220
+			set {_rng} to rounded {_rng}
+			chance of 25%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 25%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 18%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 12%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 10%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 8.5%:
+				set {_d} to a random number between 0 and 5000
+				add 1 purple shulker box named "&fEnchanted Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			if {_rng} is equal to 0:
+				add dg1plate() to attacker's inventory
+				send "&e<!>&a &c&oElionas &aRewarded you with &d'Bloodgem Carved Chestguard'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oElionas&a."
+			if {_rng} is equal to 1:
+				add dg1leggs() to attacker's inventory
+				send "&e<!>&a &c&oElionas &aRewarded you with &d'Bloodgem Carved Leggings'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oElionas&a."
+			if {_rng} is equal to 2:
+				add dg1helm() to attacker's inventory
+				send "&e<!>&a &c&oElionas &aRewarded you with &d'Bloodgem Carved Visage'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oElionas&a."
+			if {_rng} is equal to 3:
+				add liplu() to attacker's inventory
+				send "&e<!>&a &c&oElionas &aRewarded you with &d'Limb-Plucker'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oElionas&a."
+			if {_rng} is equal to 4:
+				add dg1boots() to attacker's inventory
+				send "&e<!>&a &c&oElionas &aRewarded you with &d'Bloodgem Carved Cothurnus'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oElionas&a."
+		drop 2 diamonds at victim's location
+		drop 4 of nfuel() at victim's location
+		chance of 20%:
+			drop 2 of nfuel() at victim's location
+		drop 3 raw iron blocks at victim's location
+		loop 3 times:
+			drop 1 of cash1() at victim's location
+			chance of 50%:
+				drop 1 of cash1() at victim's location
+		drop 2 raw gold blocks at victim's location
+	name of victim contains "&d&lResurrection from the woods":
+		loop all players in radius 10 of the victim:
+			set {_rng} to a random number between 0 and 480
+			set {_rng} to rounded {_rng}
+			chance of 25%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 25%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 18%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 12%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 10%:
+				set {_d} to a random number between 0 and 5000
+				add 1 dried kelp block named "&fMaterial Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			chance of 8.5%:
+				set {_d} to a random number between 0 and 5000
+				add 1 purple shulker box named "&fEnchanted Loot-Bundle" with lore "&8&o%{_d}%" to loop-player's inventory
+			if {_rng} is equal to 0:
+				add dg2chest() to attacker's inventory
+				send "&e<!>&a &c&oResurrection &aRewarded you with &d'Bloodgem Carved Chestguard'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oResurrection&a."
+			if {_rng} is equal to 1:
+				add dg2leggs() to attacker's inventory
+				send "&e<!>&a &c&oResurrection &aRewarded you with &d'Bloodgem Carved Leggings'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oResurrection&a."
+			if {_rng} is equal to 2:
+				add dg2helm() to attacker's inventory
+				send "&e<!>&a &c&oResurrection &aRewarded you with &d'Bloodgem Carved Visage'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oResurrection&a."
+			if {_rng} is equal to 3:
+				add dg2wep() to attacker's inventory
+				send "&e<!>&a &c&oResurrection &aRewarded you with &d'Limb-Plucker'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oResurrection&a."
+			if {_rng} is equal to 4:
+				add dg2boots() to attacker's inventory
+				send "&e<!>&a &c&oResurrection &aRewarded you with &d'Bloodgem Carved Cothurnus'&a." to attacker
+				broadcast "&e<> &f%attacker% &aObtained a drop from &c&oResurrection&a."
+		drop 4 of nfuel() at victim's location
+		chance of 20%:
+			drop 2 of nfuel() at victim's location
+		loop 6 times:
+			drop 1 of cash1() at victim's location
+			chance of 50%:
+				drop 1 of cash1() at victim's location
+		drop 32 of birch wood at victim's location
+		drop 3 coal block at victim's location
+
+
+		
+	attacker is a player:
+		if lore of attacker's chestplate contains "&fWhen enemy killed, feed and heal you by 2.":
+			heal attacker by 2
+			feed attacker by 2
+
+
+
+
+
+on damage:
+	if attacker's name contains "&d&lResurrection from the woods":
+		damage victim by 2
+	if name of attacker's tool contains "&dElder Lifebringer":
+		chance of 3%:
+			remove slowness from the victim
+			apply slowness 255 to the victim for 8 seconds
+			send "&e<!>&fYou are Enrooted" to victim
+			send "&e<!>&fVictim Enrooted" to attacker
+		chance of 2%:
+			heal attacker by 2
+			damage attacker by 2
+			send "&e<!>&a Your arcane scyth stole some of your oponent's health." to attacker
+			send "&e<!>&a Life Drained" to victim
+	if name of victim's helmet contains "&dThe Ent's Maskara":
+		chance of 6.5%:
+			send "&e<!>&fYour mask punished your enemy." to victim
+			send "&e<!>&fYour enemy's mask attacked you back." to attacker
+			set {_dmg} to damage
+			damage attacker by {_dmg}*1.5
+	if name of victim's boots contains "&bShoes of the wind":
+		damage victim's boots by 22
+		chance of 6%:
+			remove haste from victim
+			remove speed from victim
+			apply haste 2 to the victim for 12 seconds
+			apply speed 2 to the victim for 12 seconds
+			send "&e<!>&fThe Wind aids you." to victim
+	if name of attacker's tool contains "&bLeafy Bolter":
+		chance of 6%:
+			remove slowness from the victim
+			apply slowness 255 to the victim for 8 seconds
+			send "&e<!>&fYou are Enrooted" to victim
+			send "&e<!>&fVictim Enrooted" to attacker
+	if name of attacker's chestplate contains "&fFlorid Tunic":
+		if name of attacker's leggings contains "&fFlorid Pants":
+			if attacker's tool is a wooden sword:
+				if {florid.timer.%attacker%} is 0:
+					add 5 to damage
+					add 1 to {florid.timer.%attacker%}
+	if name of victim's chestplate is "&dWhitefoster Tunic":
+		if attacker's tool is a sword:
+			remove 0.5 from damage
+	if name of victim's leggings is "&dWhitefoster Pants":
+		if attacker's tool is a sword:
+			remove 0.5 from damage
+	if name of victim's boots is "&dWhitefoster Boots":
+		if attacker's tool is a sword:
+			remove 0.5 from damage
+	if name of victim's helmet is "&dWhitefoster Hood":
+		if attacker's tool is a sword:
+			remove 0.5 from damage
+	if lore of attacker's helmet, chestplate, leggings and boots contains "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores":
+		if attacker's tool is a pickaxe:
+			add 3 to damage
+	set {_chance} to 8
+	if lore of attacker's chestplate contains "luck +":
+		add 1.5 to {_chance}
+	if lore of attacker's leggings contains "luck +":
+		add 1.5 to {_chance}
+	if lore of attacker's helmet contains "luck +":
+		add 1.5 to {_chance}
+	if lore of attacker's boots contains "luck +":
+		add 1.5 to {_chance}
+	if lore of attacker's tool contains "luck +":
+		add 1 to {_chance}
+	if lore of attacker's tool contains "&fChance to poison victim on damage.":
+		chance of {_chance}+6.5%:
+			apply poison 2 to the victim for 2.5 seconds
+			if {debug.%attacker%} is true:
+				send "&e<!> Victim poisoned" to attacker
+			if {debug.%victim%} is true:
+				send "&e<!> Attacker poisoned you" to attacker
+	if lore of attacker's tool contains "&fChance to dismember victim on damage.":
+		chance of {_chance}%: #talvez tenha que adicionar variavel de rest pra nao stackar
+			apply slowness 1 to the victim for 2 seconds
+			damage victim by 0.5
+			if {debug.%attacker%} is true:
+				send "&e<!> Victim dismembered" to attacker
+			if {debug.%victim%} is true:
+				send "&e<!> Attacker dismembered you" to attacker
+			wait 25 ticks
+			damage victim by 0.5
+			set {_l} to the victim's location
+			JPBlood({_l},{@color},{@samount},{@amount},{@height})
+			wait 25 ticks
+			damage victim by 0.5
+			set {_l} to the victim's location
+			JPBlood({_l},{@color},{@samount},{@amount},{@height})
+			wait 25 ticks
+			damage victim by 0.5
+			set {_l} to the victim's location
+			JPBlood({_l},{@color},{@samount},{@amount},{@height})
+			wait 25 ticks
+			damage victim by 0.5
+			set {_l} to the victim's location
+			JPBlood({_l},{@color},{@samount},{@amount},{@height})
+			wait 15 ticks
+			damage victim by 1
+			set {_l} to the victim's location
+			JPBlood({_l},{@color},{@samount},{@amount},{@height})
+	if lore of attacker's tool contains "&fDeal more damage to victim's durability":
+		chance of {_chance}+33%: #talvez tenha que adicionar variavel de rest pra nao stackar
+			damage victim's chestplate by 4
+			damage victim's leggings by 4
+			damage victim's boots by 4
+			damage victim's helmet by 4
+
+	if name of attacker's tool contains "&e'Azthellar, Night Banisher":
+		damage attacker's tool by 38
+		chance of {putrefy.%victim%}*2.5%:
+			apply wither 1 to the victim for 8 seconds
+			apply slowness 1 to the victim for 8 seconds
+			apply hunger 6 to the victim for 5 seconds
+			remove regeneration from the victim
+			send "&e<!> &fYou are Putrefying." to victim
+			damage victim by 5
+			set {putrefy.%victim%} to 0
+			send "&e<!> &fVictim Putrefying." to attacker
+		if {putrefy.%victim%} is between 0 and 6:
+			add 1 to {putrefy.%victim%}
+		if {putrefy.%victim%} is not set:
+			set {putrefy.%victim%} to 0
+		chance of {_chance}-2%:
+			heal attacker by 2
+			send "&e<!>&fThe Forest Blessing heals you." to attacker
+		chance of {_chance}+4.5%:
+			apply blindness 2 to the victim for 4 seconds
+			send "&e<!>&fA Terrible curse fall in your eyes." to victim
+			send "&e<!>&fVictim is now blind." to attacker
+
+	attacker's name contains "Elionas":
+		chance of 66%:
+			apply poison 2 to the victim for 1.4 second
+			damage victim by 1
+every 10 seconds:
+	loop all players:
+		if loop-player is alive:
+			if {florid.timer.%loop-player%} is not set:
+				set {florid.timer.%loop-player%} to 0
+			if {florid.timer.%loop-player%} is 1:
+				set {florid.timer.%loop-player%} to 0
+			if {florid.timer.%loop-player%} is 0:
+				set {florid.timer.%loop-player%} to 1
+			if loop-player's chestplate is a leather chestplate named "&dWhitefoster Tunic":
+				chance of 0.6%:
+				repair loop-player's chestplate by 4
+			if loop-player's leggings is a leather leggings named "&dWhitefoster Pants":
+				chance of 0.6%:
+					repair loop-player's chestplate by 4
+			if loop-player's boots is a leather boots named "&dWhitefoster Boots":
+				chance of 0.6%:
+					repair loop-player's chestplate by 4
+			if loop-player's helmet is a leather helmet named "&dWhitefoster Hood":
+				chance of 0.6%:
+					repair loop-player's chestplate by 4
+			if loop-player's chestplate is a leather chestplate named "&dWhitefoster Tunic":
+				if loop-player's leggings is a leather leggings named "&dWhitefoster Pants":
+					if loop-player's boots is a leather boots named "&dWhitefoster Boots":
+						if loop-player's helmet is a leather helmet named "&dWhitefoster Hood":
+							apply health boost 2 to the loop-player for 5000 days
+						else:
+							remove health boost from the loop-player
+					else:
+						remove health boost from the loop-player
+				else:
+					remove health boost from the loop-player
+			else:
+				remove health boost from the loop-player
+			if name of loop-player's helmet contains "&dThe Ent's Maskara":
+				chance of 1%:
+					heal loop-player by 2
+					send "&e<!>&fThe powers of your ancient mask heals you." to the loop-player
+				chance of 1%:
+					feed loop-player by 3
+					send "&e<!>&fThe powers of your ancient mask feeds you." to the loop-player
+				chance of 1%:
+					repair loop-player's tool by 12
+					send "&e<!>&fThe powers of your ancient mask repaired your held" to the loop-player
+
+
+
+
+
+
+

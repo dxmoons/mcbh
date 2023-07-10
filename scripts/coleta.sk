@@ -1,0 +1,715 @@
+
+
+command /toggledebug [<text>]:
+	trigger:
+		if arg-1 is "true":
+			set {debug.%player%} to true
+			send "true"
+		if arg-1 is "false":
+			set {debug.%player%} to false
+			send "false"
+#=============================================================================================================
+#marcando blocos colocados====================================================================================
+on place:
+	if event-block is a stone:
+		add event-block's location to {placed::*}
+	if event-block is any ore:
+		cancel event
+		send "&cYou &c&lCAN'T &cplace Ores in this game."
+#=============================================================================================================
+#Quebrando pedra comum=======================================================================================
+on mine of stone:
+	add {forge.level.%player%}/4 to {_fortune}
+	add 1 to {_exp}
+	if player's inventory contains rabbit foot named "&eLucky Charm":
+		add 15 to {_fortune}
+	if {hardmode} is true:
+		add 30 to {_fortune}
+	if {placed::*} contains event-block's location:
+		stop
+	else:
+		if the lore of player's chestplate contains "&7Luck &c-":
+			add -5 to {_fortune}
+		if the lore of player's boots contains "&7Luck &c-":
+			add -5 to {_fortune}
+		if the lore of player's helmet contains "&7Luck &c-":
+			add -5 to {_fortune}
+		if the lore of player's leggings contains "&7Luck &c-":
+			add -5 to {_fortune}
+		if the lore of player's chestplate contains "&7Luck &6+":
+			add 5 to {_fortune}
+		if the lore of player's boots contains "&7Luck &6+":
+			add 5 to {_fortune}
+		if the lore of player's helmet contains "&7Luck &6+":
+			add 5 to {_fortune}
+		if the lore of player's leggings contains "&7Luck &6+":
+			add 5 to {_fortune}
+		if player's tool is enchanted with fortune 1:
+			add 10 to {_fortune}
+		if player's tool is enchanted with fortune 2:
+			add 22 to {_fortune}
+		if player's tool is enchanted with fortune 3:
+			add 35 to {_fortune}
+		if player's tool is enchanted with fortune 4:
+			add 42 to {_fortune}
+		if player's tool is enchanted with fortune 5:
+			add 56 to {_fortune}
+		if player's tool is enchanted with fortune 6:
+			add 65 to {_fortune}
+		set {_chance} to a rounded random number between 0 and 160-{_fortune}
+		if {_chance} is greater than 13:
+			stop
+		if {_chance} is equal to 1, 2 or 3:
+			drop 1 coal ore at event-block's location
+			set {_exp} to a random number between 1 and 5
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			add 6 to exp
+		if {_chance} is equal to 4 or 5:
+			drop 1 raw copper at event-block's location
+			set {_exp} to a random number between 2 and 8
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			add 8 to exp
+		if {_chance} is equal to 6:
+			drop 1 raw iron at event-block's location
+			add 14 to exp
+			set {_exp} to a random number between 4 and 12
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+#=============================================================================================================
+#Quebrando deepslate=========================================================================================
+on mine of deepslate:
+	add {forge.level.%player%}/4 to {_fortune}
+	if player's inventory contains rabbit foot named "&eLucky Charm":
+		add 15 to {_fortune}
+	if {hardmode} is true:
+		add 30 to {_fortune}
+	if {placed::*} contains event-block's location:
+		stop
+	else:
+		if the lore of player's chestplate contains "&7Luck &c-":
+			add -5 to {_fortune}
+		if the lore of player's boots contains "&7Luck &c-":
+			add -5 to {_fortune}
+		if the lore of player's helmet contains "&7Luck &c-":
+			add -5 to {_fortune}
+		if the lore of player's leggings contains "&7Luck &c-":
+			add -5 to {_fortune}
+		if the lore of player's chestplate contains "&7Luck &6+":
+			add 5 to {_fortune}
+		if the lore of player's boots contains "&7Luck &6+":
+			add 5 to {_fortune}
+		if the lore of player's helmet contains "&7Luck &6+":
+			add 5 to {_fortune}
+		if the lore of player's leggings contains "&7Luck &6+":
+			add 5 to {_fortune}
+		if player's tool is enchanted with fortune 1:
+			add 10 to {_fortune}
+		if player's tool is enchanted with fortune 2:
+			add 22 to {_fortune}
+		if player's tool is enchanted with fortune 3:
+			add 35 to {_fortune}
+		set {_chance} to a rounded random number between 0 and 160-{_fortune}
+		if {_chance} is greater than 13:
+			stop
+		if {_chance} is equal to 0, 1, 2, 3 or 4:
+			drop 1 deepslate coal ore at event-block's location
+			set {_exp} to a random number between 3 and 6
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+		if {_chance} is equal to 5, 6 or 7:
+			drop 1 raw copper at event-block's location
+			set {_exp} to a random number between 5 and 12
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+		if {_chance} is equal to 8, 9 or 10:
+			drop 1 raw iron at event-block's location
+			set {_exp} to a random number between 8 and 16
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+		if {_chance} is equal to 11:
+			drop 1 raw gold at event-block's location
+			set {_exp} to a random number between 14 and 35
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+		if {_chance} is equal to 12:
+			drop 1 deepslate emerald ore at event-block's location
+			set {_exp} to a random number between 21 and 50
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		if {_chance} is equal to 13:
+			drop 1 deepslate diamond ore at event-block's location
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+			set {_exp} to a random number between 21 and 50
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+#=============================================================================================================
+#Quebrando diorito===========================================================================================
+on mine of diorite:
+	if player's inventory contains rabbit foot named "&eLucky Charm":
+		add 15 to {_fortune}
+	if {hardmode} is true:
+		add 30 to {_fortune}
+	if {placed::*} contains event-block's location:
+		stop
+	else:
+		if player's tool is enchanted with fortune 1:
+			add 10 to {_fortune}
+		if player's tool is enchanted with fortune 2:
+			add 22 to {_fortune}
+		if player's tool is enchanted with fortune 3:
+			add 35 to {_fortune}
+		set {_chance} to a rounded random number between 0 and 100-{_fortune}
+		set {_sand} to a rounded random number between 1 and 8+{_fortune}/10
+		if {_chance} is bigger than 11:
+			stop
+		if {_chance} is equal to 0, 1, 2, 3, 4, 5 or 6:
+			loop {_sand} times:
+				drop 1 sand at event-block's location
+		if {_chance} is equal to 7, 8 or 9:
+			drop 1 quartz at event-block's location
+		if {_chance} is equal to 10:
+			drop 1 lapis lazuli ore at event-block's location
+#=============================================================================================================
+
+
+on mine:
+	if player's tool is diamond shovel, diamond pickaxe or diamond axe:
+		set {_dura} to 6
+		if player's tool is enchanted with unbreaking 1:
+			remove 1 from {_dura}
+		if player's tool is enchanted with unbreaking 2:
+			remove 2 from {_dura}
+		if player's tool is enchanted with unbreaking 3:
+			remove 3 from {_dura}
+		if player's tool is enchanted with unbreaking 5:
+			remove 4 from {_dura}
+		if player's tool is enchanted with unbreaking 6:
+			remove 5 from {_dura}
+		damage player's tool by {_dura}
+	if player's tool is netherite shovel, netherite pickaxe or netherite axe:
+		set {_dura} to 8
+		if player's tool is enchanted with unbreaking 1:
+			remove 1 from {_dura}
+		if player's tool is enchanted with unbreaking 2:
+			remove 2 from {_dura}
+		if player's tool is enchanted with unbreaking 3:
+			remove 3 from {_dura}
+		if player's tool is enchanted with unbreaking 5:
+			remove 4 from {_dura}
+		if player's tool is enchanted with unbreaking 6:
+			remove 5 from {_dura}
+		damage player's tool by {_dura}
+
+
+on mine of log:
+	set {_chance} to 36
+	if {woodluk.%player%} is true:
+		remove 15 from {_chance}
+	if {hardmode} is true:
+		remove 10 from {_chance}
+	remove {farm.level.%player%}/4 from {_chance}
+	if player's chestplate is a leather chestplate named "&dWhitefoster Tunic":
+		add 1% to {_doublechance}
+	if player's leggings is a leather leggings named "&dWhitefoster Pants":
+		add 1% to {_doublechance}
+	if player's helmet is a leather helmet named "&dWhitefoster Hood":
+		add 1% to {_doublechance}
+	if player's boots is a leather boots named "&dWhitefoster Boots":
+		add 1% to {_doublechance}
+	if player's chestplate is a leather chestplate named "&dWhitefoster Tunic":
+		if player's leggings is a leather leggings named "&dWhitefoster Pants":
+			if player's helmet is a leather helmet named "&dWhitefoster Hood":
+				if player's boots is a leather boots named "&dWhitefoster Boots":
+					remove 10 from {_chance}
+	chance of {_chance}%:
+		clear drops
+		drop 1 stick
+	else:
+		chance of {_doublechance}%:
+			set {_i} to the event-block
+			drop {_i} at event-block's location
+
+		
+on mine of pumpkin:
+	set {_chance} to 45
+	if {hardmode} is true:
+		remove 20 from {_chance}
+	remove {farm.level.%player%}/4 from {_chance}
+	chance of {_chance}%:
+		clear drops
+		drop 1 pumpkin seed
+on mine of melon:
+	set {_chance} to 45
+	if {hardmode} is true:
+		remove 20 from {_chance}
+	remove {farm.level.%player%}/4 from {_chance}
+	chance of {_chance}%:
+		clear drops
+		drop 1 melon seed
+#=====================================================
+
+on break of fully grown carrot plant:
+	clear drops
+	set {_bad.chance} to 40-{farm.level.%player%}/4 #100 = 40% -> 15%| 
+	set {_neut.chance} to 32+{farm.level.%player%}/3 #100 = 33%
+	set {_chance} to 8+{farm.level.%player%}/5 #100 = 20%
+	set {_rare.chance} to 4+{farm.level.%player%}/8 #100 = 12%
+	chance of {_bad.chance}%:
+		drop 1 dead bush at event-block's location
+		set {_exp} to 0.5
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		stop
+	chance of {_neut.chance}%:
+		drop 1 carrot at event-block's location
+		set {_exp} to a random number between 1 and 4
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		stop
+	chance of {_chance}%:
+		drop 2 carrot at event-block's location
+		set {_exp} to a random number between 2 and 6
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		chance of 34%:
+			drop 1 carrot at event-block's location
+	chance of {_rare.chance}%:
+		drop 4 carrot at event-block's location
+		set {_exp} to a random number between 4 and 12
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+			chance of 10%:
+				drop 2 carrot at event-block's location
+on break of fully grown potato plant:
+	clear drops
+	set {_bad.chance} to 40-{farm.level.%player%}/4 #100 = 40% -> 15%| 
+	set {_neut.chance} to 32+{farm.level.%player%}/3 #100 = 33%
+	set {_chance} to 8+{farm.level.%player%}/5 #100 = 20%
+	set {_rare.chance} to 4+{farm.level.%player%}/8 #100 = 12%
+	chance of {_bad.chance}%:
+		drop 1 dead bush at event-block's location
+		chance of 50%:
+			set {_exp} to 0.1
+		chance of 50%:
+			set {_exp} to 0.3
+		chance of 50%:
+			set {_exp} to 0.5
+		chance of 50%:
+			set {_exp} to 0.8
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		stop
+	chance of {_neut.chance}%:
+		drop 1 potato at event-block's location
+		set {_exp} to a random number between 1 and 4
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		stop
+	chance of {_chance}%:
+		drop 2 potato at event-block's location
+		set {_exp} to a random number between 2 and 6
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		chance of 34%:
+			drop 1 potato at event-block's location
+	chance of {_rare.chance}%:
+		drop 4 potato at event-block's location
+		set {_exp} to a random number between 4 and 12
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+			chance of 10%:
+				drop 2 potato at event-block's location
+on break of fully grown beetroot plant:
+	clear drops
+	set {_bad.chance} to 40-{farm.level.%player%}/4 #100 = 40% -> 15%| 
+	set {_neut.chance} to 32+{farm.level.%player%}/3 #100 = 33%
+	set {_chance} to 10+{farm.level.%player%}/5 #100 = 20%
+	set {_rare.chance} to 4+{farm.level.%player%}/8 #100 = 12%
+	chance of {_bad.chance}%:
+		drop 1 dead bush at event-block's location
+		drop 2 beetroot seeds at event-block's location
+		chance of 50%:
+			set {_exp} to 0.1
+		chance of 50%:
+			set {_exp} to 0.3
+		chance of 50%:
+			set {_exp} to 0.5
+		chance of 50%:
+			set {_exp} to 0.8
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		stop
+	chance of {_neut.chance}%:
+		drop 1 beetroot at event-block's location
+		set {_exp} to a random number between 1 and 4
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		stop
+	chance of {_chance}%:
+		drop 2 beetroot at event-block's location
+		set {_exp} to a random number between 2 and 6
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		chance of 34%:
+			drop 1 beetroot at event-block's location
+	chance of {_rare.chance}%:
+		drop 4 beetroot at event-block's location
+		set {_exp} to a random number between 4 and 12
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+			chance of 10%:
+				drop 2 beetroot at event-block's location
+on break of fully grown wheat plant:
+	clear drops
+	set {_bad.chance} to 40-{farm.level.%player%}/4 #100 = 40% -> 15%| 
+	set {_neut.chance} to 32+{farm.level.%player%}/3 #100 = 33%
+	set {_chance} to 8+{farm.level.%player%}/5 #100 = 20%
+	set {_rare.chance} to 4+{farm.level.%player%}/8 #100 = 12%
+	chance of {_bad.chance}%:
+		drop 1 dead bush at event-block's location
+		drop 2 seeds at event-block's location
+		chance of 50%:
+			set {_exp} to 0.1
+		chance of 50%:
+			set {_exp} to 0.3
+		chance of 50%:
+			set {_exp} to 0.1
+		chance of 50%:
+			set {_exp} to 0.3
+		chance of 50%:
+			set {_exp} to 0.5
+		chance of 50%:
+			set {_exp} to 0.8
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		stop
+	chance of {_neut.chance}%:
+		drop 1 wheat at event-block's location
+		set {_exp} to a random number between 1 and 4
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		stop
+	chance of {_chance}%:
+		drop 2 wheat at event-block's location
+		set {_exp} to a random number between 2 and 6
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+		chance of 34%:
+			drop 1 wheat at event-block's location
+	chance of {_rare.chance}%:
+		drop 4 wheat at event-block's location
+		set {_exp} to a random number between 4 and 12
+		set {_exp} to rounded {_exp}
+		add {_exp} to {farm.exp.%player%}
+		add {_exp} to {farm.totalexp.%player%}
+		if {debug.%player%} is true:
+			send "&e<!> &a+ %{_exp}% &aExperience &8(Farm & Gather)"
+			chance of 10%:
+				drop 2 wheat at event-block's location
+
+on item damage:
+	set {_chance} to {forge.level.%player%}/6
+	chance of {_chance}%:
+		cancel event
+		if {debug.%player%} is true:
+			send "&e<!> &aYour Mining & Forging skills saved your item's durability!"
+
+on craft of iron sword, iron pickaxe, iron axe, iron shovel, iron hoe, iron helmet, iron chestplate, iron leggings, iron boots, shears, minecart or piston:
+	chance of {forge.level.%player%}/4%:
+		add 1 iron ingot to player's inventory
+		if {debug.%player%} is true:
+			send "&e<!> &aYour Smithing skills save you an iron ingot!"
+
+
+
+
+on mine:
+	set {_chance} to 30
+	if {cavesand.%player%} is true:
+		add 20 to chance
+	if lore of player's helmet contains "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores":
+		if lore of player's boots contains "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores":
+			if lore of player's leggings contains "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores":
+				if lore of player's chestplate contains "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores":
+					add 3 to {_chance}
+	if lore of player's helmet contains "&fWhen Mining +3%% success chance collecting ores.":
+		add 3 to {_chance}
+	if lore of player's boots contains "&fWhen Mining +3%% success chance collecting ores.":
+		add 3 to {_chance}
+	if lore of player's leggings contains "&fWhen Mining +3%% success chance collecting ores.":
+		add 3 to {_chance}
+	if lore of player's chestplate contains "&fWhen Mining +3%% success chance collecting ores.":
+		add 3 to {_chance}
+	if event-block is coal ore:
+		chance of {_chance}%:
+			clear drops
+			drop 1 coal at event-block's location
+			set {_exp} to a random number between 3 and 6
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobblestone at event-block's location
+	if event-block is deepslate coal ore:
+		chance of {_chance}+12%:
+			clear drops
+			drop 1 coal at event-block's location
+			set {_exp} to a random number between 3 and 6
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobbled deepslate at event-block's location
+	if event-block is copper ore:
+		chance of {_chance}%:
+			clear drops
+			drop 1 raw copper at event-block's location
+			set {_exp} to a random number between 4 and 8
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobblestone at event-block's location
+	if event-block is deepslate copper ore:
+		chance of {_chance}+12%:
+			clear drops
+			drop 1 raw copper at event-block's location
+			set {_exp} to a random number between 4 and 8
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobbled deepslate at event-block's location
+	if event-block is gold ore:
+		chance of {_chance}%:
+			clear drops
+			drop 1 raw gold at event-block's location
+			set {_exp} to a random number between 6 and 14
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobblestone at event-block's location
+	if event-block is deepslate gold ore:
+		chance of {_chance}+12%:
+			clear drops
+			drop 1 raw gold at event-block's location
+			set {_exp} to a random number between 7 and 16
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobbled deepslate at event-block's location
+	if event-block is diamond ore:
+		chance of {_chance}%:
+			clear drops
+			drop 1 diamond ore at event-block's location
+			set {_exp} to a random number between 10 and 26
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobblestone at event-block's location
+	if event-block is deepslate diamond ore:
+		chance of {_chance}+12%:
+			clear drops
+			drop 1 deepslate diamond ore at event-block's location
+			set {_exp} to a random number between 24 and 38
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobbled deepslate at event-block's location
+	if event-block is emerald ore:
+		chance of {_chance}%:
+			clear drops
+			drop 1 emerald ore at event-block's location
+			set {_exp} to a random number between 10 and 26
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobblestone at event-block's location
+	if event-block is deepslate emerald ore:
+		chance of {_chance}+12%:
+			clear drops
+			drop 1 deepslate emerald ore at event-block's location
+			set {_exp} to a random number between 24 and 38
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobbled deepslate at event-block's location
+	if event-block is iron ore:
+		chance of {_chance}%:
+			clear drops
+			drop 1 raw iron at event-block's location
+			set {_exp} to a random number between 7 and 13 
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobblestone at event-block's location
+	if event-block is deepslate iron ore:
+		chance of {_chance}+12%:
+			clear drops
+			drop 1 raw iron at event-block's location
+			set {_exp} to a random number between 8 and 15
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobbled deepslate at event-block's location
+	if event-block is lapis lazuli ore:
+		chance of {_chance}%:
+			clear drops
+			drop 3 lapis lazuli at event-block's location
+			set {_exp} to a random number between 4 and 9 
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobblestone at event-block's location
+	if event-block is deepslate lapis lazuli ore:
+		chance of {_chance}+12%:
+			clear drops
+			drop 5 lapis lazuli at event-block's location
+			set {_exp} to a random number between 4 and 10
+			set {_exp} to rounded {_exp}
+			add {_exp} to {forge.exp.%player%}
+			add {_exp} to {forge.totalexp.%player%}
+			if {debug.%player%} is true:
+				send "&e<!> &a+ %{_exp}% &aExperience &8(Mine & Forge)"
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location
+		else:
+			clear drops
+			drop cobbled deepslate at event-block's location
+
+
+
+
+
+#MaestroRobin
