@@ -1,0 +1,406 @@
+
+
+
+#spawnar itens=======================================================
+
+
+command /tp
+
+
+command /luckset:
+	permission: op
+	trigger:
+		set {_h} to golden helmet
+		set {_c} to golden chestplate
+		set {_l} to golden leggings
+		set {_b} to golden boots
+		enchant {_h} with unbreaking 10
+		enchant {_c} with unbreaking 10
+		enchant {_l} with unbreaking 10
+		enchant {_b} with unbreaking 10
+		set name of {_h} to "&6Lucky Item"
+		set name of {_c} to "&6Lucky Item"
+		set name of {_l} to "&6Lucky Item"
+		set name of {_b} to "&6Lucky Item"
+		set 1st line of the lore of {_h} to "&7Luck &6+"
+		set 1st line of the lore of {_c} to "&7Luck &6+"
+		set 1st line of the lore of {_l} to "&7Luck &6+"
+		set 1st line of the lore of {_b} to "&7Luck &6+"
+		send "&e<&c@&e> &aLucky set given to player"
+		give {_h} to player
+		give {_c} to player
+		give {_l} to player
+		give {_b} to player
+
+
+
+command /zonedebug:
+	permission: op
+	trigger:
+		set {zonenameset.%player%} to false
+		set {finishingzone.%player%} to false
+		set {ingui.%player%} to false
+
+command /i <items> <number>:
+	permission: op
+	trigger:
+		loop argument-2 times:
+			give argument-1 to player
+		message "&a&l%argument-1% &aspawned-in"
+command /rename <text>:
+	permission: op
+	trigger:
+		set {text} to arg-1
+		set player's tool's name to "&f%{text}%"
+command /setlore <text>:
+	permission: op
+	trigger:
+		set {text} to arg-1
+		set {_i} to executor's tool
+		remove {_i} from executor's inventory
+		add {text} to the lore of {_i}
+		give {_i} to event-player
+
+command /godsword:
+	permission: op
+	trigger:
+		set {_i} to diamond sword
+		enchant {_i} with sharpness 1000
+		enchant {_i} with bane of arthropods 1000
+		enchant {_i} with smite 1000
+		give {_i} to player
+#====================================================================
+#on-join msg=========================================================
+
+#test on-join msg
+command testonjoin:
+	permission: op
+	trigger:
+		send "&d""                              "  #1
+		send "&d                              "  #2
+		send "&d          &aMinecraft          "  #3
+		send "&d         &5But Harder          "  #4
+		send "&d                              "  #5
+		send "&d                              "  #6
+		send "      &7&oVers: dev_alpha       &d"""
+#====================================================================
+#troca rapida de gamemode============================================
+command /gm <number>:
+	permission: op
+	trigger:
+		if arg-1 is 1:
+			set executor's gamemode to creative
+			send "&aGamemode to &a&lCreative"	
+		if arg-1 is 0:
+			set executor's gamemode to survival
+			send "&aGamemode to &a&lSurvival"	
+		if arg-1 is 2:
+			set executor's gamemode to adventure
+			send "&aGamemode to &a&lAdventure"	
+#====================================================================
+command /spawn:
+	trigger:
+		teleport executor to spawn
+		send "&aTeleported to spawn"
+#====================================================================
+#feed / heal
+command /feed:
+	permission: op
+	trigger:
+		feed executor
+		send "&aHunger feed"
+command /heal:
+	permission: op
+	trigger:
+		heal executor
+		send "&aHealth full"
+#====================================================================
+command /godmode <text>:
+	permission: op
+	trigger:
+		if arg-1 is "enable" or "on" or "true":
+			make console execute command "effect give %player% minecraft:resistance 255555 255"
+			send "&a&lGODMODE &aEnabled"
+		if arg-1 is "disable":
+			make console execute command "effect clear %player% minecraft:resistance"
+			send "&a&lGODMODE &aDisabled"
+
+command /dmg+:
+	permission: op
+	trigger:
+		give 1 diamond sword with lore "&7Damage &6+++" to player
+
+
+command /hardmode:
+	permission: op
+	trigger:
+		set {hardmode} to true
+		broadcast "&d""                              "  #1
+		broadcast "&d                              "  #2
+		broadcast "&d            &cHARDMODE         "  #3
+		broadcast "&d      &7Apocalypse started.          "  #4
+		broadcast "&d                              "  #5
+		broadcast "&d                              "  #6
+		broadcast "   &7&oWelcome to the nightmare.     "
+		broadcast "                                     "
+		broadcast "                                         &d"""
+		set {hm.timer} to 120
+
+
+
+every minute:
+	if {hardmode} is true:
+		if {hm.timer} is bigger than 0:
+			remove 1 from {hm.timer}
+		else:
+			set {hardmode} to false
+			broadcast "&d""                              "  #1
+			broadcast "&d                              "  #2
+			broadcast "&d            &aNormal Mode         "  #3
+			broadcast "&d         &7Hardmode ended.          "  #4
+			broadcast "&d                              "  #5
+			broadcast "&d                              "  #6
+			broadcast "        &7&oBack to the usual.      "
+			broadcast "                                     "
+			broadcast "                                         &d"""
+
+
+command /neutral:
+	permission: op
+	trigger:
+		set {hardmode} to false
+		broadcast "&d""                              "  #1
+		broadcast "&d                              "  #2
+		broadcast "&d            &aNormal Mode         "  #3
+		broadcast "&d         &7Hardmode ended.          "  #4
+		broadcast "&d                              "  #5
+		broadcast "&d                              "  #6
+		broadcast "        &7&oBack to the usual.      "
+		broadcast "                                     "
+		broadcast "                                         &d"""
+
+
+
+
+
+
+
+command /spawnin <text>:
+	permission: op
+	trigger:
+		if arg-1 is "armor-1":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Armor -"
+			give {_i} to player
+		if arg-1 is "armor-2":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Armor &e--"
+			give {_i} to player
+		if arg-1 is "armor-3":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Armor &c---"
+			give {_i} to player
+		if arg-1 is "armor+1":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Armor +"
+			give {_i} to player
+		if arg-1 is "armor+2":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Armor &a++"
+			give {_i} to player
+		if arg-1 is "armor+3":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Armor &6+++"
+			give {_i} to player
+		if arg-1 is "lll":
+			set {_i} to bread
+			add "asd" to the lore of {_i}
+			give {_i} to player
+
+		if arg-1 is "Resistance-1":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Resistance -"
+			give {_i} to player
+		if arg-1 is "Resistance-2":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Resistance &e--"
+			give {_i} to player
+		if arg-1 is "Resistance-3":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Resistance &c---"
+			give {_i} to player
+		if arg-1 is "Resistance+1":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Resistance +"
+			give {_i} to player
+		if arg-1 is "Resistance+2":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Resistance &a++"
+			give {_i} to player
+		if arg-1 is "Resistance+3":
+			set {_i} to iron chestplate
+			set 1st line of the lore of {_i} to "&7Resistance &6+++"
+			give {_i} to player
+
+
+
+
+command /portal <text>:
+	permission: op
+	trigger:
+		set {_i} to end portal frame
+		set name of {_i} to "&6'Whisp from Inferno'"
+		set {arg-1} to arg-1
+		add "&eEntities: &7%{arg-1}%" to the lore of {_i}
+		set {_lol} to a random number between 0 and 10000
+		add "&8&o%{_lol}%" to the lore of {_i}
+		give {_i} to player
+
+
+
+
+command /cratelist:
+	trigger:
+		send "&c%{material.crates::*}%" to player
+
+command /givecrate <text>:
+	permission: op
+	trigger:
+		if arg-1 is "material" or "mb":
+			set {_i} to dried kelp block
+			set name of {_i} to "&fMaterial Loot-Bundle"
+			set {_lol} to a random number between 0 and 10000
+			add "&8&o%{_lol}%" to the lore of {_i}
+			give {_i} to player
+		if arg-1 is "loot" or "lt":
+			set {_i} to chest
+			set name of {_i} to "&fLoot-Bundle"
+			set {_lol} to a random number between 0 and 10000
+			add "&8&o%{_lol}%" to the lore of {_i}
+			give {_i} to player
+		if arg-1 is "elite" or "elt":
+			set {_i} to red shulker box
+			set name of {_i} to "&fElite Loot-Bundle"
+			set {_lol} to a random number between 0 and 10000
+			add "&8&o%{_lol}%" to the lore of {_i}
+			give {_i} to player
+		if arg-1 is "enchant" or "ench":
+			set {_i} to purple shulker box
+			set name of {_i} to "&fEnchanted Loot-Bundle"
+			enchant {_i} with unbreaking 1
+			set {_lol} to a random number between 0 and 10000
+			add "&8&o%{_lol}%" to the lore of {_i}
+			give {_i} to player
+		else:
+			send "&c missing space! you need at least 4 slots to open this crate."
+
+
+
+command /trinket <text>:
+	permission: op
+	trigger:
+		if arg-1 is "luck" or "lucky" or "foot":
+			set {_i} to rabbit foot
+			set name of {_i} to "&eLucky Charm"
+			set 1st line of the lore of {_i} to "&f+Luck &8&o(Passive)"
+			set 2nd line of the lore of {_i} to "&5&o'Poor rabbit... what a unlucky.'"
+			set {_rad} to a random number between 0 and 100000
+			set 3th line of the lore of {_i} to "&8&o%{_rad}%"
+			give {_i} to player
+			send "&e<&c@&e> &eLucky Charm&a spawned in."
+		if arg-1 is "skull" or "imo" or "imortal" or "ghost":
+			set {_i} to imortalskull()
+			set name of {_i} to "&eImortal Skull"
+			set 1st line of the lore of {_i} to "&fChance to negate damage &8&o(Passive)"
+			set 2nd line of the lore of {_i} to "&5&o'Runic Inscriptions all over it, Enchanted with dark magic.'"
+			set {_rad} to a random number between 0 and 100000
+			set 3th line of the lore of {_i} to "&8&o%{_rad}%"
+			give {_i} to player
+		if arg-1 is "bcand" or "blackc" or "candleb" or "black candle":
+			set {_i} to black candle
+			set name of {_i} to "&eThe Black Candle"
+			set 1st line of the lore of {_i} to "&fChance to clear debuffs &8&o(Passive)"
+			set 2nd line of the lore of {_i} to "&5&o'The Candle used to summon Asmamoth hundreds of years ago.'"
+			set {_rad} to a random number between 0 and 100000
+			set 3th line of the lore of {_i} to "&8&o%{_rad}%"
+			give {_i} to player
+
+every 6 seconds:
+	loop all players:
+		if loop-player's inventory contains black candle named "&eThe Black Candle":
+			set {_chance} to 16
+			chance of {_chance}%:
+				make console execute command "effect clear %loop-player% blindess"
+				make console execute command "effect clear %loop-player% poison"
+				make console execute command "effect clear %loop-player% weakness"
+				make console execute command "effect clear %loop-player% wither"
+				make console execute command "effect clear %loop-player% hunger"
+				make console execute command "effect clear %loop-player% nausea"
+				make console execute command "effect clear %loop-player% mining_fatigue"
+				make console execute command "effect clear %loop-player% slowness"
+				make console execute command "effect clear %loop-player% unluck"
+
+on death:
+	if attacker is not a player:
+		if victim is not a player:
+			clear drops
+
+command /forcecl:
+	trigger:
+		broadcast "&e<!> &aRemoving all entities in 1 minute."
+		wait 1 minutes
+		loop all zombies:
+			if loop-zombie's name contains "&c":
+				heal loop-zombie by 1
+			else:
+				kill loop-zombie
+				add 1 to {_count}
+		loop all skeletons:
+			if loop-skeleton's name contains "&c":
+				heal loop-skeleton by 1
+			else:
+				kill loop-skeleton
+				add 1 to {_count}
+		loop all spiders:
+			if loop-spider's name contains "&c":
+				heal loop-spider by 1
+			else:
+				kill loop-spider
+				add 1 to {_count}
+		loop all creepers:
+			if loop-creeper's name contains "&c":
+				heal loop-creeper by 1
+			else:
+				kill loop-creeper
+				add 1 to {_count}		
+
+every 62 minutes:
+	broadcast "&e<!> &aRemoving all entities in 1 minute."
+	wait 1 minutes
+	broadcast "&e<!> &aRemoving all entities in 5 seconds."
+	wait 5 seconds
+	broadcast "&e<!> &aRemoved all entities."
+	loop all zombies:
+		if loop-zombie's name contains "&c":
+			heal loop-zombie by 1
+		else:
+			kill loop-zombie
+			add 1 to {_count}
+	loop all skeletons:
+		if loop-skeleton's name contains "&c":
+			heal loop-skeleton by 1
+		else:
+			kill loop-skeleton
+			add 1 to {_count}
+	loop all spiders:
+		if loop-spider's name contains "&c":
+			heal loop-spider by 1
+		else:
+			kill loop-spider
+			add 1 to {_count}
+	loop all creepers:
+		if loop-creeper's name contains "&c":
+			heal loop-creeper by 1
+		else:
+			kill loop-creeper
+			add 1 to {_count}

@@ -1,0 +1,301 @@
+
+
+on damage:
+	attacker is a skeleton:
+		if attacker's name contains "&e&oQüir's Guard":
+			chance of 33%:
+				apply slowness 3 to the victim for 2 seconds
+
+
+on damage:
+	if attacker's tool is a axe:
+		remove 2.5 from {_extra}
+	set {_chance} to 15
+	set {total.combat.level.%victim%} to {combat.level.%victim%}+{templevel.combat.%victim%}
+	chance of {total.combat.level.%victim%}/4%:
+		cancel event
+		send "&e<!> &f%victim% &aDodge your attack" to attacker
+		send "&e<!> &aYou Dodge &f%attacker%&a's &aattack." to victim
+		stop
+	if victim's inventory contains skeleton skull named "&eImortal Skull":
+		chance of {_chance}%:
+			cancel event
+			stop
+	attacker is a player:
+		victim is a mob:
+			loop all armor stands in radius 30 of attacker:
+				if loop-entity's name contains "safezone":
+					cancel event
+	if attacker's tool's name contains "&eLindsay":
+		chance of 25%:
+			remove slowness from the victim
+			apply slowness 2 to the victim for 6 seconds
+	if the lore of attacker's tool contains "&7Resistance -":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage attacker's tool by 1
+	if the lore of attacker's tool contains "&7Resistance &e--":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage attacker's tool by 2
+	if the lore of attacker's tool contains "&7Resistance &c---":
+		damage attacker's tool by 2
+	if the lore of attacker's tool contains "&7Resistance +":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair attacker's tool by 1
+	if the lore of attacker's tool contains "&7Resistance &a++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair attacker's tool by 2
+	if the lore of attacker's tool contains "&7Resistance &6+++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 80:
+			repair attacker's tool by 3
+	if the lore of attacker's tool contains "&7Damage -":
+		remove 0.5 from {_extra}
+	if the lore of attacker's tool contains "&7Damage &e--":
+		remove 1 from {_extra}
+	if the lore of attacker's tool contains "&7Damage &c---":
+		remove 1.5 from {_extra}
+	if the lore of attacker's tool contains "&7Damage +":
+		add 0.5 to {_extra}
+	if the lore of attacker's tool contains "&7Damage &a++":
+		add 1 to {_extra}
+	if the lore of attacker's tool contains "&7Damage &6+++":
+		add 1.5 to {_extra}
+#chestplate
+	if the lore of victim's chestplate contains "&7Armor -":
+		set damage to damage+0.5
+	if the lore of victim's chestplate contains "&7Armor &e--":
+		set damage to damage+1
+	if the lore of victim's chestplate contains "&7Armor &c---":
+		set damage to damage+1.5
+	if the lore of victim's chestplate contains "&7Armor +":
+		set damage to damage-0.5
+	if the lore of victim's chestplate contains "&7Armor &a++":
+		set damage to damage-1
+	if the lore of victim's chestplate contains "&7Armor &6+++":
+		set damage to damage-1.5
+#helmet
+	if the lore of victim's helmet contains "&7Armor -":
+		set damage to damage+0.5
+	if the lore of victim's helmet contains "&7Armor &e--":
+		set damage to damage+1
+	if the lore of victim's helmet contains "&7Armor &c---":
+		set damage to damage+1.5
+	if the lore of victim's helmet contains "&7Armor +":
+		set damage to damage-0.5
+	if the lore of victim's helmet contains "&7Armor &a++":
+		set damage to damage-1
+	if the lore of victim's helmet contains "&7Armor &6+++":
+		set damage to damage-1.5
+#leggs
+	if the lore of victim's leggings contains "&7Armor -":
+		set damage to damage+0.5
+	if the lore of victim's leggings contains "&7Armor &e--":
+		set damage to damage+1
+	if the lore of victim's leggings contains "&7Armor &c---":
+		set damage to damage+1.5
+	if the lore of victim's leggings contains "&7Armor +":
+		set damage to damage-0.5
+	if the lore of victim's leggings contains "&7Armor &a++":
+		set damage to damage-1
+	if the lore of victim's leggings contains "&7Armor &6+++":
+		set damage to damage-1.5
+#boots
+	if the lore of victim's chestplate contains "&7Armor -":
+		set damage to damage+0.5
+	if the lore of victim's chestplate contains "&7Armor &e--":
+		set damage to damage+1
+	if the lore of victim's chestplate contains "&7Armor &c---":
+		set damage to damage+1.5
+	if the lore of victim's chestplate contains "&7Armor +":
+		set damage to damage-0.5
+	if the lore of victim's chestplate contains "&7Armor &a++":
+		set damage to damage-1
+	if the lore of victim's chestplate contains "&7Armor &6+++":
+		set damage to damage-1.5
+#===================================
+#chestplate
+	if the lore of victim's chestplate contains "&7Resistance -":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage victim's chestplate by 1
+	if the lore of victim's chestplate contains "&7Resistance &e--":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage victim's chestplate by 2
+	if the lore of victim's chestplate contains "&7Resistance &c---":
+		damage victim's chestplate by 2
+	if the lore of victim's chestplate contains "&7Resistance +":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair victim's chestplate by 1
+	if the lore of victim's chestplate contains "&7Resistance &a++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair victim's chestplate by 2
+	if the lore of victim's chestplate contains "&7Resistance &6+++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 80:
+			repair victim's chestplate by 3
+#helmet
+	if the lore of victim's helmet contains "&7Resistance -":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage victim's helmet by 1
+	if the lore of victim's helmet contains "&7Resistance &e--":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage victim's helmet by 2
+	if the lore of victim's helmet contains "&7Resistance &c---":
+		damage victim's helmet by 2
+	if the lore of victim's helmet contains "&7Resistance +":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair victim's helmet by 1
+	if the lore of victim's helmet contains "&7Resistance &a++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair victim's helmet by 2
+	if the lore of victim's helmet contains "&7Resistance &6+++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 80:
+			repair victim's helmet by 3
+#boots
+	if the lore of victim's boots contains "&7Resistance -":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage victim's boots by 1
+	if the lore of victim's boots contains "&7Resistance &e--":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage victim's boots by 2
+	if the lore of victim's boots contains "&7Resistance &c---":
+		damage victim's boots by 2
+	if the lore of victim's boots contains "&7Resistance +":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair victim's boots by 1
+	if the lore of victim's boots contains "&7Resistance &a++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair victim's boots by 2
+	if the lore of victim's boots contains "&7Resistance &6+++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 80:
+			repair victim's boots by 3
+#leggings
+	if the lore of victim's leggings contains "&7Resistance -":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage victim's leggings by 1
+	if the lore of victim's leggings contains "&7Resistance &e--":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 76:
+			damage victim's leggings by 2
+	if the lore of victim's leggings contains "&7Resistance &c---":
+		damage victim's leggings by 2
+	if the lore of victim's leggings contains "&7Resistance +":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair victim's leggings by 1
+	if the lore of victim's leggings contains "&7Resistance &a++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 84:
+			repair victim's leggings by 2
+	if the lore of victim's leggings contains "&7Resistance &6+++":
+		set {_rng} to a random number between 0 and 100
+		set {_rng} to rounded {_rng}
+		if {_rng} is greater than 80:
+			repair victim's leggings by 3
+	if {alig.%attacker%} is "redskull":
+		set {_redskulldmg} to damage*1.20
+		add {_redskulldmg} to {_extra}
+	if {_exp} is less or equal to 0:
+		set {_exp} to 0 
+	set {_exp} to rounded {_exp}
+	add {_exp} to {combat.totalexp.%attacker%}
+	if {combat.level.%attacker%} is between 0 and 100:
+		add 0.5 to {_extra}
+		if {combat.level.%attacker%} is between 6 and 100:
+			add 0.5 to {_extra}
+			if {combat.level.%attacker%} is between 11 and 100:
+				add 0.5 to {_extra}
+				if {combat.level.%attacker%} is between 21 and 300:
+					add 0.5 to {_extra}
+					if {combat.level.%attacker%} is between 31 and 400:
+						add 1 to {_extra}
+						if {combat.level.%attacker%} is between 41 and 500:
+							add 1 to {_extra}
+	add {_extra} to damage
+	if {dmg1.%attacker%} is true:
+		set damage to damage*1.15
+	if {_exp} is bigger or equal to {combat.expmax.%attacker%}:
+		set {_exp} to {combat.expmax.%attacker%}
+		set {_is} to victim's name
+		if {_is} is not set:
+			send "&c%damage% ->> %victim%" to attacker
+		else:
+			send "&c%damage% ->> %victim's name%" to attacker
+
+
+
+on death:
+	set {_rng} to a random number between 0.1 and 2
+	add {_rng} to {_exp}
+	if name of victim contains "&e":
+		set {_rng2} to a random number between 2 and 8
+	if name of victim contains "&c":
+		set {_rng3} to a random number between 4 and 20
+	if name of victim contains "&c&o":
+		set {_rng3} to a random number between 16 and 30
+	if name of victim contains "&d":
+		set {_rng4} to a random number between 60 and 200
+	add {_rng1} to {_exp}
+	add {_rng2} to {_exp}
+	add {_rng3} to {_exp}
+	add {_rng4} to {_exp}
+	add {_exp} to {combat.totalexp.%attacker%}
+	add {_exp} to {combat.exp.%attacker%}
+	if {debug.%attacker%} is true:
+		send "&e<!> &a+ %{_exp}% &aExperience &8(Combat)" to attacker
+
+
+
+
+
+
+
+
+
+
+command /clearrd:
+	permission: op
+	trigger:
+		set {kills.%player%} to 0

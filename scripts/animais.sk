@@ -1,0 +1,587 @@
+
+#Cow, sheep, chicken & pig
+
+
+
+on entity breed:
+	add {slot1.%breeding mother%} to {_slot1total::*}
+	add {slot1.%breeding father%} to {_slot1total::*}
+	chance of 100%:
+		set {slot1.%event-entity%} to a random element out of {_slot1total::*}
+
+	add {slot2.%breeding mother%} to {_slot2total::*}
+	add {slot2.%breeding father%} to {_slot2total::*}
+	chance of 100%:
+		set {slot2.%event-entity%} to a random element out of {_slot2total::*}
+
+	add {slot3.%breeding mother%} to {_slot3total::*}
+	add {slot3.%breeding father%} to {_slot3total::*}
+	chance of 100%:
+		set {slot3.%event-entity%} to a random element out of {_slot3total::*}
+
+
+
+
+
+
+
+
+
+
+	
+on inventory click:
+	if name of event-inventory is "&8Genetics":
+		cancel event
+
+
+
+
+
+
+on spawn:
+	set {c} to 12.5
+	set {uc} to 4
+	set {r} to 1
+	set {sr} to 0.12
+	if event-entity is a cow:
+		chance of {c}%:
+			set {slot1.%event-entity%} to a random element out of {c.perks::*}
+		chance of {c}%:
+			set {slot2.%event-entity%} to a random element out of {c.perks::*}
+		chance of {c}%:
+			set {slot3.%event-entity%} to a random element out of {c.perks::*}
+		chance of {uc}%:
+			set {slot1.%event-entity%} to a random element out of {uc.perks::*}
+		chance of {uc}%:
+			set {slot2.%event-entity%} to a random element out of {uc.perks::*}
+		chance of {uc}%:
+			set {slot3.%event-entity%} to a random element out of {uc.perks::*}
+		chance of {r}%:
+			set {slot1.%event-entity%} to a random element out of {r.perks::*}
+		chance of {r}%:
+			set {slot2.%event-entity%} to a random element out of {r.perks::*}
+		chance of {r}%:
+			set {slot3.%event-entity%} to a random element out of {r.perks::*}
+		chance of {sr}%:
+			set {slot1.%event-entity%} to a random element out of {sr.perks::*}
+		chance of {sr}%:
+			set {slot2.%event-entity%} to a random element out of {sr.perks::*}
+		chance of {sr}%:
+			set {slot3.%event-entity%} to a random element out of {sr.perks::*}
+
+
+
+
+on right-click:
+	if player is sneaking:
+		if event-entity is a cow:
+			if player's tool is a clock:
+				open chest inventory with 1 row named "&8Genetics" to player
+				set slot 0 of player's current inventory to gray stained glass pane named " "
+				set slot 1 of player's current inventory to gray stained glass pane named " "
+				set slot 2 of player's current inventory to gray stained glass pane named " "
+				set slot 6 of player's current inventory to gray stained glass pane named " "
+				set slot 7 of player's current inventory to gray stained glass pane named " "
+				set slot 8 of player's current inventory to gray stained glass pane named " "
+				if {slot1.%event-entity%} is "meat":
+					set slot 3 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Beef' on death"
+				if {slot2.%event-entity%} is "meat":
+					set slot 4 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Beef' on death"
+				if {slot3.%event-entity%} is "meat":
+					set slot 5 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Beef' on death"
+
+				if {slot1.%event-entity%} is "bone":
+					set slot 3 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+				if {slot2.%event-entity%} is "bone":
+					set slot 4 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+				if {slot3.%event-entity%} is "bone":
+					set slot 5 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+
+				if {slot1.%event-entity%} is "lesshp":
+					set slot 3 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+				if {slot2.%event-entity%} is "lesshp":
+					set slot 4 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+				if {slot3.%event-entity%} is "lesshp":
+					set slot 5 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+
+				if {slot1.%event-entity%} is "leather":
+					set slot 3 of player's current inventory to leather named "&fBigger Hide" with lore "&f+1 'Leather' on death"
+				if {slot2.%event-entity%} is "leather":
+					set slot 4 of player's current inventory to leather named "&fBigger Hide" with lore "&f+1 'Leather' on death"
+				if {slot3.%event-entity%} is "leather":
+					set slot 5 of player's current inventory to leather named "&fBigger Hide" with lore "&f+1 'Leather' on death"
+
+				if {slot1.%event-entity%} is "poop":
+					set slot 3 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+				if {slot2.%event-entity%} is "poop":
+					set slot 4 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+				if {slot3.%event-entity%} is "poop":
+					set slot 5 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+
+				if {slot1.%event-entity%} is "coald":
+					set slot 3 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+				if {slot2.%event-entity%} is "coald":
+					set slot 4 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+				if {slot3.%event-entity%} is "coald":
+					set slot 5 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+
+				if {slot1.%event-entity%} is "kes":
+					set slot 3 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+				if {slot2.%event-entity%} is "kes":
+					set slot 4 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+				if {slot3.%event-entity%} is "kes":
+					set slot 5 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+
+				if {slot1.%event-entity%} is "breedexp":
+					set slot 3 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+				if {slot2.%event-entity%} is "breedexp":
+					set slot 4 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+				if {slot3.%event-entity%} is "breedexp":
+					set slot 5 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+
+				if {slot1.%event-entity%} is "irond":
+					set slot 3 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+				if {slot2.%event-entity%} is "irond":
+					set slot 4 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+				if {slot3.%event-entity%} is "irond":
+					set slot 5 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+
+				if {slot1.%event-entity%} is "bornexp":
+					set slot 3 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+				if {slot2.%event-entity%} is "bornexp":
+					set slot 4 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+				if {slot3.%event-entity%} is "bornexp":
+					set slot 5 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+
+				if {slot1.%event-entity%} is "goldd":
+					set slot 3 of player's current inventory to raw gold named "&dGolden Cow" with lore "&fMay drop 'Raw Gold' on death"
+				if {slot2.%event-entity%} is "goldd":
+					set slot 4 of player's current inventory to raw gold named "&dGolden Cow" with lore "&fMay drop 'Raw Gold' on death"
+				if {slot3.%event-entity%} is "goldd":
+					set slot 5 of player's current inventory to raw gold named "&dGolden Cow" with lore "&fMay drop 'Raw Gold' on death"
+
+				if {slot1.%event-entity%} is "coalm":
+					set slot 3 of player's current inventory to coal named "&dDark Milk" with lore "&fMay drop 'Coal' when milked"
+				if {slot2.%event-entity%} is "coalm":
+					set slot 4 of player's current inventory to coal named "&dDark Milk" with lore "&fMay drop 'Coal' when milked"
+				if {slot3.%event-entity%} is "coalm":
+					set slot 5 of player's current inventory to coal named "&dDark Milk" with lore "&fMay drop 'Coal' when milked"
+
+				if {slot1.%event-entity%} is "ironm":
+					set slot 3 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' when milked"
+				if {slot2.%event-entity%} is "ironm":
+					set slot 4 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' when milked"
+				if {slot3.%event-entity%} is "ironm":
+					set slot 5 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' when milked"
+
+				if {slot1.%event-entity%} is "goldm":
+					set slot 3 of player's current inventory to gold ingot named "&dGolden Milk" with lore "&fMay drop 'Gold Ingot' when Milked"
+				if {slot2.%event-entity%} is "goldm":
+					set slot 4 of player's current inventory to gold ingot named "&dGolden Milk" with lore "&fMay drop 'Gold Ingot' when Milked"
+				if {slot3.%event-entity%} is "goldm":
+					set slot 5 of player's current inventory to gold ingot named "&dGolden Milk" with lore "&fMay drop 'Gold Ingot' when Milked"
+
+				if {slot1.%event-entity%} is "pearl":
+					set slot 3 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+				if {slot2.%event-entity%} is "pearl":
+					set slot 4 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+				if {slot3.%event-entity%} is "pearl":
+					set slot 5 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+
+				if {slot1.%event-entity%} is "diad":
+					set slot 3 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+				if {slot2.%event-entity%} is "diad":
+					set slot 4 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+				if {slot3.%event-entity%} is "diad":
+					set slot 5 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+
+				if {slot1.%event-entity%} is "nets":
+					set slot 3 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+				if {slot2.%event-entity%} is "nets":
+					set slot 4 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+				if {slot3.%event-entity%} is "nets":
+					set slot 5 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+
+				if {slot1.%event-entity%} is "blaze":
+					set slot 3 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+				if {slot2.%event-entity%} is "blaze":
+					set slot 4 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+				if {slot3.%event-entity%} is "blaze":
+					set slot 5 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+
+				if {slot1.%event-entity%} is "nfuel":
+					set slot 3 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+				if {slot2.%event-entity%} is "nfuel":
+					set slot 4 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+				if {slot3.%event-entity%} is "nfuel":
+					set slot 5 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+
+
+
+
+				if {slot1.%event-entity%} is not set:
+					set slot 3 of player's current inventory to iron bars named "&8Empty"
+				if {slot2.%event-entity%} is not set:
+					set slot 4 of player's current inventory to iron bars named "&8Empty"
+				if {slot3.%event-entity%} is not set:
+					set slot 5 of player's current inventory to iron bars named "&8Empty"
+
+		if event-entity is a sheep:
+			if player's tool is a clock:
+				open chest inventory with 1 row named "&8Genetics" to player
+				set slot 0 of player's current inventory to gray stained glass pane named " "
+				set slot 1 of player's current inventory to gray stained glass pane named " "
+				set slot 2 of player's current inventory to gray stained glass pane named " "
+				set slot 6 of player's current inventory to gray stained glass pane named " "
+				set slot 7 of player's current inventory to gray stained glass pane named " "
+				set slot 8 of player's current inventory to gray stained glass pane named " "
+				if {slot1.%event-entity%} is "meat":
+					set slot 3 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Mutton' on death"
+				if {slot2.%event-entity%} is "meat":
+					set slot 4 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Mutton' on death"
+				if {slot3.%event-entity%} is "meat":
+					set slot 5 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Mutton' on death"
+
+				if {slot1.%event-entity%} is "bone":
+					set slot 3 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+				if {slot2.%event-entity%} is "bone":
+					set slot 4 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+				if {slot3.%event-entity%} is "bone":
+					set slot 5 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+
+				if {slot1.%event-entity%} is "lesshp":
+					set slot 3 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+				if {slot2.%event-entity%} is "lesshp":
+					set slot 4 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+				if {slot3.%event-entity%} is "lesshp":
+					set slot 5 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+
+				if {slot1.%event-entity%} is "leather":
+					set slot 3 of player's current inventory to leather named "&fFluffy" with lore "&f+1 'Wool' on death"
+				if {slot2.%event-entity%} is "leather":
+					set slot 4 of player's current inventory to leather named "&fFluffy" with lore "&f+1 'Wool' on death"
+				if {slot3.%event-entity%} is "leather":
+					set slot 5 of player's current inventory to leather named "&fFluffy" with lore "&f+1 'Wool' on death"
+
+				if {slot1.%event-entity%} is "poop":
+					set slot 3 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+				if {slot2.%event-entity%} is "poop":
+					set slot 4 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+				if {slot3.%event-entity%} is "poop":
+					set slot 5 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+
+				if {slot1.%event-entity%} is "coald":
+					set slot 3 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+				if {slot2.%event-entity%} is "coald":
+					set slot 4 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+				if {slot3.%event-entity%} is "coald":
+					set slot 5 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+
+				if {slot1.%event-entity%} is "kes":
+					set slot 3 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+				if {slot2.%event-entity%} is "kes":
+					set slot 4 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+				if {slot3.%event-entity%} is "kes":
+					set slot 5 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+
+				if {slot1.%event-entity%} is "breedexp":
+					set slot 3 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+				if {slot2.%event-entity%} is "breedexp":
+					set slot 4 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+				if {slot3.%event-entity%} is "breedexp":
+					set slot 5 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+
+				if {slot1.%event-entity%} is "irond":
+					set slot 3 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+				if {slot2.%event-entity%} is "irond":
+					set slot 4 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+				if {slot3.%event-entity%} is "irond":
+					set slot 5 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+
+				if {slot1.%event-entity%} is "bornexp":
+					set slot 3 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+				if {slot2.%event-entity%} is "bornexp":
+					set slot 4 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+				if {slot3.%event-entity%} is "bornexp":
+					set slot 5 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+
+				if {slot1.%event-entity%} is "goldd":
+					set slot 3 of player's current inventory to raw gold named "&dGolden Sheep" with lore "&fMay drop 'Raw Gold' on death"
+				if {slot2.%event-entity%} is "goldd":
+					set slot 4 of player's current inventory to raw gold named "&dGolden Sheep" with lore "&fMay drop 'Raw Gold' on death"
+				if {slot3.%event-entity%} is "goldd":
+					set slot 5 of player's current inventory to raw gold named "&dGolden Sheep" with lore "&fMay drop 'Raw Gold' on death"
+
+				if {slot1.%event-entity%} is "coalm":
+					set slot 3 of player's current inventory to coal named "&dDark Wool" with lore "&fMay drop 'Coal' when sheared"
+				if {slot2.%event-entity%} is "coalm":
+					set slot 4 of player's current inventory to coal named "&dDark Wood" with lore "&fMay drop 'Coal' when sheared"
+				if {slot3.%event-entity%} is "coalm":
+					set slot 5 of player's current inventory to coal named "&dDark Wood" with lore "&fMay drop 'Coal' when sheared"
+
+				if {slot1.%event-entity%} is "ironm":
+					set slot 3 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' when sheared"
+				if {slot2.%event-entity%} is "ironm":
+					set slot 4 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' when sheared"
+				if {slot3.%event-entity%} is "ironm":
+					set slot 5 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' when sheared"
+
+				if {slot1.%event-entity%} is "goldm":
+					set slot 3 of player's current inventory to gold ingot named "&dGolden Milk" with lore "&fMay drop 'Gold Ingot' when sheared"
+				if {slot2.%event-entity%} is "goldm":
+					set slot 4 of player's current inventory to gold ingot named "&dGolden Milk" with lore "&fMay drop 'Gold Ingot' when sheared"
+				if {slot3.%event-entity%} is "goldm":
+					set slot 5 of player's current inventory to gold ingot named "&dGolden Milk" with lore "&fMay drop 'Gold Ingot' when sheared"
+
+				if {slot1.%event-entity%} is "pearl":
+					set slot 3 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+				if {slot2.%event-entity%} is "pearl":
+					set slot 4 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+				if {slot3.%event-entity%} is "pearl":
+					set slot 5 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+
+				if {slot1.%event-entity%} is "diad":
+					set slot 3 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+				if {slot2.%event-entity%} is "diad":
+					set slot 4 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+				if {slot3.%event-entity%} is "diad":
+					set slot 5 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+
+				if {slot1.%event-entity%} is "nets":
+					set slot 3 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+				if {slot2.%event-entity%} is "nets":
+					set slot 4 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+				if {slot3.%event-entity%} is "nets":
+					set slot 5 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+
+				if {slot1.%event-entity%} is "blaze":
+					set slot 3 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+				if {slot2.%event-entity%} is "blaze":
+					set slot 4 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+				if {slot3.%event-entity%} is "blaze":
+					set slot 5 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+
+				if {slot1.%event-entity%} is "nfuel":
+					set slot 3 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+				if {slot2.%event-entity%} is "nfuel":
+					set slot 4 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+				if {slot3.%event-entity%} is "nfuel":
+					set slot 5 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+
+
+
+
+				if {slot1.%event-entity%} is not set:
+					set slot 3 of player's current inventory to iron bars named "&8Empty"
+				if {slot2.%event-entity%} is not set:
+					set slot 4 of player's current inventory to iron bars named "&8Empty"
+				if {slot3.%event-entity%} is not set:
+					set slot 5 of player's current inventory to iron bars named "&8Empty"
+
+
+		if event-entity is a chicken:
+			if player's tool is a clock:
+				open chest inventory with 1 row named "&8Genetics" to player
+				set slot 0 of player's current inventory to gray stained glass pane named " "
+				set slot 1 of player's current inventory to gray stained glass pane named " "
+				set slot 2 of player's current inventory to gray stained glass pane named " "
+				set slot 6 of player's current inventory to gray stained glass pane named " "
+				set slot 7 of player's current inventory to gray stained glass pane named " "
+				set slot 8 of player's current inventory to gray stained glass pane named " "
+				if {slot1.%event-entity%} is "meat":
+					set slot 3 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Chicken' on death"
+				if {slot2.%event-entity%} is "meat":
+					set slot 4 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Chicken' on death"
+				if {slot3.%event-entity%} is "meat":
+					set slot 5 of player's current inventory to raw beef named "&fBeefy" with lore "&f+1 'Raw Chicken' on death"
+
+				if {slot1.%event-entity%} is "bone":
+					set slot 3 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+				if {slot2.%event-entity%} is "bone":
+					set slot 4 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+				if {slot3.%event-entity%} is "bone":
+					set slot 5 of player's current inventory to bone named "&fBig Skeleton" with lore "&f+1 'Bone' on death"
+
+				if {slot1.%event-entity%} is "lesshp":
+					set slot 3 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+				if {slot2.%event-entity%} is "lesshp":
+					set slot 4 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+				if {slot3.%event-entity%} is "lesshp":
+					set slot 5 of player's current inventory to beetroot named "&fLess Life" with lore "&f30%% less health"
+
+				if {slot1.%event-entity%} is "leather":
+					set slot 3 of player's current inventory to leather named "&fFeatherful" with lore "&f+1 'Feather' on death"
+				if {slot2.%event-entity%} is "leather":
+					set slot 4 of player's current inventory to leather named "&fFeatherful" with lore "&f+1 'Feather' on death"
+				if {slot3.%event-entity%} is "leather":
+					set slot 5 of player's current inventory to leather named "&fFeatherful" with lore "&f+1 'Feather' on death"
+
+				if {slot1.%event-entity%} is "poop":
+					set slot 3 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+				if {slot2.%event-entity%} is "poop":
+					set slot 4 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+				if {slot3.%event-entity%} is "poop":
+					set slot 5 of player's current inventory to brown dye named "&fOvershitter" with lore "&fPoops more often"
+
+				if {slot1.%event-entity%} is "coald":
+					set slot 3 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+				if {slot2.%event-entity%} is "coald":
+					set slot 4 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+				if {slot3.%event-entity%} is "coald":
+					set slot 5 of player's current inventory to coal named "&aCoal Eater" with lore "&fMay drop 'Coal' on death"
+
+				if {slot1.%event-entity%} is "kes":
+					set slot 3 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+				if {slot2.%event-entity%} is "kes":
+					set slot 4 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+				if {slot3.%event-entity%} is "kes":
+					set slot 5 of player's current inventory to sunflower named "&aMoney-Belly" with lore "&fMay drop 'KE$' on death"
+
+				if {slot1.%event-entity%} is "breedexp":
+					set slot 3 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+				if {slot2.%event-entity%} is "breedexp":
+					set slot 4 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+				if {slot3.%event-entity%} is "breedexp":
+					set slot 5 of player's current inventory to experience bottle named "&aExperient Lover" with lore "&fMore EXP when breeding"
+
+				if {slot1.%event-entity%} is "irond":
+					set slot 3 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+				if {slot2.%event-entity%} is "irond":
+					set slot 4 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+				if {slot3.%event-entity%} is "irond":
+					set slot 5 of player's current inventory to raw iron named "&aIron Eater" with lore "&fMay drop 'Raw Iron' on death"
+
+				if {slot1.%event-entity%} is "bornexp":
+					set slot 3 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+				if {slot2.%event-entity%} is "bornexp":
+					set slot 4 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+				if {slot3.%event-entity%} is "bornexp":
+					set slot 5 of player's current inventory to experience bottle named "&aMidwife's Friend" with lore "&fMore EXP when born"
+
+				if {slot1.%event-entity%} is "goldd":
+					set slot 3 of player's current inventory to raw gold named "&dGolden Chicken" with lore "&fMay drop 'Raw Gold' on death"
+				if {slot2.%event-entity%} is "goldd":
+					set slot 4 of player's current inventory to raw gold named "&dGolden Chicken" with lore "&fMay drop 'Raw Gold' on death"
+				if {slot3.%event-entity%} is "goldd":
+					set slot 5 of player's current inventory to raw gold named "&dGolden Chicken" with lore "&fMay drop 'Raw Gold' on death"
+
+				if {slot1.%event-entity%} is "coalm":
+					set slot 3 of player's current inventory to coal named "&dDark Wool" with lore "&fMay drop 'Coal' on egg lay"
+				if {slot2.%event-entity%} is "coalm":
+					set slot 4 of player's current inventory to coal named "&dDark Wood" with lore "&fMay drop 'Coal' on egg lay"
+				if {slot3.%event-entity%} is "coalm":
+					set slot 5 of player's current inventory to coal named "&dDark Wood" with lore "&fMay drop 'Coal' on egg lay"
+
+				if {slot1.%event-entity%} is "ironm":
+					set slot 3 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' on egg lay"
+				if {slot2.%event-entity%} is "ironm":
+					set slot 4 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' on egg lay"
+				if {slot3.%event-entity%} is "ironm":
+					set slot 5 of player's current inventory to iron nugget named "&dIron Calculus" with lore "&fMay drop 'Iron Nugget' on egg lay"
+
+				if {slot1.%event-entity%} is "goldm":
+					set slot 3 of player's current inventory to gold ingot named "&dGolden Goose" with lore "&fMay drop 'Gold Ingot' on egg lay"
+				if {slot2.%event-entity%} is "goldm":
+					set slot 4 of player's current inventory to gold ingot named "&dGolden Goose" with lore "&fMay drop 'Gold Ingot' on egg lay"
+				if {slot3.%event-entity%} is "goldm":
+					set slot 5 of player's current inventory to gold ingot named "&dGolden Goose" with lore "&fMay drop 'Gold Ingot' on egg lay"
+
+				if {slot1.%event-entity%} is "pearl":
+					set slot 3 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+				if {slot2.%event-entity%} is "pearl":
+					set slot 4 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+				if {slot3.%event-entity%} is "pearl":
+					set slot 5 of player's current inventory to ender pearl named "&dChild from the Void" with lore "&fMay Drop 'Ender Pearl' on death"
+
+				if {slot1.%event-entity%} is "diad":
+					set slot 3 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+				if {slot2.%event-entity%} is "diad":
+					set slot 4 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+				if {slot3.%event-entity%} is "diad":
+					set slot 5 of player's current inventory to diamond named "&eJewelry Eyes" with lore "&fMay Drop 'Diamond' on death"
+
+				if {slot1.%event-entity%} is "nets":
+					set slot 3 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+				if {slot2.%event-entity%} is "nets":
+					set slot 4 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+				if {slot3.%event-entity%} is "nets":
+					set slot 5 of player's current inventory to netherite scrap named "&eNether Hull" with lore "&fMay Drop 'Netherite Scraps' on death"
+
+				if {slot1.%event-entity%} is "blaze":
+					set slot 3 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+				if {slot2.%event-entity%} is "blaze":
+					set slot 4 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+				if {slot3.%event-entity%} is "blaze":
+					set slot 5 of player's current inventory to blaze powder named "&eBlazing Soul" with lore "&fMay Drop 'Blaze Power' on death"
+
+				if {slot1.%event-entity%} is "nfuel":
+					set slot 3 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+				if {slot2.%event-entity%} is "nfuel":
+					set slot 4 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+				if {slot3.%event-entity%} is "nfuel":
+					set slot 5 of player's current inventory to black dye named "&eNighmare's Possesion" with lore "&fMay Drop 'Night Fuel' on death"
+
+
+
+
+				if {slot1.%event-entity%} is not set:
+					set slot 3 of player's current inventory to iron bars named "&8Empty"
+				if {slot2.%event-entity%} is not set:
+					set slot 4 of player's current inventory to iron bars named "&8Empty"
+				if {slot3.%event-entity%} is not set:
+					set slot 5 of player's current inventory to iron bars named "&8Empty"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+command /forcemuts:
+	permission: op
+	trigger:
+		clear {c.perks::*}
+		add "meat" to {c.perks::*}
+		add "bone" to {c.perks::*}
+		add "leather" to {c.perks::*}
+		add "lesshp" to {c.perks::*}
+		add "poop" to {c.perks::*}
+		clear {uc.perks::*}
+		add "coald" to {uc.perks::*}
+		add "kes" to {uc.perks::*}
+		add "breedexp" to {uc.perks::*}
+		add "bornexp" to {uc.perks::*}
+		add "irond" to {uc.perks::*}
+		clear {r.perks::*}
+		add "goldd" to {r.perks::*}
+		add "coalm" to {r.perks::*}
+		add "ironm" to {r.perks::*}
+		add "goldm" to {r.perks::*}
+		add "pearl" to {r.perks::*}
+		clear {sr.perks::*}
+		add "diad" to {sr.perks::*}
+		add "nets" to {sr.perks::*}
+		add "blaze" to {sr.perks::*}
+		add "nfuel" to {sr.perks::*}
+
+
+
+
+
+
+
+#3 slots
+#se vazio:
+# chance de 10% mutar para algo
+#se fill:
+# chance de 80% manter, chance de 10% perder, chance de 10% de 

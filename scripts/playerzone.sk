@@ -1,0 +1,171 @@
+
+command /zoneflag:
+	permission: op
+	trigger:
+		give 1 bell named "&fZone Bell" with lore "&7zone-name not set" to player
+
+command /guidebug2:
+	permission: op
+	trigger:
+		set {finishingzone.%player%} to false
+on first join:
+	set {finishingzone.%player%} to false
+	set {ingui.%player%} to false
+
+on click:
+	event-item is bell:
+		name of event-item is "&fZone Bell":
+			if lore of the event-item contains "&7zone-name not set":
+				cancel event
+				if {ingui.%player%} is true:
+					send "&cfinish what you are doing first." to player
+					stop
+				set {ingui.%player%} to true
+				set {zonenameset.%player%} to true
+				send "&e<!> &aWant to set zone name?" to event-player
+				send "&a Y/yes &7| &cN/no" to event-player
+			if lore of the event-item contains "&azone name set":
+				set {_zonename} to the 1st line of the lore of player's tool
+				add {_zonename} to {%player%.zones}
+
+
+on place:
+	if player is op:
+		stop
+	loop all armor stands in radius 20 of event-player:
+		if name of loop-entity contains "%event-player%":
+			stop
+	loop all armor stands in radius 150 of event-player:
+		if name of loop-entity contains "spawnzone" or "bosszone":
+			cancel event
+			send "&c you cant use here"
+
+on mine:
+	if player is op:
+		stop
+	loop all armor stands in radius 20 of event-player:
+		if name of loop-entity contains "%event-player%":
+			stop
+	loop all armor stands in radius 150 of event-player:
+		if name of loop-entity contains "spawnzone" or "bosszone":
+			cancel event
+			send "&c you cant use here"
+
+on right-click:
+	if player is op:
+		stop
+	loop all armor stands in radius 20 of event-player:
+		if name of loop-entity contains "%event-player%":
+			stop
+	loop all armor stands in radius 150 of event-player:
+		if name of loop-entity contains "spawnzone" or "bosszone":
+			cancel event
+			send "&c you cant use here"
+
+
+on damage:
+	if attacker is op:
+		stop
+	attacker is a player:
+		victim is a player:
+			loop all armor stands in radius 20 of attacker:
+				if name of loop-entity contains "%attacker%":
+					cancel event
+	attacker is a player:
+		victim is a player:
+			loop all armor stands in radius 150 of attacker:
+				if name of loop-entity contains "spawnzone":
+					cancel event
+	victim is a player:
+		attacker is a player:
+			loop all armor stands in radius 20 of victim:
+				if name of loop-entity contains "%victim%":
+					cancel event
+	victim is a player:
+		attacker is a player:
+			loop all armor stands in radius 150 of victim:
+				if name of loop-entity contains "spawnzone":
+					cancel event
+
+
+
+
+on death:
+	if name of victim contains "safezone", "warzone", "playerzone" or "extrazone":
+		cancel event
+
+command /checkzone:
+	permission: op
+	trigger:
+		loop all armor stands in radius 20 of player:
+			send "&aall zone-dolls reveled"
+			set visibility of loop-entity to true
+			set {_name} to the loop-entity's name
+			set display name of loop-entity to "%loop-entity's name%"
+			wait 3 seconds
+			set visibility of loop-entity to false
+			reset loop-entity's display name
+			set loop-entity's name to "%{_name}%"
+
+command /safezone <text>:
+	permission: op
+	trigger:
+		if arg-1 is "del" or "remove":
+			loop all armor stands in radius 5 of player:
+				kill loop-entity
+				send "&asafe-zone doll removed"
+		if arg-1 is "add" or "set":
+			spawn 1 armor stand at player's location
+			set name of the last spawned armor stand to "op.safezone"
+			set visibility of last spawned armor stand to false
+
+command /spawnzone2 <text>:
+	permission: op
+	trigger:
+		if arg-1 is "del" or "remove":
+			loop all armor stands in radius 5 of player:
+				kill loop-entity
+				send "&aspawn-zone doll removed"
+		if arg-1 is "add" or "set":
+			spawn 1 armor stand at player's location
+			set name of the last spawned armor stand to "op.spawnzone"
+			set visibility of last spawned armor stand to false
+
+command /boss1zone <text>:
+	permission: op
+	trigger:
+		if arg-1 is "del" or "remove":
+			loop all armor stands in radius 5 of player:
+				kill loop-entity
+				send "&aQüir doll removed"
+		if arg-1 is "add" or "set":
+			spawn 1 armor stand at player's location
+			set name of the last spawned armor stand to "op.boss1.bosszone"
+			set visibility of last spawned armor stand to false
+command /boss2zone <text>:
+	permission: op
+	trigger:
+		if arg-1 is "del" or "remove":
+			loop all armor stands in radius 5 of player:
+				kill loop-entity
+				send "&aFire doll removed"
+		if arg-1 is "add" or "set":
+			spawn 1 armor stand at player's location
+			set name of the last spawned armor stand to "op.boss2.bosszone"
+			set visibility of last spawned armor stand to false
+command /boss3zone <text>:
+	permission: op
+	trigger:
+		if arg-1 is "del" or "remove":
+			loop all armor stands in radius 5 of player:
+				kill loop-entity
+				send "&aMage doll removed"
+		if arg-1 is "add" or "set":
+			spawn 1 armor stand at player's location
+			set name of the last spawned armor stand to "op.boss3.bosszone"
+			set visibility of last spawned armor stand to false
+
+
+command /saybeta:
+	trigger:
+		broadcast "☠"

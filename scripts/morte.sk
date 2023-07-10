@@ -1,0 +1,70 @@
+on first join:
+	set {alig.%player%} to "neutral"
+command /debugdeath:
+	trigger:
+		set {alig.%player%} to "neutral"
+
+
+on death:
+	if victim is a player:
+		add 1 to {kills.%attacker%}
+	add 1 to {death.%victim%}
+	add 1 to {total.death.%victim%}
+	if {alig.%victim%} is "neutral":
+		if {death.%victim%} is bigger or equal to 3:
+			set {justdied.%victim%} to true
+	if {alig.%victim%} is "redskull":
+		if {death.%victim%} is bigger or equal to 0:
+			set {justdied.%victim%} to true
+			broadcast "&e<!> &f%attacker% &akilled &f%victim%&a while it was &cRed Skull&a."
+			if {alig.%attacker%} is "neutral":
+				set {alig.%attacker%} to "greenshield"
+				add 30 to {timer.gs.%attacker%}
+				send "&e<!> &aYou are now &a&oGreen Shield&a!" to attacker
+				send "&f33%% Damage resistance." to attacker
+				send "&f25%% &eKE$ &fDiscount in taxes." to attacker
+				send "&e<!> &aIt Will last &a&o30 Minutes&a." to attacker
+	if attacker is a player:
+		if {alig.%victim%} is "neutral":
+			if {alig.%attacker%} is "neutral":
+				set {alig.%attacker%} to "redskull"
+				add 30 to {timer.rs.%attacker%}
+				send "&e<!> &aYou are now &c&oRed Skull&a!" to attacker
+				send "&f15%% More Damage." to attacker
+				send "&f25%% &eKE$ &fExtra dropchance." to attacker
+				send "&fPeople can damage you in &asafe-zones&f." to attacker
+				send "&e<!> &aIt Will last &a&o30 Minutes&a." to attacker
+
+command /runtimer:
+	permission: op
+	trigger:
+		add 1 to {death.timer}
+
+
+every minute in world "world":
+	if {death.timer} is bigger than 0:
+		remove 1 from {death.timer}
+	if {death.timer} is equal to 0:
+		loop all players:
+			set {death.%loop-player%} to 0
+			add 60 to {death.timer}
+	loop all players:
+		if {death.timer.%loop-player%} is set:
+			remove 1 from {death.timer.%loop-player%}
+			if {death.timer.%loop-player%} is lower or equal to 0:
+				clear {death.timer.%loop-player%}
+				if loop-player is online:
+					teleport loop-player to spawn
+					set loop-player's gamemode to survival
+		if {alig.%loop-player%} is "redskull":
+			remove 1 from {timer.rs.%loop-player%}
+			if {timer.rs.%loop-player%} is lower or equal to 0:
+				clear {timer.rs.%loop-player%}
+				set {alig.%loop-player%} to "neutral"
+				send "&e<!>&c Red Skull &aEnded" to loop-player
+		if {alig.%loop-player%} is "greenshield":
+			remove 1 from {timer.gs.%loop-player%}
+			if {timer.gs.%loop-player%} is lower or equal to 0:
+				clear {timer.gs.%loop-player%}
+				set {alig.%loop-player%} to "neutral"
+				send "&e<!>&a Green Shield Ended" to loop-player

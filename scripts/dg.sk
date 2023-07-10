@@ -1,0 +1,254 @@
+
+options:
+	radius: 30
+on load:
+	set {bloodmoon} to 0
+
+
+
+on mine:
+	name of player's tool is "&fStrange Pickaxe":
+		chance of 4%:
+			apply haste 1 to the event-player for 6 seconds
+		chance of 4%:
+			damage event-player by 1
+
+command /forcelootchest:
+	permission: op
+	trigger:
+		clear {single.dg1.chest::*}
+		set {_p} to stgpik()
+		add {_p} to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add air to {single.dg1.chest::*}
+		add cash1() to {single.dg1.chest::*}
+		add iron shovel to {single.dg1.chest::*}
+		add iron pickaxe to {single.dg1.chest::*}
+		add iron sword to {single.dg1.chest::*}
+		add stone pickaxe to {single.dg1.chest::*}
+		add stone sword to {single.dg1.chest::*}
+		add iron chestplate to {single.dg1.chest::*}
+		add diamond boots to {single.dg1.chest::*}
+		add chain leggings to {single.dg1.chest::*}
+		add chain boots to {single.dg1.chest::*}
+		add chain chestplate to {single.dg1.chest::*}
+		add chain leggings to {single.dg1.chest::*}
+		add chain boots to {single.dg1.chest::*}
+		add chain chestplate to {single.dg1.chest::*}
+		add leather leggings to {single.dg1.chest::*}
+		add leather boots to {single.dg1.chest::*}
+		add leather chestplate to {single.dg1.chest::*}
+		add diamond pickaxe to {single.dg1.chest::*}
+		add iron leggings to {single.dg1.chest::*}
+		add iron boots to {single.dg1.chest::*}
+		add iron chestplate to {single.dg1.chest::*}
+		add iron leggings to {single.dg1.chest::*}
+		add iron boots to {single.dg1.chest::*}
+		add iron chestplate to {single.dg1.chest::*}
+		add iron leggings to {single.dg1.chest::*}
+		add diamond helmet to {single.dg1.chest::*}
+		add iron chestplate to {single.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add clock to {single.dg1.chest::*}	
+		add compass to {single.dg1.chest::*}	
+		add clock to {single.dg1.chest::*}	
+		add compass to {single.dg1.chest::*}	
+		add shield to {single.dg1.chest::*}	
+		add shears to {single.dg1.chest::*}
+		add fishing rod to {single.dg1.chest::*}	
+		add bow to {single.dg1.chest::*}
+		add clock to {single.dg1.chest::*}	
+		add compass to {single.dg1.chest::*}	
+		add clock to {single.dg1.chest::*}	
+		add compass to {single.dg1.chest::*}	
+		add shield to {single.dg1.chest::*}	
+		add shears to {single.dg1.chest::*}
+		add fishing rod to {single.dg1.chest::*}	
+		add bow to {single.dg1.chest::*}
+		add crossbow to {single.dg1.chest::*}
+
+		add 2 raw iron to {material.dg1.chest::*}
+		add raw gold to {material.dg1.chest::*}
+		add 5 raw copper to {material.dg1.chest::*}
+		add ancient debris to {material.dg1.chest::*}
+		add 2 raw gold to {material.dg1.chest::*}
+		add raw copper to {material.dg1.chest::*}
+		add diamond to {material.dg1.chest::*}
+		add 4 raw iron to {material.dg1.chest::*}
+		add 10 raw gold to {material.dg1.chest::*}
+		add 6 raw copper to {material.dg1.chest::*}
+		add 2 raw iron to {material.dg1.chest::*}
+		add 4 raw gold to {material.dg1.chest::*}
+		add emerald to {material.dg1.chest::*}
+		add 16 lapis lazuli to {material.dg1.chest::*}
+		add 6 amethyst shard to {material.dg1.chest::*}
+		add 3 charcoal to {material.dg1.chest::*}
+		add 5 coal to {material.dg1.chest::*}
+		add lapis lazuli to {material.dg1.chest::*}
+		add 2 amethyst shard to {material.dg1.chest::*}
+		add 5 coal to {material.dg1.chest::*}
+		add 12 lapis lazuli to {material.dg1.chest::*}
+		add 3 amethyst shard to {material.dg1.chest::*}
+		add 2 iron ingot to {material.dg1.chest::*}
+		add gold ingot to {material.dg1.chest::*}
+		add 6 copper ingot to {material.dg1.chest::*}
+		add raw copper block to {material.dg1.chest::*}
+		add raw iron block to {material.dg1.chest::*}
+		add 4 coal to {material.dg1.chest::*}
+		add kes() to {material.dg1.chest::*}
+		add 6 of kes() to {material.dg1.chest::*}
+		add 2 of kes() to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add air to {material.dg1.chest::*}
+		add 4 oak log to {material.dg1.chest::*}
+		add 2 birch log to {material.dg1.chest::*}
+		add spruce log to {material.dg1.chest::*}
+	
+
+on right-click:
+	target block is a smithing table:
+		cancel event
+		send "&e<!>&c There is a custom recipe for Netherite items."
+
+every 15 minutes:
+	set {_rng} to a random number between 0 and 100
+	set {_rng} to rounded {_rng}
+	if {_rng} is between 0 and 50:
+		broadcast "&e<!> &aAll Containers at &c'Bloodgem Mines' &ahas been refilled. &8(near -450 80 700)"
+		loop blocks in radius {@radius} around {dg1}:
+			if loop-block is a chest:
+				clear loop-block's inventory
+				loop 8 times:
+					set {_randomitem} to random element out of {material.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+				loop 2 times:
+					set {_randomitem} to random element out of {single.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+			if loop-block is a barrel:
+				clear loop-block's inventory
+				loop 13 times:
+					set {_randomitem} to random element out of {material.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+	if {_rng} is between 51 and 100:
+		broadcast "&e<!> &aAll Containers at &c'Whitefoster Den' &ahas been refilled. &8(near -650 60 400)"
+		loop blocks in radius {@radius} around {dg2}:
+			if loop-block is a chest:
+				clear loop-block's inventory
+				loop 8 times:
+					set {_randomitem} to random element out of {material.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+				loop 2 times:
+					set {_randomitem} to random element out of {single.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+			if loop-block is a barrel:
+				clear loop-block's inventory
+				loop 13 times:
+					set {_randomitem} to random element out of {material.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+
+command /refill:
+	permission: op
+	trigger:
+		loop blocks in radius {@radius} around {dg1}:
+			if loop-block is a chest:
+				clear loop-block's inventory
+				loop 8 times:
+					set {_randomitem} to random element out of {material.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+					send "&aChest refilled"
+				loop 2 times:
+					set {_randomitem} to random element out of {single.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+					send "&aChest refilled"
+			if loop-block is a barrel:
+				clear loop-block's inventory
+				loop 13 times:
+					set {_randomitem} to random element out of {material.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+					send "&aChest refilled"
+		loop blocks in radius {@radius} around {dg2}:
+			if loop-block is a chest:
+				clear loop-block's inventory
+				loop 8 times:
+					set {_randomitem} to random element out of {material.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+					send "&aChest refilled"
+				loop 2 times:
+					set {_randomitem} to random element out of {single.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+					send "&aChest refilled"
+			if loop-block is a barrel:
+				clear loop-block's inventory
+				loop 13 times:
+					set {_randomitem} to random element out of {material.dg1.chest::*}
+					add {_randomitem} to loop-block's inventory
+					send "&aChest refilled"
+command /dg1spot:
+	permission: op
+	trigger:
+		set {dg1} to location of player
+		send "&aMiddle set!"
+command /dg2spot:
+	permission: op
+	trigger:
+		set {dg2} to location of player
+		send "&aMiddle set!"
+
+
+#crossb : multishot, unbreaking, chance to enroot victim V
+#boots: protection, soul walk, speed 1 passive, durability decays V
+#sword: sharpness, fagile, chance to lifesteal, chance to blind victim V
+#mask: poison heals you, chance to repair your held item, on damage taken chance to gain resistance V
+#bloomong set: gives you +5 damage with wooden sword 
+
+#birch single: chance to double output from wood, repair itself, increased protection vs swords
+#birch set: +10% succ colleting wood, +5 hearts, negate enroot
+
+#shears(?): sharpness, silk touch, mending, chance to enroot victim, chance to blind victim. 
+
+
+
+
+#dg1zb1 rapido, fraco sem dano /setblock ~ ~1 ~ spawner{SpawnData:{entity:{id:zombie,PersistenceRequired:1,CustomName:"\"dg1zb1\""}},SpawnRange:8,SpawnCount:2,MaxNearbyEntities:8,Delay:200,MinSpawnDelay:120,MaxSpawnDelay:400,RequiredPlayerRange:16} replace
+
+#dg1zb2 lento, mais vida sem dano /setblock ~ ~1 ~ spawner{SpawnData:{entity:{id:zombie,PersistenceRequired:1,CustomName:"\"dg1zb2\""}},SpawnRange:8,SpawnCount:2,MaxNearbyEntities:8,Delay:200,MinSpawnDelay:120,MaxSpawnDelay:400,RequiredPlayerRange:16} replace
+
+#dg1sk1 rapido, usa espada, dano medio /setblock ~ ~1 ~ spawner{SpawnData:{entity:{id:skeleton,PersistenceRequired:1,CustomName:"\"dg1sk1\""}},SpawnRange:8,SpawnCount:2,MaxNearbyEntities:8,Delay:200,MinSpawnDelay:120,MaxSpawnDelay:400,RequiredPlayerRange:16} replace
+
+#dg1sk2 sem vida, usa arco, alto dano /setblock ~ ~1 ~ spawner{SpawnData:{entity:{id:skeleton,PersistenceRequired:1,CustomName:"\"dg1sk2\""}},SpawnRange:8,SpawnCount:2,MaxNearbyEntities:8,Delay:200,MinSpawnDelay:120,MaxSpawnDelay:400,RequiredPlayerRange:16} replace
+
+#dg1spd1 muita vida, nao tão rapida /setblock ~ ~1 ~ spawner{SpawnData:{entity:{id:spider,PersistenceRequired:1,CustomName:"\"dg1spd1\""}},SpawnRange:8,SpawnCount:2,MaxNearbyEntities:8,Delay:200,MinSpawnDelay:120,MaxSpawnDelay:400,RequiredPlayerRange:16} replace

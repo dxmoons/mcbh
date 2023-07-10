@@ -1,0 +1,173 @@
+command /ec:
+	permission: op
+	trigger:
+		open ender chest to player
+
+
+on death:
+	attacker is a player:
+		set {_chance} to 1
+		if name of attacker's tool contains "debugdrops":
+			add 500 to {_chance}
+		if lore of attacker's helmet contains "luck +":
+			add 0.25 to {_chance}
+		if lore of attacker's chestplate contains "luck +":
+			add 0.5 to {_chance}
+		if lore of attacker's leggings contains "luck +":
+			add 0.5 to {_chance}
+		if lore of attacker's boots contains "luck +":
+			add 0.25 to {_chance}
+		chance of {_chance}+10%:
+			drop kes() at victim's location
+		victim's name contains "&e":
+			chance of {_chance}+10%:
+				drop kes() at victim's location
+				chance of 50%:
+					drop kes() at victim's location
+					chance of 33%:
+						drop kes() at victim's location
+		victim's name contains "&c":
+			chance of {_chance}+2%:
+				drop nfuel() at victim's location
+			chance of {_chance}+20%:
+				drop kes() at victim's location
+				chance of 80%:
+					drop kes() at victim's location
+					chance of 50%:
+						drop kes() at victim's location
+						chance of 33%:
+							drop kes() at victim's location
+							chance of 25%:
+								drop kes() at victim's location
+		victim's name is "&d&oMineral Guardian":
+			clear drops
+			chance of {_chance}+5%:
+				set {_i} to glowing ink sac
+				set {_r} to a random number between 0 and 5000
+				set 1st line of the lore of {_i} to "&f&oRight-Click to open this Pouch."
+				set 2nd line of the lore of {_i} to "&8%{_r}%"
+				set name of {_i} to "&bSmall Enchanted Pouch"
+				enchant {_i} with unbreaking 1
+				drop {_i} at victim's location
+		victim's name is "&c&oBone Cracker":
+			clear drops
+			chance of {_chance}%:
+				send "&e<!>&a &c&oBone Cracker &aDropped &e'Elionas Soul'&a." to attacker
+				set {_i} to glass bottle
+				set name of {_i} to "&eElionas Soul"
+				set {_n} to a random number between 1 and 5000
+				set 2nd line of the lore of {_i} to "&8%{_n}%"
+				set 1st line of the lore of {_i} to "&7Right-Click to release 'Elionas, The experiment'"
+				drop {_i} at victim's location
+			clear drops
+			chance of {_chance}+0.25%:
+				send "&e<!>&a &c&oBone Cracker &aDropped &b'jaw Breaker'&a." to attacker
+				drop jawbrek() at victim's location
+		victim's name is "&c&oInfected Beast":
+			clear drops
+			chance of {_chance}%:
+				send "&e<!>&a &c&oInfected Beast &aDropped &e'Elionas Soul'&a." to attacker
+				set {_i} to glass bottle
+				set name of {_i} to "&eElionas Soul"
+				set {_n} to a random number between 1 and 5000
+				set 2nd line of the lore of {_i} to "&8%{_n}%"
+				set 1st line of the lore of {_i} to "&7Right-Click to release 'Elionas, The experiment'"
+				drop {_i} at victim's location
+			chance of {_chance}+0.25%:
+				send "&e<!>&a &c&oInfected Beast &aDropped &b'Plague Scalpel'&a." to attacker
+				drop mkscal() at victim's location
+		victim's name is "&c&oRotten Bones":
+			clear drops
+			chance of {_chance}%:
+				send "&e<!>&a &c&oRotten Bones &aDropped &e'Elionas Soul'&a." to attacker
+				set {_i} to glass bottle
+				set name of {_i} to "&eElionas Soul"
+				set {_n} to a random number between 1 and 5000
+				set 2nd line of the lore of {_i} to "&8%{_n}%"
+				set 1st line of the lore of {_i} to "&7Right-Click to release 'Elionas, The experiment'"
+				drop {_i} at victim's location
+			chance of {_chance}+0.5%:
+				send "&e<!>&a &c&oRotten Bones &aDropped &b'Hunger Vest'&a." to attacker
+				drop hvest() at victim's location
+		victim's name is "&c&oBloomong":
+			clear drops
+			chance of {_chance}%:
+				send "&e<!>&a &c&oBloomong &aDropped &e'Resurrection from the woods's Soul'&a." to attacker
+				set {_i} to glass bottle
+				set name of {_i} to "&eResurrection Soul"
+				set {_n} to a random number between 1 and 5000
+				set 2nd line of the lore of {_i} to "&8%{_n}%"
+				set 1st line of the lore of {_i} to "&7Right-Click to release 'Resurrection from the woods'"
+				drop {_i} at victim's location
+			chance of {_chance}+1%:
+				send "&e<!>&a &c&oBloomong &aDropped &f'Florid Pants'&a." to attacker
+				drop blooleggs() at victim's location
+			chance of {_chance}+1%:
+				send "&e<!>&a &c&oBloomong &aDropped &f'Florid Tunic'&a." to attacker
+				drop bloochest() at victim's location
+
+		victim's name is "&c&oGuardian of The Root":
+			clear drops
+			chance of {_chance}%:
+				send "&e<!>&a &c&oGuardian of The Root &aDropped &e'Resurrection from the woods's Soul'&a." to attacker
+				set {_i} to glass bottle
+				set name of {_i} to "&eResurrection Soul"
+				set {_n} to a random number between 1 and 5000
+				set 2nd line of the lore of {_i} to "&8%{_n}%"
+				set 1st line of the lore of {_i} to "&7Right-Click to release 'Resurrection from the woods'"
+				drop {_i} at victim's location
+			chance of {_chance}*0.75+0.12%:
+				send "&e<!>&a &c&oGuardian of The Root &aDropped &e'Azthellar, Night Banisher'&a." to attacker
+				broadcast "&e<!>&f%attacker% &adropped &e'Azthellar, Night Banisher' &afrom &c&oGuardian of The Root&a."
+				drop azthe() at victim's location
+		victim's name is "&c&oLiving-Wood Bolter":
+			clear drops
+			chance of {_chance}%:
+				send "&e<!>&a &c&oLiving-Wood Bolter &aDropped &e'Resurrection from the woods's Soul'&a." to attacker
+				set {_i} to glass bottle
+				set name of {_i} to "&eResurrection Soul"
+				set {_n} to a random number between 1 and 5000
+				set 2nd line of the lore of {_i} to "&8%{_n}%"
+				set 1st line of the lore of {_i} to "&7Right-Click to release 'Resurrection from the woods'"
+				drop {_i} at victim's location
+			chance of {_chance}+0.5%:
+				send "&e<!>&a &c&oLiving-Wood Bolter &aDropped &b'Leafy Bolter'&a." to attacker
+				drop leafcross() at victim's location
+		victim's name is "&c&oLiving-Wood Marksman":
+			clear drops
+			chance of {_chance}%:
+				send "&e<!>&a &c&oLiving-Wood Marksman &aDropped &e'Resurrection from the woods's Soul'&a." to attacker
+				set {_i} to glass bottle
+				set name of {_i} to "&eResurrection Soul"
+				set {_n} to a random number between 1 and 5000
+				set 2nd line of the lore of {_i} to "&8%{_n}%"
+				set 1st line of the lore of {_i} to "&7Right-Click to release 'Resurrection from the woods'"
+				drop {_i} at victim's location
+			chance of {_chance}+0.5%:
+				send "&e<!>&a &c&oLiving-Wood Marksman &aDropped &b'Shoes of the wind'&a." to attacker
+				drop windshoes() at victim's location
+		victim's name is "&c&oTree Dweller":
+			clear drops
+			chance of {_chance}%:
+				send "&e<!>&a &c&oTree Dweller &aDropped &e'Resurrection from the woods's Soul'&a." to attacker
+				set {_i} to glass bottle
+				set name of {_i} to "&eResurrection Soul"
+				set {_n} to a random number between 1 and 5000
+				set 2nd line of the lore of {_i} to "&8%{_n}%"
+				set 1st line of the lore of {_i} to "&7Right-Click to release 'Resurrection from the woods'"
+				drop {_i} at victim's location
+			chance of {_chance}+0.5%:
+				send "&e<!>&a &c&oTree Dweller &aDropped &d'The Ent's Maskara'&a." to attacker
+				drop mask() at victim's location
+
+
+
+
+
+
+
+
+
+
+
+

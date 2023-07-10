@@ -1,0 +1,144 @@
+
+on join:
+	send player title "&e&lWelcome to MCBH!" and subtitle "&e&oEnjoy!" for 6 seconds
+	if {%player%.logged} is not set:
+		set {%player%.move} to false
+		set walk speed of player to 0
+		loop 50 times:
+			send " " to player
+			send " " to player
+			send " " to player
+		wait 10 ticks
+		send "&d'  "
+		send "  "
+		send "  "
+		send "  "
+		send "  "
+		send "  "
+		send "           &f&lMinecraft: "
+		send "           &f&oBut Harder."
+		send "  "
+		send "  "
+		send "         &8Testing phase   "
+		send "           &8&oPatch: T_2    "
+		send "  "
+		send "  "
+		send "  "
+		send "  "
+		send "  "
+		send "                                     &d'"
+		send "  " to player
+		send "&e<!>    &f Please login using &a/login <password>   " to player
+		send "&e<!>     &f     If this is your first join:            " to player
+		send "&e<!>      &f  Register using &a/register <password>&f!" to player
+
+
+command /register [<text>] [<text>]:
+	trigger:
+		if arg 1 is not set:
+			send "&e<!> &cWrong usage. &f/register &f&o<pass>" to player
+		if arg 1 is set:
+			if arg 2 is not set:
+				if {%player%.password} is not set:
+					send "&e<!> &aRegistered. Password: &a%arg 1%" to player
+					set {%player%.password} to "%arg 1%"
+					set walk speed of player to 0.2
+					set {%player%.logged} to true
+				else:
+					send "&cHey! Don't you remember? You have already registered an account!" to player
+			else:
+				send "&cDon't type it twice! it's to annyoing to type it twice!" to player
+
+command /login [<text>] [<text>]:
+	trigger:
+		if arg 1 is not set:
+			send "&cMake sure you have entered your password!" to player
+			send "&cForgot your password? Don't worry! Use your recovery code using &l/rauth <yourCode>&c!" to player
+		if arg 1 is set:
+			arg 2 is not set:
+				if {%player%.password} is set:
+					if {%player%.password} is arg 1:
+						if {%player%.logged} is not set:
+							send "&e<!> &aLogin successfull" to player
+							set walk speed of player to 0.2
+							set {%player%.logged} to true
+						else:
+							send "&e<!> &cAlready logged-in" to player
+					else:
+						send "&e<!> &cWrong password" to player
+				else:
+					send "&e<!> &aYou are not registered. Please &f/register &f&o<pass>" to player
+			else:
+				send "&cJust don't type it twice! It's silly!" to player
+		else:
+			send "&e<!> &cWrong usage. &f/login &f&o<pass>" to player
+	
+command /rcode [<text>] [<text>]:
+	trigger:
+		if arg 1 is not set:
+			send "&cTry entering a new recovery code! It won't hurt you!" to player
+		else:
+			if arg 2 is not set:
+				{%player%.rcode} is not set:
+					{%player%.logged} is true:
+						send "&2You're awesome! Now you can reset your password anytime you want!" to player
+						set {%player%.rcode} to arg 1
+					else:
+						send "&cNope! Log in first!" to player
+				else:
+					send "&cRecovery password can't be changed, so i hope you remeber it!" to player
+			else:
+				send "&cYou're crazy! Don't, don't, don't... Just don't type it twice!" to player
+
+command /rauth [<text>] [<text>]:
+	trigger:
+		if arg 1 is not set:
+			send "&cWell... It would be good if you entered your recovery code." to player
+		else:
+			if arg 1 is not set:
+				{%player%.rcode} is set:
+					set {_number} to random number between 1000 and 9999
+					send "&2Your new password is &a%{_number}%&2!" to player
+					set {%player%.password} to {_number}
+				else:
+					send "&cYou haven't set your code already!" to player
+			else:
+				send "&cRight... I was telling you all the time, but it seems to be useless... Don't type it twice!" to player
+
+
+on chat:
+	if {%player%.logged} is false:
+		cancel event
+	if {%player%.logged} is not set:
+		cancel event
+
+on disconnect:
+	delete {%player%.logged}		
+
+on damage:
+	victim is a player:
+		{%victim%.logged} is not set:
+			cancel event
+		{%victim%.logged} is not set:
+			cancel event
+
+on drop:
+	if {%player%.logged} is false:
+		cancel event
+	if {%player%.logged} is not set:
+		cancel event
+
+on any movement:
+	{%player%.logged} is false:
+		cancel event
+	{%player%.logged} is not set:
+		cancel event
+
+on command:
+	command is "login" or "register":
+		add 1 to {_nothing}
+	else:
+		{%player%.logged} is false:
+			cancel event
+		{%player%.logged} is not set:
+			cancel event

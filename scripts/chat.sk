@@ -1,0 +1,698 @@
+#patch 1: adicionar o resto das funçoes de cozinhar
+
+                                                                                         
+#RRRRRRRRRRRRRRRRR                                      kkkkkkkk                          
+#R::::::::::::::::R                                     k::::::k                          
+#R::::::RRRRRR:::::R                                    k::::::k                          
+#RR:::::R     R:::::R                                   k::::::k                          
+#  R::::R     R:::::R  aaaaaaaaaaaaa  nnnn  nnnnnnnn     k:::::k    kkkkkkk  ssssssssss   
+#  R::::R     R:::::R  a::::::::::::a n:::nn::::::::nn   k:::::k   k:::::k ss::::::::::s  
+#  R::::RRRRRR:::::R   aaaaaaaaa:::::an::::::::::::::nn  k:::::k  k:::::kss:::::::::::::s 
+#  R:::::::::::::RR             a::::ann:::::::::::::::n k:::::k k:::::k s::::::ssss:::::s
+#  R::::RRRRRR:::::R     aaaaaaa:::::a  n:::::nnnn:::::n k::::::k:::::k   s:::::s  ssssss 
+#  R::::R     R:::::R  aa::::::::::::a  n::::n    n::::n k:::::::::::k      s::::::s      
+#  R::::R     R:::::R a::::aaaa::::::a  n::::n    n::::n k:::::::::::k         s::::::s   
+#  R::::R     R:::::Ra::::a    a:::::a  n::::n    n::::n k::::::k:::::k  ssssss   s:::::s 
+#RR:::::R     R:::::Ra::::a    a:::::a  n::::n    n::::nk::::::k k:::::k s:::::ssss::::::s
+#R::::::R     R:::::Ra:::::aaaa::::::a  n::::n    n::::nk::::::k  k:::::ks::::::::::::::s 
+#R::::::R     R:::::R a::::::::::aa:::a n::::n    n::::nk::::::k   k:::::ks:::::::::::ss  
+#RRRRRRRR     RRRRRRR  aaaaaaaaaa  aaaa nnnnnn    nnnnnnkkkkkkkk    kkkkkkksssssssssss    
+                                                                                       
+
+
+
+
+
+on first join:
+	set {ingui.%player%} to false
+
+
+
+command /rankset <player> <text>:
+	permission: op
+	trigger:
+		if arg-2 is "adm":
+			set {rank.%arg-1%} to "admin"
+			send "&e<&c@&e> &aYou are now &eAdministrator" to arg-1
+			send "&e<&c@&e> &aYou set %arg-1% rank to &eAdministrator" to executor
+		if arg-2 is "gm":
+			set {rank.%arg-1%} to "gm"
+			send "&e<&c@&e> &aYou are now &dGame-Master" to arg-1
+			send "&e<&c@&e> &aYou set %arg-1% rank to &dGame-Master" to executor
+		if arg-2 is "pmod":
+			set {rank.%arg-1%} to "pmod"
+			send "&aYou are now &bPlayer Moderator" to arg-1
+			send "&aYou set %arg-1% rank to &bPlayer Moderator" to executor
+		if arg-2 is "build":
+			set {rank.%arg-1%} to "builder"
+			send "&e<&c@&e> &aYou are now &cBuilder" to arg-1
+			send "&e<&c@&e> &aYou set %arg-1% rank to &cBuilder" to executor
+		if arg-2 is "0":
+			clear {rank.%arg-1%}
+			send "&e<&c@&e> &aAll your ranks has been cleared." to arg-1
+			send "&e<&c@&e> &aYou cleared all %arg-1% ranks." to executor
+
+
+command /clearchat:
+	permission: op
+	trigger:
+		loop 30 times:
+			send "  "
+			send "  "
+			send "  "
+
+
+
+
+command /guidebug:
+	trigger:
+		set {ingui.%player%} to false
+
+                                                                                              
+                                 
+
+                                                                                 
+                                                                                 
+#        CCCCCCCCCCCCChhhhhhh                                       tttt          
+#     CCC::::::::::::Ch:::::h                                    ttt:::t          
+#   CC:::::::::::::::Ch:::::h                                    t:::::t          
+#  C:::::CCCCCCCC::::Ch:::::h                                    t:::::t          
+# C:::::C       CCCCCC h::::h hhhhh         aaaaaaaaaaaaa  ttttttt:::::ttttttt    
+#C:::::C               h::::hh:::::hhh      a::::::::::::a t:::::::::::::::::t    
+#C:::::C               h::::::::::::::hh    aaaaaaaaa:::::at:::::::::::::::::t    
+#C:::::C               h:::::::hhh::::::h            a::::atttttt:::::::tttttt    
+#C:::::C               h::::::h   h::::::h    aaaaaaa:::::a      t:::::t          
+#C:::::C               h:::::h     h:::::h  aa::::::::::::a      t:::::t          
+#C:::::C               h:::::h     h:::::h a::::aaaa::::::a      t:::::t          
+# C:::::C       CCCCCC h:::::h     h:::::ha::::a    a:::::a      t:::::t    tttttt
+#  C:::::CCCCCCCC::::C h:::::h     h:::::ha::::a    a:::::a      t::::::tttt:::::t
+#   CC:::::::::::::::C h:::::h     h:::::ha:::::aaaa::::::a      tt::::::::::::::t
+#     CCC::::::::::::C h:::::h     h:::::h a::::::::::aa:::a       tt:::::::::::tt
+#        CCCCCCCCCCCCC hhhhhhh     hhhhhhh  aaaaaaaaaa  aaaa         ttttttttttt  
+                                                                                 
+                                                                                 
+                                                                                 
+                                                                          
+                                                                                 
+on first join:
+	set {alig.%player%} to "neutral"
+	set {ingui.%player%} to false
+
+
+command /debugalig:
+	permission: op
+	trigger:
+		set {alig.%player%} to "neutral"                                                                      
+                                                                                 
+
+on chat:
+	cancel event
+	if message contains "[i]" or "[item]":
+		player's tool is not air:
+			if message contains "[i]":
+				set {_t::*} to message split at "[i]"
+			else if message contains "[item]":
+				set {_t::*} to message split at "[item]"
+			set {_toolname} to name of player's tool
+			set {_toolname} to "%player's tool's type%" in proper case if {_toolname} is not set
+			if {rank.%player%} is "gm":
+				set {_comp::1} to text component of "&cGame-Master&7&o~ &e"
+			if {rank.%player%} is "pmod":
+				set {_comp::1} to text component of "&b&o%Player%&7&o~ &f"
+			if {rank.%player%} is "admin":
+				set {_comp::1} to text component of "&7[&d&oadm&7] &b%Player%&7&o~ &f"
+			if {rank.%player%} is not set:
+				set {_comp::1} to text component of "&f&o%Player%&7&o~ &f"
+			set {_comp::2} to text component of {_t::1}
+			if {ranks::%player's uuid%} is "&8[&7Starter&8]&7":
+				set {_comp::3} to text component from " &8| &d%{_toolname}% &7&o(x%amount of tool in player's inventory%) &8|&7"
+			else:
+				set {_comp::3} to text component from " &8| &d%{_toolname}% &7&o(x%amount of tool in player's inventory%) &8|&f"
+			set hover event of {_comp::3} to a new hover event showing player's tool
+			set {_comp::4} to text component of {_t::2}
+			broadcast text components {_comp::*}
+		else:
+			cancel event
+			send "&cHold something to use [item]!" to player
+	if message contains "[i]" or "[item]":
+		stop
+	if {rank.%player%} is not set:
+		if {ingui.%player%} is false:
+			if {alig.%player%} is "neutral":
+				broadcast "&f&o%Player%&7&o~ &f%message%"
+			if {alig.%player%} is "redskull":
+				broadcast "&c☠ &f&o%Player%&7&o~ &f%message%"
+			if {alig.%player%} is "greenshield":
+				broadcast "&a🛡 &f&o%Player%&7&o~ &f%message%"
+	if {rank.%player%} is "pmod":
+		if {ingui.%player%} is false:
+			if {alig.%player%} is "neutral":
+				broadcast "&b&o%Player%&7&o~ &f%message%"
+			if {alig.%player%} is "redskull":
+				broadcast "&c☠ &b&o%Player%&7&o~ &f%message%"
+			if {alig.%player%} is "greenshield":
+				broadcast "&a🛡 &b&o%Player%&7&o~ &f%message%"
+	if {rank.%player%} is "admin":
+		if {ingui.%player%} is false:
+			broadcast "&7[&d&oadm&7] &b%Player%&7&o~ &f%message%"
+	if {rank.%player%} is "builder":
+		if {ingui.%player%} is false:
+			broadcast "&7[&c&obuild&7] &b%Player%&7&o~ &f%message%"
+	if {rank.%player%} is "gm":
+		if {ingui.%player%} is false:
+			if {alig.%player%} is "neutral":
+				broadcast "&cGame-Master&7&o~ &e%message%"                                                                                                                                                                                           
+                                                                                              
+#        GGGGGGGGGGGGGUUUUUUUU     UUUUUUUUIIIIIIIIII                                          
+#     GGG::::::::::::GU::::::U     U::::::UI::::::::I                                          
+#   GG:::::::::::::::GU::::::U     U::::::UI::::::::I                                          
+#  G:::::GGGGGGGG::::GUU:::::U     U:::::UUII::::::II                                          
+# G:::::G       GGGGGG U:::::U     U:::::U   I::::I                                            
+#G:::::G               U:::::D     D:::::U   I::::I                                            
+#G:::::G               U:::::D     D:::::U   I::::I                                            
+#G:::::G    GGGGGGGGGG U:::::D     D:::::U   I::::I                                            
+#G:::::G    G::::::::G U:::::D     D:::::U   I::::I                                            
+#G:::::G    GGGGG::::G U:::::D     D:::::U   I::::I                                            
+#G:::::G        G::::G U:::::D     D:::::U   I::::I                                            
+# G:::::G       G::::G U::::::U   U::::::U   I::::I                                            
+#  G:::::GGGGGGGG::::G U:::::::UUU:::::::U II::::::II                                          
+#   GG:::::::::::::::G  UU:::::::::::::UU  I::::::::I                                          
+#     GGG::::::GGG:::G    UU:::::::::UU    I::::::::I                                          
+#        GGGGGG   GGGG      UUUUUUUUU      IIIIIIIIII     
+
+
+
+
+	if {ingui.%player%} is true:
+		if {assig.%player%} is true:
+			if {assi.name.%player%} is false:
+				if message is "y" or "yes":
+					set {assi.name.%player%} to true
+					send "&e<!> &aType location name" to player
+				else:
+					send "&e<!> &cCanceled."
+					set {ingui.%player%} to false
+					set {assig.%player%} to false
+			else:
+				if player's tool is a enchanted book named "&eUnassigned Teleportation Tome":
+					set 2nd line of the lore of player's tool to "&a%message%"
+					send "&e<!> &aLocation Assigned"
+					set {loc.%player%.%message%} to the player's location
+					set name of player's tool to "&eTome of Teleportation"
+					set 1st line of the lore of player's tool to "&7Right-Click to teleport to assigned location"
+					set {ingui.%player%} to false
+					set {assi.name.%player%} to false
+					set {assig.%player%} to false
+				else:
+					send "&e<!> &cYou MUST be holding your tome."
+					set {ingui.%player%} to false
+					set {assi.name.%player%} to false
+					set {assig.%player%} to false
+
+
+
+
+		if {incauld.%player%} is true:
+			if {bloodysoup.%player%} is true:
+				if message is "y" or "yes":
+					if event-player's inventory contains 8 beetroot:
+						if event-player's inventory contains 1 bowl:
+							if event-player's inventory contains 1 red tulip:
+								if event-player's inventory contains 4 red mushroom:
+									remove 8 beetroot from player's inventory
+									remove 1 bowl from player's inventory
+									remove 1 red tulip from player's inventory
+									remove 4 red mushroom from player's inventory
+									give 1 beetroot soup named "&fBloody Soup" to player
+									send "&e<!> &aYou Cooked a &fBloody Soup."
+									play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location for player
+								else:
+									clear {incauld.%player%}
+									clear {ingui.%player%}
+									clear {bloodysoup.%player%}
+									send "&e<!> &cNot Enough Materials."
+							else:
+								clear {incauld.%player%}
+								clear {ingui.%player%}
+								clear {bloodysoup.%player%}
+								send "&e<!> &cNot Enough Materials."
+						else:
+							clear {incauld.%player%}
+							clear {ingui.%player%}
+							clear {bloodysoup.%player%}
+							send "&e<!> &cNot Enough Materials."
+					else:
+						clear {incauld.%player%}
+						clear {ingui.%player%}
+						clear {bloodysoup.%player%}
+						send "&e<!> &cNot Enough Materials."
+				else:
+					clear {incauld.%player%}
+					clear {ingui.%player%}
+					clear {bloodysoup.%player%}
+					send "&e<!> &cCancelled."
+		if {incauld.%player%} is true:
+			if {pumpstew.%player%} is true:
+				if message is "y" or "yes":
+					if event-player's inventory contains 2 pumpkin:
+						if event-player's inventory contains 1 bowl:
+							if event-player's inventory contains 3 potato:
+								if event-player's inventory contains 3 carrot:
+									remove 2 pumpkin from player's inventory
+									remove 1 bowl from player's inventory
+									remove 3 carrot from player's inventory
+									remove 3 potato from player's inventory
+									give 1 rabbit stew named "&fPumpkin Stew" to player
+									send "&e<!> &aYou Cooked a &fPumpkin Stew."
+									play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location for player
+								else:
+									clear {incauld.%player%}
+									clear {ingui.%player%}
+									clear {pumpstew.%player%}
+									send "&e<!> &cNot Enough Materials."
+							else:
+								clear {incauld.%player%}
+								clear {ingui.%player%}
+								clear {pumpstew.%player%}
+								send "&e<!> &cNot Enough Materials."
+						else:
+							clear {incauld.%player%}
+							clear {ingui.%player%}
+							clear {pumpstew.%player%}
+							send "&e<!> &cNot Enough Materials."
+					else:
+						clear {incauld.%player%}
+						clear {ingui.%player%}
+						clear {pumpstew.%player%}
+						send "&e<!> &cNot Enough Materials."
+				else:
+					clear {incauld.%player%}
+					clear {ingui.%player%}
+					clear {pumpstew.%player%}
+					send "&e<!> &cCancelled."
+		if {zonenameset.%player%} is true:
+			if {finishingzone.%player%} is false:
+				if message is "y" or "yes":
+					send "&e<!> &aType zone name" to player
+					set {finishingzone.%player%} to true
+					stop
+				else:
+					set {ingui.%player%} to false
+					set {zonenameset.%player%} to false
+					send "&cCancelled!"
+					set {finishingzone.%player%} to false
+					stop
+			if {finishingzone.%player%} is true:
+				set {ingui.%player%} to false
+				set {_zonename} to "%message%"
+				if player's tool is a bell named "&fZone Bell":
+					add {_zonename} to the lore of player's tool
+					clear 1st line of the lore of player's tool
+					set 2st line of the lore of player's tool to "&azone name set"
+					play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location for player
+					set {finishingzone.%player%} to false
+					set {zonenameset.%player%} to false
+				else:
+					send "&e<!> &cYou must be holding your &eUnassigned Tome of Teleportation&c."
+					set {finishingzone.%player%} to false
+					set {zonenameset.%player%} to false
+					stop
+		if {inanvil.%player%} is true:
+			if {cluster.%player%} is true:
+				if message is "y" or "yes":
+					if event-player's inventory contains {k.cost.%player%} of sunflower named "&eGold Kesaf":
+						if player's inventory contains {d.cost.%player%} of diamond:
+							if player's inventory contains {l.cost.%player%} of lapis lazuli:
+								remove {k.cost.%player%} of sunflower named "&eGold Kesaf" from player's inventory
+								remove {l.cost.%player%} of lapis lazuli from player's inventory
+								remove {d.cost.%player%} of diamond from player's inventory
+								set {_enchants::*} to {anvilitem.%player%}'s enchantments
+								set {_size} to the size of {_enchants::*}
+								loop {_size} times:
+									set {_ench} to a random element out of {_enchants::*}
+									remove {_ench} from {_enchants::*}
+									set {_item} to amethyst shard
+									enchant {_item} with {_ench}
+									set name of {_item} to "&eEnchanted Shard"
+									set {_lore} to a random number between 0 and 10000
+									add "&8&o%{_lore}%" to the lore of {_item}
+									give {_item} to player
+									play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location for player
+
+								add {k.cost.%player%} to {kesaf}
+								send "&e<!> &aCluster broken in &a&l%{_size}% &apieces."
+								clear {k.cost.%player%}
+								clear {d.cost.%player%}
+								clear {l.cost.%player%}
+								set {ingui.%player%} to false
+								set {inanvil.%player%} to false
+								set {cluster.%player%} to false
+							else:
+								send "&cNot Enough Lapis-Lazuli." to player
+								clear {k.cost.%player%}
+								clear {d.cost.%player%}
+								clear {l.cost.%player%}
+								set {ingui.%player%} to false
+								set {inanvil.%player%} to false
+								set {cluster.%player%} to false
+								set {_i} to {anvilitem.%player%}
+								give {_i} to event-player
+						else:
+							send "&cNot Enough Diamond(s)." to player
+							clear {k.cost.%player%}
+							clear {d.cost.%player%}
+							clear {l.cost.%player%}
+							set {ingui.%player%} to false
+							set {inanvil.%player%} to false
+							set {cluster.%player%} to false
+							set {_i} to {anvilitem.%player%}
+							give {_i} to event-player
+					else:
+						send "&cNot Enough KE$." to player
+						clear {k.cost.%player%}
+						clear {d.cost.%player%}
+						clear {l.cost.%player%}
+						set {ingui.%player%} to false
+						set {inanvil.%player%} to false
+						set {cluster.%player%} to false
+						set {_i} to {anvilitem.%player%}
+						give {_i} to event-player	
+				else:
+					clear {k.cost.%player%}
+					clear {d.cost.%player%}
+					clear {l.cost.%player%}
+					set {ingui.%player%} to false
+					set {inanvil.%player%} to false
+					set {cluster.%player%} to false
+					set {_i} to {anvilitem.%player%}
+					give {_i} to event-player	
+					send "&e<!> &cCancelled."
+			if {cluster2.%player%} is true:
+				if message is "y" or "yes":
+					if event-player's inventory contains {k.cost.%player%} of sunflower named "&eGold Kesaf":
+						if player's inventory contains {a.cost.%player%} of amethyst shard:
+							if player's inventory contains {s.cost.%player%} of nether star:
+								remove {k.cost.%player%} of sunflower named "&eGold Kesaf" from player's inventory
+								remove {a.cost.%player%} of amethyst shard from player's inventory
+								remove {s.cost.%player%} of nether star from player's inventory
+								set {_enchants::*} to {anvilitem.%player%}'s enchantments
+								set {_size} to the size of {_enchants::*}
+								loop {_size} times:
+									set {_ench} to a random element out of {_enchants::*}
+									remove {_ench} from {_enchants::*}
+									set {_item} to amethyst shard
+									enchant {_item} with {_ench}
+									set name of {_item} to "&eEnchanted Shard"
+									set {_lore} to a random number between 0 and 10000
+									add "&8&o%{_lore}%" to the lore of {_item}
+									give {_item} to player
+								add {k.cost.%player%} to {kesaf}
+								play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location for player
+								send "&e<!> &aSuperior Cluster broken in &a&l%{_size}% &apieces."
+								clear {k.cost.%player%}
+								clear {a.cost.%player%}
+								clear {s.cost.%player%}
+								set {ingui.%player%} to false
+								set {inanvil.%player%} to false
+								set {cluster2.%player%} to false
+							else:
+								send "&cNot Enough Nether Start(s)." to player
+								clear {k.cost.%player%}
+								clear {a.cost.%player%}
+								clear {s.cost.%player%}
+								set {ingui.%player%} to false
+								set {inanvil.%player%} to false
+								set {cluster2.%player%} to false
+								set {_i} to {anvilitem.%player%}
+								give {_i} to event-player
+						else:
+							send "&cNot Enough Amethyst Shards." to player
+							clear {k.cost.%player%}
+							clear {s.cost.%player%}
+							clear {a.cost.%player%}
+							set {ingui.%player%} to false
+							set {inanvil.%player%} to false
+							set {cluster2.%player%} to false
+							set {_i} to {anvilitem.%player%}
+							give {_i} to event-player
+					else:
+						send "&cNot Enough KE$." to player
+						clear {k.cost.%player%}
+						clear {s.cost.%player%}
+						clear {a.cost.%player%}
+						set {ingui.%player%} to false
+						set {inanvil.%player%} to false
+						set {cluster2.%player%} to false
+						set {_i} to {anvilitem.%player%}
+						give {_i} to event-player	
+				else:
+					clear {k.cost.%player%}
+					clear {s.cost.%player%}
+					clear {a.cost.%player%}
+					set {ingui.%player%} to false
+					set {inanvil.%player%} to false
+					set {cluster2.%player%} to false
+					set {_i} to {anvilitem.%player%}
+					give {_i} to event-player	
+					send "&e<!> &cCancelled."
+		if {inanvil.%player%} is true:
+			if {scrapiron.%player%} is true:
+				set {_chance} to 16
+				set {_amount.iron} to 1
+				if message is "y" or "yes":
+					if event-player's inventory contains {c.cost.%player%} of copper ingot:
+						remove {c.cost.%player%} of copper ingot from player's inventory
+						set {_enchants::*} to {anvilitem.%player%}'s enchantments
+						set {_size} to the size of {_enchants::*}
+						if {_size} is bigger or equal to 1:
+							chance of {_chance}%:
+								set {_ench} to a random element out of {_enchants::*}
+								remove {_ench} from {_enchants::*}
+								set {_item} to amethyst shard
+								enchant {_item} with {_ench}
+								set name of {_item} to "&eEnchanted Shard"
+								set {_lore} to a random number between 0 and 10000
+								add "&8&o%{_lore}%" to the lore of {_item}
+								give {_item} to player
+						give {_amount.iron} of iron ingot to player
+						play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location for player
+						chance of {forge.level.%player%}/4:
+							if {debug.%player%} is true:
+								send "&e<!> &aYour Smithing skills saved you 2 Copper Ingot(s)!"
+								add 2 copper ingot to player's inventory
+						add 7 to {forge.exp.%player%}
+						send "&e<!> &aItem Scrapped."
+						clear {c.cost.%player%}
+						set {ingui.%player%} to false
+						set {inanvil.%player%} to false
+						set {scrapiron.%player%} to false
+					else:
+						send "&cNot Enough Copper" to player
+						clear {c.cost.%player%}
+						set {ingui.%player%} to false
+						set {inanvil.%player%} to false
+						set {scrapiron.%player%} to false
+						set {_i} to {anvilitem.%player%}
+						give {_i} to event-player
+				else:
+					clear {c.cost.%player%}
+					set {ingui.%player%} to false
+					set {inanvil.%player%} to false
+					set {scrapiron.%player%} to false
+					set {_i} to {anvilitem.%player%}
+					give {_i} to event-player	
+					send "&e<!> &cCancelled."
+
+		if {inanvil.%player%} is true:
+			if {scrapdia.%player%} is true:
+				set {_chance} to 8
+				set {_amount.dia} to 1
+				if message is "y" or "yes":
+					if event-player's inventory contains {c.cost.%player%} of copper ingot:
+						remove {c.cost.%player%} of copper ingot from player's inventory
+						set {_enchants::*} to {anvilitem.%player%}'s enchantments
+						set {_size} to the size of {_enchants::*}
+						if {_size} is bigger or equal to 1:
+							chance of {_chance}%:
+								set {_ench} to a random element out of {_enchants::*}
+								remove {_ench} from {_enchants::*}
+								set {_item} to amethyst shard
+								enchant {_item} with {_ench}
+								set name of {_item} to "&eEnchanted Shard"
+								set {_lore} to a random number between 0 and 10000
+								add "&8&o%{_lore}%" to the lore of {_item}
+								give {_item} to player
+						give {_amount.dia} of diamond to player
+						add 26 to {forge.exp.%player%}
+						play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location for player
+						chance of {forge.level.%player%}/4:
+							if {debug.%player%} is true:
+								send "&e<!> &aYour Smithing skills saved you 4 Copper Ingot(s)!"
+								add 4 copper ingot to player's inventory
+						send "&e<!> &aItem Scrapped."
+						clear {c.cost.%player%}
+						set {ingui.%player%} to false
+						set {inanvil.%player%} to false
+						set {scrapdia.%player%} to false
+					else:
+						send "&cNot Enough Copper" to player
+						clear {c.cost.%player%}
+						set {ingui.%player%} to false
+						set {inanvil.%player%} to false
+						set {scrapdia.%player%} to false
+						set {_i} to {anvilitem.%player%}
+						give {_i} to event-player
+				else:
+					clear {c.cost.%player%}
+					set {ingui.%player%} to false
+					set {inanvil.%player%} to false
+					set {scrapdia.%player%} to false
+					set {_i} to {anvilitem.%player%}
+					give {_i} to event-player	
+					send "&e<!> &cCancelled."
+
+		if {inanvil.%player%} is true:
+			if {scrapnet.%player%} is true:
+				set {_chance} to 6
+				set {_amount.net} to 1
+				if message is "y" or "yes":
+					if event-player's inventory contains {c.cost.%player%} of copper ingot:
+						remove {c.cost.%player%} of copper ingot from player's inventory
+						set {_enchants::*} to {anvilitem.%player%}'s enchantments
+						set {_size} to the size of {_enchants::*}
+						if {_size} is bigger or equal to 1:
+							chance of {_chance}%:
+								set {_ench} to a random element out of {_enchants::*}
+								remove {_ench} from {_enchants::*}
+								set {_item} to amethyst shard
+								enchant {_item} with {_ench}
+								set name of {_item} to "&eEnchanted Shard"
+								set {_lore} to a random number between 0 and 10000
+								add "&8&o%{_lore}%" to the lore of {_item}
+								give {_item} to player
+						give {_amount.net} of netherite scrap to player
+						chance of {forge.level.%player%}/4:
+							if {debug.%player%} is true:
+								send "&e<!> &aYour Smithing skills saved you 7 Copper Ingot(s)!"
+								add 7 copper ingot to player's inventory
+						play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at player's location for player
+						add 86 to {forge.exp.%player%}
+						send "&e<!> &aItem Scrapped."
+						clear {c.cost.%player%}
+						set {ingui.%player%} to false
+						set {inanvil.%player%} to false
+						set {scrapnet.%player%} to false
+					else:
+						send "&cNot Enough Copper" to player
+						clear {c.cost.%player%}
+						set {ingui.%player%} to false
+						set {inanvil.%player%} to false
+						set {scrapnet.%player%} to false
+						set {_i} to {anvilitem.%player%}
+						give {_i} to event-player
+				else:
+					clear {c.cost.%player%}
+					set {ingui.%player%} to false
+					set {inanvil.%player%} to false
+					set {scrapnet.%player%} to false
+					set {_i} to {anvilitem.%player%}
+					give {_i} to event-player	
+					send "&e<!> &cCancelled."
+
+
+
+                                                                                        
+                                                                                        
+#HHHHHHHHH     HHHHHHHHH  iiii                            tttt                           
+#H:::::::H     H:::::::H i::::i                        ttt:::t                           
+#H:::::::H     H:::::::H  iiii                         t:::::t                           
+#HH::::::H     H::::::HH                               t:::::t                           
+#  H:::::H     H:::::H  iiiiiiinnnn  nnnnnnnn    ttttttt:::::ttttttt        ssssssssss   
+#  H:::::H     H:::::H  i:::::in:::nn::::::::nn  t:::::::::::::::::t      ss::::::::::s  
+#  H::::::HHHHH::::::H   i::::in::::::::::::::nn t:::::::::::::::::t    ss:::::::::::::s 
+#  H:::::::::::::::::H   i::::inn:::::::::::::::ntttttt:::::::tttttt    s::::::ssss:::::s
+#  H:::::::::::::::::H   i::::i  n:::::nnnn:::::n      t:::::t           s:::::s  ssssss 
+#  H::::::HHHHH::::::H   i::::i  n::::n    n::::n      t:::::t             s::::::s      
+#  H:::::H     H:::::H   i::::i  n::::n    n::::n      t:::::t                s::::::s   
+#  H:::::H     H:::::H   i::::i  n::::n    n::::n      t:::::t    ttttttssssss   s:::::s 
+#HH::::::H     H::::::HHi::::::i n::::n    n::::n      t::::::tttt:::::ts:::::ssss::::::s
+#H:::::::H     H:::::::Hi::::::i n::::n    n::::n      tt::::::::::::::ts::::::::::::::s 
+#H:::::::H     H:::::::Hi::::::i n::::n    n::::n        tt:::::::::::tt s:::::::::::ss  
+#HHHHHHHHH     HHHHHHHHHiiiiiiii nnnnnn    nnnnnn          ttttttttttt    sssssssssss    
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+
+
+
+
+
+command /hintload:
+	permission: op
+	trigger:
+		clear {hints::*}
+		add "&e<!> &aEvery &a&lLevel &arepresents a &a&l3.5%% chance &aof success using Shard Enchantment." to {hints::*}
+		add "&e<!> &aSpecial Creatures have &a&ldouble &athe chance of dropping &eKE$&a." to {hints::*}
+		add "&e<!> &a&lBosses &acan be dangerous and deadly, the most damage you deal the most &a&lrewards &ayou get." to {hints::*}
+		add "&e<!> &aBe Carefull at night! Evil Creatures can spawn anytime around you." to {hints::*}
+		add "&e<!> &aYou can die with &a&lno penality &a3 times every 2 hours." to {hints::*}
+		add "&e<!> &aIf You're lucky enough.... you may get a &a&lUnique Drop &afrom a boss." to {hints::*}
+		add "&e<!> &aUnique items have a very limited amount of uses. only after breaking it can be dropped again by &a&lSpecial Creatures &aor &a&lBosses&a." to {hints::*}
+		add "&e<!> &aCooking recipes are &a&lway &abetter than usual food." to {hints::*}
+		add "&e<!> &aFortune enchantment &a&lIncreases &ayour chances of getting ores from stones." to {hints::*}
+		add "&e<!> &aCopper can be used to break your old gear into &a&lscrap&a." to {hints::*}
+		add "&e<!> &cHARDMODE &aCan be activated once every &a&l12 hours &aand lasts for 2 whole hours of torture." to {hints::*}
+		add "&e<!> &aIn &cHARDMODE &ayou get 200%% more experience, 100%% more ore drops and 250%% more loot from Bosses & Special creatures." to {hints::*}
+		add "&e<!> &aTo Activate &cHARDMODE &aplayers must kill two shrine bosses." to {hints::*}
+		add "&e<!> &aBreed your animals! that way you can have a &a&lmore efficient &aliving stock." to {hints::*}
+		add "&e<!> &aDeepslate is harder to break and also deal more damage to your tools, but it have a better chance for ores too!" to {hints::*}
+		add "&e<!> &aEnchanted Shards can enchant literally &a&lany &aitem.&a be carefull using it." to {hints::*}
+		add "&e<!> &aThe &eMoxen &aare the best trinkets in game." to {hints::*}
+		add "&e<!> &aA Neutral death after the penality limit keeps you &a&ldead &afor few minutes." to {hints::*}
+		add "&e<!> &aScraping enchanted items at a high &a&lForge Level&a can award you a &d&oEnchantment Shard &aif you were lucky." to {hints::*}
+		add "&e<!> &aWhen breaking logs there is a great chance of damaging your log." to {hints::*}
+		add "&e<!> &aShift-Right-Click in a Anvil to scrap your stuff." to {hints::*}
+		add "&e<!> &aKilling Creatures in underground may spawn a more dangerous entity." to {hints::*}
+		add "&e<!> &aKilling Tortured Creatures in underground may spawn &a&lOre Sites." to {hints::*}
+		add "&e<!> &aAll name creatures have a special drop table." to {hints::*}
+		add "&e<!> &aYou can type [i] or [item] holding a item or item stack to show it on chat!" to {hints::*}
+
+
+
+
+
+
+
+
+
+
+command /treemelt [<number>]:
+	permission: op
+	trigger:
+		if arg-1 is not set:
+			send "&e2, 5 or 10" to player
+		if arg-1 is 2:
+			loop all blocks in radius 2 of player:
+				if loop-block is any log:
+					set loop-block to air
+				if loop-block is any leaves:
+					set loop-block to air
+			send "&e<&c@&e> &aall trees in radius 2 cleared"
+		if arg-1 is 5:
+			loop all blocks in radius 5 of player:
+				if loop-block is any log:
+					set loop-block to air
+				if loop-block is any leaves:
+					set loop-block to air
+			send "&e<&c@&e> &aall trees in radius 5 cleared"
+		if arg-1 is 10:
+			loop all blocks in radius 10 of player:
+				if loop-block is any log:
+					set loop-block to air
+				if loop-block is any leaves:
+					set loop-block to air
+			send "&e<&c@&e> &aall trees in radius 10 cleared"

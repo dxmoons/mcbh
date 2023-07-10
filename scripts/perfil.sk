@@ -1,0 +1,438 @@
+
+
+
+on first join:
+	set {combat.exp.%player%} to 0
+	set {combat.expmax.%player%} to 8
+	set {combat.level.%player%} to 1
+	set {forge.exp.%player%} to 0
+	set {forge.expmax.%player%} to 8
+	set {forge.level.%player%} to 1
+	set {farm.exp.%player%} to 0
+	set {farm.expmax.%player%} to 8
+	set {farm.level.%player%} to 1
+	set {combat.totalexp.%player%} to 0
+	set {farm.totalexp.%player%} to 0
+	set {forge.totalexp.%player%} to 0
+	set {total.death.%player%} to 0
+	set {death.%player%} to 0
+	set {rp.%player%} to 0
+	set {player.deaths.%player%} to 0
+command /combatdebug:
+	trigger:
+		set {combat.exp.%player%} to 0
+		set {combat.expmax.%player%} to 8
+		set {combat.level.%player%} to 1
+		set {forge.exp.%player%} to 0
+		set {forge.expmax.%player%} to 8
+		set {forge.level.%player%} to 1
+		set {farm.exp.%player%} to 0
+		set {farm.expmax.%player%} to 8
+		set {farm.level.%player%} to 1					
+
+		set {combat.totalexp.%player%} to 0		
+		set {farm.totalexp.%player%} to 0
+		set {forge.totalexp.%player%} to 0
+		set player's max health to 10
+		set {total.death.%player%} to 0
+		set {death.%player%} to 0
+
+on inventory click:
+	if name of event-inventory is "&8Profile":
+		cancel event
+command /profile:
+	trigger:
+		open chest inventory with 1 row named "&8Profile" to player
+		wait 1 tick
+		set {_i} to nether star
+		set {_combat} to gold sword
+		set {_gather} to gold hoe
+		set {_forge} to gold pickaxe
+		set {_pvp} to skeleton skull
+		set name of {_combat} to "&e&oCombat"
+		set name of {_gather} to "&e&oFarm & Gather"
+		set name of {_forge} to "&e&oMine & Forge"
+		set name of {_pvp} to "&ePK Information"
+		set {totalexp.%player%} to {forge.totalexp.%player%}+{combat.totalexp.%player%}+{farm.totalexp.%player%}
+		set {lv.%player%} to {farm.level.%player%} + {combat.level.%player%} + {forge.level.%player%}
+		set 1st line of the lore of {_i} to "&8|-> Total Level: &7&o%{lv.%player%}%"
+		set 2nd line of the lore of {_i} to "&8|-> Total EXP: &7&o%{totalexp.%player%}%"
+		set 3rd line of the lore of {_i} to "&8|-> Total Deaths: &7&o%{total.death.%player%}%"
+		set 4th line of the lore of {_i} to "&8|-> Recent Deaths: &7&o%{death.%player%}%&f/&7&o3"
+		set 5th line of the lore of {_i} to "&8|-> Rupee$: &7&o{rp.%player%}"
+		if {death.%player%} is bigger than 3:
+			set 3rd line of the lore of {_p} to "&8|-> Recent Deaths: &c&o%{death.%player%}%"			
+
+		if {templevel.combat.%player%} is not set:
+			set 1st line of the lore of {_combat} to "&fLevel: &e%{combat.level.%player%}%  %{combat.bar.%player%}% &a&o%{combat.exp.%player%}%&7&o/&a%{combat.expmax.%player%}%"
+		else:
+			set 1st line of the lore of {_combat} to "&fLevel: &e%{combat.level.%player%}%&8&o+%{templevel.combat.%player%}%  %{combat.bar.%player%}% &a&o%{combat.exp.%player%}%&7&o/&a%{combat.expmax.%player%}%"
+		set 1st line of the lore of {_pvp} to "&8|-> Aligment: &a&oNeutral"
+		if {alig.%player%} is "redskull":
+			set 1st line of the lore of {_pvp} to "&8|-> Aligment: &cRed Skull &8(Minutes: %{timer.rs.%player%}%)"	
+		if {alig.%player%} is "greenshield":
+			set 1st line of the lore of {_pvp} to "&8|-> Aligment: &aGreen Shield &8(Minutes: %{timer.gs.%player%}%)"
+		set 2nd line of the lore of {_pvp} to "&8|-> Player Kills: &8&o%{kills.%player%}%"
+		set 3rd line of the lore of {_pvp} to "&8|-> Player Deaths: &8&o%{player.deaths.%player%}%"
+		set 3rd line of the lore of {_combat} to "&8|-> +PvM Luck"
+		set 4th line of the lore of {_combat} to "&8|-> +Dodge chance"
+		set 5th line of the lore of {_combat} to "&8|-> +Hearts"
+		set 7th line of the lore of {_combat} to "&8&o¬Total exp: &7&o%{combat.totalexp.%player%}%"
+		set 1st line of the lore of {_gather} to "&fLevel: &e%{farm.level.%player%}%  %{farm.bar.%player%}% &a&o%{farm.exp.%player%}%&7&o/&a%{farm.expmax.%player%}%"
+		set 3rd line of the lore of {_gather} to "&8|-> +Gathering Luck"
+		set 4th line of the lore of {_gather} to "&8|-> +Animal loot"
+		set 5th line of the lore of {_gather} to "&8|-> +Crop loot"
+		set 6th line of the lore of {_gather} to "&8|-> Chance to save Items on craft Food"
+		set 7th line of the lore of {_gather} to "&8&o¬Total exp: &7&o%{farm.totalexp.%player%}%"
+		set 1st line of the lore of {_forge} to "&fLevel: &e%{forge.level.%player%}%  %{forge.bar.%player%}% &a&o%{forge.exp.%player%}%&7&o/&a%{forge.expmax.%player%}%"
+		set 3rd line of the lore of {_forge} to "&8|-> +Mining Luck"
+		set 4th line of the lore of {_forge} to "&8|-> Chance to save copper on scrap"
+		set 5th line of the lore of {_forge} to "&8|-> Chance to save durability"
+		set 6th line of the lore of {_forge} to "&8|-> Chance to save Iron on crafting"
+		set 7th line of the lore of {_forge} to "&8&o¬Total exp: &7&o%{forge.totalexp.%player%}%"
+		set slot 0 of player's current inventory to {_i} named "&f%player%&e's Information"
+		set slot 1 of player's current inventory to light gray stained glass pane named " "
+		set slot 3 of player's current inventory to {_combat}
+		set slot 2 of player's current inventory to light gray stained glass pane named " "
+		set slot 1 of player's current inventory to light gray stained glass pane named " "
+		set slot 4 of player's current inventory to {_gather}
+		set slot 5 of player's current inventory to {_forge}
+		set slot 6 of player's current inventory to light gray stained glass pane named " "
+		set slot 7 of player's current inventory to light gray stained glass pane named " "
+		set slot 8 of player's current inventory to {_pvp}
+
+command /me:
+	trigger:
+		open chest inventory with 1 row named "&8Profile" to player
+		wait 1 tick
+		set {_i} to nether star
+		set {_combat} to gold sword
+		set {_gather} to gold hoe
+		set {_forge} to gold pickaxe
+		set {_pvp} to skeleton skull
+		set name of {_combat} to "&e&oCombat"
+		set name of {_gather} to "&e&oFarm & Gather"
+		set name of {_forge} to "&e&oMine & Forge"
+		set name of {_pvp} to "&ePK Information"
+		set {totalexp.%player%} to {forge.totalexp.%player%}+{combat.totalexp.%player%}+{farm.totalexp.%player%}
+		set {lv.%player%} to {farm.level.%player%} + {combat.level.%player%} + {forge.level.%player%}
+		set 1st line of the lore of {_i} to "&8|-> Total Level: &7&o%{lv.%player%}%"
+		set 2nd line of the lore of {_i} to "&8|-> Total EXP: &7&o%{totalexp.%player%}%"
+		set 3rd line of the lore of {_i} to "&8|-> Total Deaths: &7&o%{total.death.%player%}%"
+		set 4th line of the lore of {_i} to "&8|-> Recent Deaths: &7&o%{death.%player%}%&f/&7&o3 &8&o[reset in %{death.timer}% Minutes]"
+		set 5th line of the lore of {_i} to "&8|-> Rupee$: &7&o%{rp.%player%}%"
+		if {death.%player%} is bigger than 3:
+			set 4th line of the lore of {_i} to "&8|-> Recent Deaths: &c&o%{death.%player%}%  &8&o[reset in %{death.timer}% Minutes]"			
+
+		if {templevel.combat.%player%} is not set:
+			set 1st line of the lore of {_combat} to "&fLevel: &e%{combat.level.%player%}%  %{combat.bar.%player%}% &a&o%{combat.exp.%player%}%&7&o/&a%{combat.expmax.%player%}%"
+		else:
+			set 1st line of the lore of {_combat} to "&fLevel: &e%{combat.level.%player%}%&8&o+%{templevel.combat.%player%}%  %{combat.bar.%player%}% &a&o%{combat.exp.%player%}%&7&o/&a%{combat.expmax.%player%}%"
+		set 1st line of the lore of {_pvp} to "&8|-> Aligment: &a&oNeutral"
+		if {alig.%player%} is "redskull":
+			set 1st line of the lore of {_pvp} to "&8|-> Aligment: &cRed Skull &8(Minutes: %{timer.rs.%player%}%)"	
+		if {alig.%player%} is "greenshield":
+			set 1st line of the lore of {_pvp} to "&8|-> Aligment: &aGreen Shield &8(Minutes: %{timer.gs.%player%}%)"
+		set 2nd line of the lore of {_pvp} to "&8|-> Player Kills: &8&o%{kills.%player%}%"
+		set 3rd line of the lore of {_pvp} to "&8|-> Player Deaths: &8&o%{player.deaths.%player%}%"
+		set 3rd line of the lore of {_combat} to "&8|-> +PvM Luck"
+		set 4th line of the lore of {_combat} to "&8|-> +Dodge chance"
+		set 5th line of the lore of {_combat} to "&8|-> +Hearts"
+		set 6th line of the lore of {_combat} to "&8|-> +Meele DMG"
+		set 7th line of the lore of {_combat} to "&8&o¬Total exp: &7&o%{combat.totalexp.%player%}%"
+		set 1st line of the lore of {_gather} to "&fLevel: &e%{farm.level.%player%}%  %{farm.bar.%player%}% &a&o%{farm.exp.%player%}%&7&o/&a%{farm.expmax.%player%}%"
+		set 3rd line of the lore of {_gather} to "&8|-> +Gathering Luck"
+		set 4th line of the lore of {_gather} to "&8|-> +Animal loot"
+		set 5th line of the lore of {_gather} to "&8|-> +Crop loot"
+		set 6th line of the lore of {_gather} to "&8|-> Chance to save Items on craft Food"
+		set 7th line of the lore of {_gather} to "&8&o¬Total exp: &7&o%{farm.totalexp.%player%}%"
+		set 1st line of the lore of {_forge} to "&fLevel: &e%{forge.level.%player%}%  %{forge.bar.%player%}% &a&o%{forge.exp.%player%}%&7&o/&a%{forge.expmax.%player%}%"
+		set 3rd line of the lore of {_forge} to "&8|-> +Mining Luck"
+		set 4th line of the lore of {_forge} to "&8|-> Chance to save copper on scrap"
+		set 5th line of the lore of {_forge} to "&8|-> Chance to save durability"
+		set 6th line of the lore of {_forge} to "&8|-> Chance to save iron on crafting"
+		set 7th line of the lore of {_forge} to "&8&o¬Total exp: &7&o%{forge.totalexp.%player%}%"
+		set slot 0 of player's current inventory to {_i} named "&f%player%&e's Information"
+		set slot 1 of player's current inventory to light gray stained glass pane named " "
+		set slot 3 of player's current inventory to {_combat}
+		set slot 2 of player's current inventory to light gray stained glass pane named " "
+		set slot 1 of player's current inventory to light gray stained glass pane named " "
+		set slot 4 of player's current inventory to {_gather}
+		set slot 5 of player's current inventory to {_forge}
+		set slot 6 of player's current inventory to light gray stained glass pane named " "
+		set slot 7 of player's current inventory to light gray stained glass pane named " "
+		set slot 8 of player's current inventory to {_pvp}
+
+command /pf:
+	trigger:
+		open chest inventory with 1 row named "&8Profile" to player
+		wait 1 tick
+		set {_i} to nether star
+		set {_combat} to gold sword
+		set {_gather} to gold hoe
+		set {_forge} to gold pickaxe
+		set {_pvp} to skeleton skull
+		set name of {_combat} to "&e&oCombat"
+		set name of {_gather} to "&e&oFarm & Gather"
+		set name of {_forge} to "&e&oMine & Forge"
+		set name of {_pvp} to "&ePK Information"
+		set {totalexp.%player%} to {forge.totalexp.%player%}+{combat.totalexp.%player%}+{farm.totalexp.%player%}
+		set {lv.%player%} to {farm.level.%player%} + {combat.level.%player%} + {forge.level.%player%}
+		set 1st line of the lore of {_i} to "&8|-> Total Level: &7&o%{lv.%player%}%"
+		set 2nd line of the lore of {_i} to "&8|-> Total EXP: &7&o%{totalexp.%player%}%"
+		set 3rd line of the lore of {_i} to "&8|-> Total Deaths: &7&o%{total.death.%player%}%"
+		set 4th line of the lore of {_i} to "&8|-> Recent Deaths: &7&o%{death.%player%}%&f/&7&o3"
+		set 5th line of the lore of {_i} to "&8|-> Rupee$: &7&o{rp.%player%}"
+		if {death.%player%} is bigger than 3:
+			set 3rd line of the lore of {_p} to "&8|-> Recent Deaths: &c&o%{death.%player%}%"			
+
+		if {templevel.combat.%player%} is not set:
+			set 1st line of the lore of {_combat} to "&fLevel: &e%{combat.level.%player%}%  %{combat.bar.%player%}% &a&o%{combat.exp.%player%}%&7&o/&a%{combat.expmax.%player%}%"
+		else:
+			set 1st line of the lore of {_combat} to "&fLevel: &e%{combat.level.%player%}%&8&o+%{templevel.combat.%player%}%  %{combat.bar.%player%}% &a&o%{combat.exp.%player%}%&7&o/&a%{combat.expmax.%player%}%"
+		set 1st line of the lore of {_pvp} to "&8|-> Aligment: &a&oNeutral"
+		if {alig.%player%} is "redskull":
+			set 1st line of the lore of {_pvp} to "&8|-> Aligment: &cRed Skull &8(Minutes: %{timer.rs.%player%}%)"	
+		if {alig.%player%} is "greenshield":
+			set 1st line of the lore of {_pvp} to "&8|-> Aligment: &aGreen Shield &8(Minutes: %{timer.gs.%player%}%)"
+		set 2nd line of the lore of {_pvp} to "&8|-> Player Kills: &8&o%{kills.%player%}%"
+		set 3rd line of the lore of {_pvp} to "&8|-> Player Deaths: &8&o%{player.deaths.%player%}%"
+		set 3rd line of the lore of {_combat} to "&8|-> +PvM Luck"
+		set 4th line of the lore of {_combat} to "&8|-> +Dodge chance"
+		set 5th line of the lore of {_combat} to "&8|-> +Hearts"
+		set 6th line of the lore of {_combat} to "&8|-> +Meele DMG"
+		set 7th line of the lore of {_combat} to "&8&o¬Total exp: &7&o%{combat.totalexp.%player%}%"
+		set 1st line of the lore of {_gather} to "&fLevel: &e%{farm.level.%player%}%  %{farm.bar.%player%}% &a&o%{farm.exp.%player%}%&7&o/&a%{farm.expmax.%player%}%"
+		set 3rd line of the lore of {_gather} to "&8|-> +Gathering Luck"
+		set 4th line of the lore of {_gather} to "&8|-> +Animal loot"
+		set 5th line of the lore of {_gather} to "&8|-> +Crop loot"
+		set 6th line of the lore of {_gather} to "&8|-> Chance to save Items on craft Food"
+		set 7th line of the lore of {_gather} to "&8&o¬Total exp: &7&o%{farm.totalexp.%player%}%"
+		set 1st line of the lore of {_forge} to "&fLevel: &e%{forge.level.%player%}%  %{forge.bar.%player%}% &a&o%{forge.exp.%player%}%&7&o/&a%{forge.expmax.%player%}%"
+		set 3rd line of the lore of {_forge} to "&8|-> +Mining Luck"
+		set 4th line of the lore of {_forge} to "&8|-> Chance to save copper on scrap"
+		set 5th line of the lore of {_forge} to "&8|-> Chance to save durability"
+		set 6th line of the lore of {_forge} to "&8|-> Chance to save Iron on crafting"
+		set 7th line of the lore of {_forge} to "&8&o¬Total exp: &7&o%{forge.totalexp.%player%}%"
+		set slot 0 of player's current inventory to {_i} named "&f%player%&e's Information"
+		set slot 1 of player's current inventory to light gray stained glass pane named " "
+		set slot 3 of player's current inventory to {_combat}
+		set slot 2 of player's current inventory to light gray stained glass pane named " "
+		set slot 1 of player's current inventory to light gray stained glass pane named " "
+		set slot 4 of player's current inventory to {_gather}
+		set slot 5 of player's current inventory to {_forge}
+		set slot 6 of player's current inventory to light gray stained glass pane named " "
+		set slot 7 of player's current inventory to light gray stained glass pane named " "
+		set slot 8 of player's current inventory to {_pvp}
+
+
+
+every 10 ticks:
+	loop all players:
+		if loop-player's max health is 10:
+			if {combat.level.%loop-player%} is 5:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 10.5:
+			if {combat.level.%loop-player%} is 10:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 11:
+			if {combat.level.%loop-player%} is 15:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 11.5:
+			if {combat.level.%loop-player%} is 20:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 12:
+			if {combat.level.%loop-player%} is 25:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 12.5:
+			if {combat.level.%loop-player%} is 30:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 13:
+			if {combat.level.%loop-player%} is 35:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 13.5:
+			if {combat.level.%loop-player%} is 40:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 14:
+			if {combat.level.%loop-player%} is 45:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 14.5:
+			if {combat.level.%loop-player%} is 50:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 15:
+			if {combat.level.%loop-player%} is 55:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 15.5:
+			if {combat.level.%loop-player%} is 60:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 16:
+			if {combat.level.%loop-player%} is 65:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 16.5:
+			if {combat.level.%loop-player%} is 70:
+				add 0.5 to loop-player's max health
+		if loop-player's max health is 17:
+			if {combat.level.%loop-player%} is 75:
+				add 0.5 to loop-player's max health
+
+
+
+
+
+
+
+
+
+		set {combat.exp.%loop-player%} to rounded {combat.exp.%loop-player%}
+		if {combat.exp.%loop-player%} is bigger or equal to {combat.expmax.%loop-player%}:
+			set {combat.expmax.%loop-player%} to {combat.expmax.%loop-player%}/66+{combat.expmax.%loop-player%}*1.09
+			set {combat.expmax.%loop-player%} to rounded {combat.expmax.%loop-player%}
+			set {combat.exp.%loop-player%} to 0
+			add 1 to {combat.level.%loop-player%}
+			send "&e<!>&a Combat Level increased!  &8&o<&f&o%{combat.level.%loop-player%}-1% &a-> &f%{combat.level.%loop-player%}%&8&o>" to loop-player
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at loop-player's location
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*5:
+			set {combat.bar.%loop-player%} to "&a|&8|||||||||||||||||||"
+		else:
+			set {combat.bar.%loop-player%} to "&8||||||||||||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*10:
+			set {combat.bar.%loop-player%} to "&a||&8||||||||||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*15:
+			set {combat.bar.%loop-player%} to "&a|||&8|||||||||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*20:
+			set {combat.bar.%loop-player%} to "&a||||&8||||||||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*25:
+			set {combat.bar.%loop-player%} to "&a|||||&8|||||||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*30:
+			set {combat.bar.%loop-player%} to "&a||||||&8||||||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*35:
+			set {combat.bar.%loop-player%} to "&a|||||||&8|||||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*40:
+			set {combat.bar.%loop-player%} to "&a||||||||&8||||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*45:
+			set {combat.bar.%loop-player%} to "&a|||||||||&8|||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*50:
+			set {combat.bar.%loop-player%} to "&a||||||||||&8||||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*55:
+			set {combat.bar.%loop-player%} to "&a|||||||||||&8|||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*60:
+			set {combat.bar.%loop-player%} to "&a||||||||||||&8||||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*65:
+			set {combat.bar.%loop-player%} to "&a|||||||||||||&8|||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*70:
+			set {combat.bar.%loop-player%} to "&a||||||||||||||&8||||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*75:
+			set {combat.bar.%loop-player%} to "&a|||||||||||||||&8|||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*80:
+			set {combat.bar.%loop-player%} to "&a||||||||||||||||&8||||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*85:
+			set {combat.bar.%loop-player%} to "&a|||||||||||||||||&8|||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*90:
+			set {combat.bar.%loop-player%} to "&a||||||||||||||||||&8||"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*95:
+			set {combat.bar.%loop-player%} to "&a|||||||||||||||||||&8|"
+		if {combat.exp.%loop-player%} is bigger than or equal to {combat.expmax.%loop-player%}/100*99:
+			set {combat.bar.%loop-player%} to "&a||||||||||||||||||||"
+
+		set {farm.exp.%loop-player%} to rounded {farm.exp.%loop-player%}
+		if {farm.exp.%loop-player%} is bigger or equal to {farm.expmax.%loop-player%}:
+			set {farm.expmax.%loop-player%} to {farm.expmax.%loop-player%}/66+{farm.expmax.%loop-player%}*1.09
+			set {farm.expmax.%loop-player%} to rounded {farm.expmax.%loop-player%}
+			add 1 to {level.farm.%loop-player%}
+			set {Farm.exp.%loop-player%} to 0
+			add 1 to {Farm.level.%loop-player%}
+			send "&e<!>&a Farm & Gather Level increased!  &8&o<&f&o%{Farm.level.%loop-player%}-1% &a-> &f%{Farm.level.%loop-player%}%&8&o>" to loop-player
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at loop-player's location
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*5:
+			set {farm.bar.%loop-player%} to "&a|&8|||||||||||||||||||"
+		else:
+			set {farm.bar.%loop-player%} to "&8||||||||||||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*10:
+			set {farm.bar.%loop-player%} to "&a||&8||||||||||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*15:
+			set {farm.bar.%loop-player%} to "&a|||&8|||||||||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*20:
+			set {farm.bar.%loop-player%} to "&a||||&8||||||||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*25:
+			set {farm.bar.%loop-player%} to "&a|||||&8|||||||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*30:
+			set {farm.bar.%loop-player%} to "&a||||||&8||||||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*35:
+			set {farm.bar.%loop-player%} to "&a|||||||&8|||||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*40:
+			set {farm.bar.%loop-player%} to "&a||||||||&8||||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*45:
+			set {farm.bar.%loop-player%} to "&a|||||||||&8|||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*50:
+			set {farm.bar.%loop-player%} to "&a||||||||||&8||||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*55:
+			set {farm.bar.%loop-player%} to "&a|||||||||||&8|||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*60:
+			set {farm.bar.%loop-player%} to "&a||||||||||||&8||||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*65:
+			set {farm.bar.%loop-player%} to "&a|||||||||||||&8|||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*70:
+			set {farm.bar.%loop-player%} to "&a||||||||||||||&8||||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*75:
+			set {farm.bar.%loop-player%} to "&a|||||||||||||||&8|||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*80:
+			set {farm.bar.%loop-player%} to "&a||||||||||||||||&8||||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*85:
+			set {farm.bar.%loop-player%} to "&a|||||||||||||||||&8|||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*90:
+			set {farm.bar.%loop-player%} to "&a||||||||||||||||||&8||"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*95:
+			set {farm.bar.%loop-player%} to "&a|||||||||||||||||||&8|"
+		if {farm.exp.%loop-player%} is bigger than or equal to {farm.expmax.%loop-player%}/100*99:
+			set {farm.bar.%loop-player%} to "&a||||||||||||||||||||"
+			set {forge.exp.%loop-player%} to rounded {forge.exp.%loop-player%}
+		if {forge.exp.%loop-player%} is bigger or equal to {forge.expmax.%loop-player%}:
+			set {forge.expmax.%loop-player%} to {forge.expmax.%loop-player%}/66+{forge.expmax.%loop-player%}*1.09
+			set {forge.expmax.%loop-player%} to rounded {forge.expmax.%loop-player%}
+			add 1 to {forge.farm.%loop-player%}
+			set {forge.exp.%loop-player%} to 0
+			add 1 to {forge.level.%loop-player%}
+			send "&e<!>&a Mine & Forge Level increased!  &8&o<&f&o%{forge.level.%loop-player%}-1% &a-> &f%{forge.level.%loop-player%}%&8&o>" to loop-player
+			play sound "ENTITY_EXPERIENCE_ORB_PICKUP" with volume 1 with pitch 4 at loop-player's location
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*5:
+			set {forge.bar.%loop-player%} to "&a|&8|||||||||||||||||||"
+		else:
+			set {forge.bar.%loop-player%} to "&8||||||||||||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*10:
+			set {forge.bar.%loop-player%} to "&a||&8||||||||||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*15:
+			set {forge.bar.%loop-player%} to "&a|||&8|||||||||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*20:
+			set {forge.bar.%loop-player%} to "&a||||&8||||||||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*25:
+			set {forge.bar.%loop-player%} to "&a|||||&8|||||||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*30:
+			set {forge.bar.%loop-player%} to "&a||||||&8||||||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*35:
+			set {forge.bar.%loop-player%} to "&a|||||||&8|||||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*40:
+			set {forge.bar.%loop-player%} to "&a||||||||&8||||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*45:
+			set {forge.bar.%loop-player%} to "&a|||||||||&8|||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*50:
+			set {forge.bar.%loop-player%} to "&a||||||||||&8||||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*55:
+			set {forge.bar.%loop-player%} to "&a|||||||||||&8|||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*60:
+			set {forge.bar.%loop-player%} to "&a||||||||||||&8||||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*65:
+			set {forge.bar.%loop-player%} to "&a|||||||||||||&8|||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*70:
+			set {forge.bar.%loop-player%} to "&a||||||||||||||&8||||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*75:
+			set {forge.bar.%loop-player%} to "&a|||||||||||||||&8|||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*80:
+			set {forge.bar.%loop-player%} to "&a||||||||||||||||&8||||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*85:
+			set {forge.bar.%loop-player%} to "&a|||||||||||||||||&8|||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*90:
+			set {forge.bar.%loop-player%} to "&a||||||||||||||||||&8||"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*95:
+			set {forge.bar.%loop-player%} to "&a|||||||||||||||||||&8|"
+		if {forge.exp.%loop-player%} is bigger than or equal to {forge.expmax.%loop-player%}/100*99:
+			set {forge.bar.%loop-player%} to "&a||||||||||||||||||||"

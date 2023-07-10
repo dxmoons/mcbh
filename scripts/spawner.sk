@@ -1,0 +1,139 @@
+command /delspawner:
+	trigger:
+		loop all armor stands in radius 1 of player:
+			kill loop-entity
+
+
+command /spawner <text>:
+	permission: op
+	trigger:
+		if arg-1 is "show":
+			loop all armor stands in radius 5 of player:
+				set visibility of loop-entity to true
+				wait 3 seconds
+				set visibility of loop-entity to false
+		else:
+			spawn 1 armor stand at player's location
+			set visibility of last spawned entity to false
+			set name of last spawned entity to arg-1
+
+
+on break:
+	loop all armor stands in radius 20 of event-player:
+		if loop-entity name contains "elder":
+			cancel event
+			send "&cCant break here"
+on block place:
+	loop all armor stands in radius 20 of event-player:
+		if loop-entity name contains "elder":
+			cancel event
+			send "&cCant place here"
+on right-click:
+	event-item is a water bucket:
+		loop all armor stands in radius 20 of event-player:
+			if loop-entity name contains "elder":
+				cancel event
+				send "&cCant place here"
+	event-item is a water bucket:
+		loop all armor stands in radius 20 of event-player:
+			if loop-entity name contains "elder":
+				cancel event
+				send "&cCant place here"
+
+
+every 8 seconds:
+	loop all armor stands:
+		set {_loc} to loop-entity-1's location
+		set {_name} to the name of loop-entity
+		#Skeletons
+		name of loop-entity-1 contains "elder":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of skeletons in radius 50 of loop-entity-1 is bigger than 2:
+					stop
+				else:
+					spawn 1 skeleton at {_loc}
+					set name of last spawned skeleton to "specc3"
+		name of loop-entity-1 contains "dg1sk1":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of skeletons in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 skeleton at {_loc}
+					set name of last spawned skeleton to "%{_name}%"
+		name of loop-entity-1 contains "dg1sk2":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of skeletons in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 skeleton at {_loc}
+					set name of last spawned skeleton to "%{_name}%"
+		name of loop-entity-1 contains "dg2sk1":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of skeletons in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 skeleton at {_loc}
+					set name of last spawned skeleton to "%{_name}%"
+		name of loop-entity-1 contains "dg2sk2":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of skeletons in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 skeleton at {_loc}
+					set name of last spawned skeleton to "%{_name}%"
+		name of loop-entity-1 contains "dg2sk3":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of skeletons in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 skeleton at {_loc}
+					set name of last spawned skeleton to "%{_name}%"
+		name of loop-entity-1 contains "dg2sk4":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of skeletons in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 skeleton at {_loc}
+					set name of last spawned skeleton to "%{_name}%"
+		name of loop-entity-1 contains "dg2sk5":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of skeletons in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 skeleton at {_loc}
+					set name of last spawned skeleton to "%{_name}%"
+#zombies
+		name of loop-entity-1 contains "dg1zb1":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of zombies in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 zombie at {_loc}
+					set name of last spawned zombie to "%{_name}%"
+		name of loop-entity-1 contains "dg1zb2":
+			if size of players in radius 20 of loop-entity-1 is bigger or equal to 1:
+				if size of zombies in radius 20 of loop-entity-1 is bigger than 5:
+					stop
+				else:
+					spawn 1 zombie at {_loc}
+					set name of last spawned zombie to "%{_name}%"
+
+
+
+
+
+
+
+
+
+
+
+
+
+command /vanish <text>:
+	permission: op
+	trigger:
+		if arg-1 is "on":
+			set player's visibility to false
+		if arg-1 is "off":
+			set player's visibility to true

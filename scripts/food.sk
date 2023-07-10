@@ -1,0 +1,144 @@
+
+
+
+#patch 1: adicionar o resto das recipes no on-click
+
+command /timertest:
+	permission: op
+	trigger:
+		set {_i} to bread
+		set name of {_i} to "&fCave Sandwich"
+		set 1st line of the lore of {_i} to "&fIncrease Ore output by 20%% for 2 minutes"
+		give {_i} to player
+
+command /timertest2:
+	permission: op
+	trigger:
+		set {_i} to pumpkin pie
+		set name of {_i} to "&fFruit Cake"
+		set 1st line of the lore of {_i} to "&fIncrease Wood output by 20%% for 2 minutes"
+		give {_i} to player
+
+
+
+every second:
+	loop all players:
+		if {efftimer.%loop-player%} is bigger or equal to 0:
+			remove 1 from {efftimer.%loop-player%}
+		else:
+			set {regen1.%loop-player%} to false
+			set {dmg1.%loop-player%} to false
+			set {seeds.%loop-player%} to false
+			set {cavesand.%loop-player%} to false
+			set {woodluk.%loop-player%} to false
+		if {regen1.%loop-player%} is true:
+			set action bar of loop-player to "&fHealing I: &e%{efftimer.%loop-player%}%s"
+		if {dmg1.%loop-player%} is true:
+			set action bar of loop-player to "&fDamaging I: &e%{efftimer.%loop-player%}%s"
+		if {seeds.%loop-player%} is true:
+			set action bar of loop-player to "&fExtra Seeds: &e%{efftimer.%loop-player%}%s"
+		if {cavesand.%loop-player%} is true:
+			set action bar of loop-player to "&fMining Luck: &e%{efftimer.%loop-player%}%s"
+		if {woodluk.%loop-player%} is true:
+			set action bar of loop-player to "&fWoodcutting Luck: &e%{efftimer.%loop-player%}%s"
+		if {efftimer.%loop-player%} is less or equal to 0:
+			set action bar of loop-player to " "
+
+every 2 seconds:
+	loop all players:
+		if {regen1.%loop-player%} is true:
+			heal loop-player by 0.5
+
+
+
+on eat:
+	if name of event-item is "&fPumpkin Stew":
+		cancel event
+		clear player's tool
+		feed player by 6
+		set {efftimer.%player%} to 0
+		wait 1.2 second
+		set {efftimer.%player%} to 120
+		set {regen1.%player%} to true
+	if name of event-item is "&fBloody Soup":
+		cancel event
+		clear player's tool
+		feed player by 5
+		set {efftimer.%player%} to 0
+		wait 1.2 second
+		set {efftimer.%player%} to 60
+		set {dmg1.%player%} to true
+	if name of event-item is "&fMultigrain Bread":
+		cancel event
+		remove 1 bread named "&fMultigrain Bread" from player's inventory
+		feed player by 4
+		set {efftimer.%player%} to 0
+		wait 1.2 second
+		set {efftimer.%player%} to 120
+		set {seeds.%player%} to true
+	if name of event-item is "&fHoney Bread":
+		cancel event
+		remove 1 bread named "&fHoney Bread" from player's inventory
+		feed player by 2
+		heal player by 2
+	if name of event-item is "&fCave Sandwich":
+		cancel event
+		remove 1 bread named "&fCave Sandwich" from player's inventory
+		feed player by 4
+		set {efftimer.%player%} to 0
+		wait 1.2 second
+		set {efftimer.%player%} to 120
+		set {cavesand.%player%} to true
+	if name of event-item is "&fFruit Cake":
+		cancel event
+		remove 1 pumpkin pie named "&fFuit Cake" from player's inventory
+		feed player by 6
+		set {efftimer.%player%} to 0
+		wait 1.2 second
+		set {efftimer.%player%} to 120
+		set {woodluk.%player%} to true
+
+
+
+
+	if name of event-item is "&fOld Bread":
+		chance of 25%:
+			apply hunger 1 to the player for 5 seconds
+
+
+
+
+on break:
+	event-block is short grass:
+		set {_loc} to the event-block's location
+		if {seeds.%player%} is true:
+			chance of 7%:
+				drop seeds at {_loc}
+			chance of 1%:
+				drop Pumpkin seeds at {_loc}
+			chance of 1%:
+				drop melon seeds at {_loc}
+			chance of 1%:
+				drop beetroot seeds at {_loc}
+
+
+
+
+
+
+
+
+
+
+
+every minute:
+	loop all cows:
+		set {_loc} to the loop-entity's location
+		chance of 33%:
+			drop 1 brown dye named "&fManure" at {_loc}
+
+
+on right-click:
+	if player's tool is a clock:
+		if {pregnant.%event-entity%} is true:
+			send "pregnante" to player

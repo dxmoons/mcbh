@@ -1,0 +1,696 @@
+
+
+command /giveall:
+	permission: op
+	trigger:
+		give jawbrek() to player
+		give mkscal() to player
+		give hvest() to player
+		give liplu() to player
+		give ezt() to player
+		give cash1() to player
+		give stgpik() to player
+		give leafcross() to player
+		give windshoes() to player
+		give azthe() to player
+		give blooleggs() to player
+		give bloochest() to player
+		give nfuel() to player
+		give magmacharm() to player
+		give apotreat() to player
+		give water() to player
+		give melt() to player
+		give phammer() to player
+		give lumus() to player
+		give ncore() to player
+		give mask() to player
+
+#&fnormal &braro &despecial &elendario
+function nfuel() :: itemtype:
+	set {_i} to black dye
+	set name of {_i} to "&fNight Fuel"
+	set 1st line of the lore of {_i} to "&7A Part of the own night."
+	return {_i}
+function repairkit() :: itemtype:
+	set {_i} to firework star
+	set name of {_i} to "&fRepair Kit"
+	set 1st line of the lore of {_i} to "&7Drag-n-Drop on target item to repair it by 60."
+	return {_i}
+function xpvial() :: itemtype:
+	set {_i} to glowing bottle
+	set name of {_i} to "&fSmall glowing Vial"
+	set 1st line of the lore of {_i} to "&7Right-Click to get some experience."
+	return {_i}
+function ncore() :: itemtype:
+	set {_i} to chorus plant
+	set name of {_i} to "&fEvil Core"
+	set 1st line of the lore of {_i} to "&7You can hear some whispers from it..."
+	return {_i}
+
+function compost() :: itemtype:
+	set {_i} to clay ball
+	set name of {_i} to "&fCompost"
+	set 1st line of the lore of {_i} to "&7Very good fertilizer, very bad perfume."
+	return {_i}
+
+function poop() :: itemtype:
+	set {_i} to brown dye
+	set name of {_i} to "&fManure"
+	return {_i}
+
+function magmacharm() :: itemtype:
+	set {_i} to glowing magma cream
+	set name of {_i} to "&bMagmatic Charm"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&7Right-Click to recieve 30 seconds of Fire Resistance."
+	set 2nd line of the lore of {_i} to "&7consumes &c1 Night Fuel &7per use."
+	set 3rd line of the lore of {_i} to "&8&o'Warm to touch.'"
+	set 4th line of the lore of {_i} to "&8%{_n}%"
+	return {_i}
+function apotreat() :: itemtype:
+	set {_i} to glowing golden apple
+	set name of {_i} to "&bApollo's Treat"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&7Eat to Feed 10 Hunger, does not consume this item."
+	set 2nd line of the lore of {_i} to "&7consumes &c1 Night Fuel &7per use."
+	set 3rd line of the lore of {_i} to "&8&o'Gold is not that tasty but still nutritive.'"
+	set 4th line of the lore of {_i} to "&8%{_n}%"
+	return {_i}
+function water() :: itemtype:
+	set {_i} to water bucket
+	set name of {_i} to "&bBlue from the Abyss"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&7Right-Click to generate a water spot."
+	set 2nd line of the lore of {_i} to "&7consumes &c1 Night Fuel &7every 3 uses."
+	set 3rd line of the lore of {_i} to "&8&o'An endless ocean in your hands.'"
+	set 4th line of the lore of {_i} to "&8%{_n}%"
+	return {_i}
+function melt() :: itemtype:
+	set {_i} to fire charge
+	set name of {_i} to "&bMolten Mass"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&7Drag-n-Drop on target item to smelt or cook it."
+	set 2nd line of the lore of {_i} to "&7consumes &c1 Night Fuel &7every 4 uses."
+	set 3rd line of the lore of {_i} to "&8&o'A Molten mass of a dark material that keeps burning.'"
+	set 4th line of the lore of {_i} to "&8%{_n}%"
+	return {_i}
+function phammer() :: itemtype:
+	set {_i} to anvil
+	set name of {_i} to "&bPortable Powerhammer"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&7Drag-n-Drop on target item to repair it."
+	set 2nd line of the lore of {_i} to "&7consumes &c1 Night Fuel &7per 80 durability."
+	set 3rd line of the lore of {_i} to "&8&o'Magic Powerhammer that can fit in your pockets.'"
+	set 4th line of the lore of {_i} to "&8%{_n}%"
+	return {_i}
+function lumus() :: itemtype:
+	set {_i} to soul lantern
+	set name of {_i} to "&bNeverending Lummus"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&7Right-Click to recieve 5 minutes of Night Vision."
+	set 2nd line of the lore of {_i} to "&7consumes &c1 Night Fuel &7per use."
+	set 3rd line of the lore of {_i} to "&8&o'the powerful light that this tool emanates doesn't seem"
+	set 4th line of the lore of {_i} to "&8&oto come out of it, but from your mind'"
+	set 5th line of the lore of {_i} to "&8%{_n}%"
+	return {_i}
+
+
+
+function jawbrek() :: itemtype:
+	set {_i} to iron axe
+	set name of {_i} to "&bJaw Breaker"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with sharpness 3, knockback 1 and efficiency 2
+	chance of 12.5%:
+		enchant {_i} with unbreaking 2
+	chance of 8%:
+		enchant {_i} with sharpness 4
+		chance of 50%:
+			enchant {_i} with sharpness 5
+	chance of 12.5%:
+		enchant {_i} with efficiency 3
+		chance of 65%:
+			enchant {_i} with efficiency 4
+	set 1st line of the lore of {_i} to "&fDeal more damage to victim's durability"
+	set 2nd line of the lore of {_i} to "&8&o'Blood still dripping from this abomination.'"
+	set 3rd line of the lore of {_i} to "&8%{_n}%"
+	chance of 25%:
+		set 1st line of the lore of {_i} to "&7Damage +"
+		set 2nd line of the lore of {_i} to "&fDeal more damage to victim's durability"
+		set 3rd line of the lore of {_i} to "&8&o'Blood still dripping from this abomination.'"
+		set 4th line of the lore of {_i} to "&8%{_n}%"
+	return {_i}
+
+
+function mkscal() :: itemtype:
+	set {_i} to stone sword
+	set name of {_i} to "&bPlague Scalpel"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with sharpness 3
+	chance of 60%:
+		enchant {_i} with sharpness 4
+		chance of 50%:
+			enchant {_i} with sharpness 5
+			chance of 33%:
+				enchant {_i} with sharpness 6
+	chance of 50%:
+		enchant {_i} with unbreaking 2
+	set 1st line of the lore of {_i} to "&fChance to poison victim on damage."
+	set 2nd line of the lore of {_i} to "&8&o'Precise and deadly infectious.'"
+	set 3rd line of the lore of {_i} to "&8%{_n}%"
+	chance of 65%:
+		set 1st line of the lore of {_i} to "&7Resistance +"
+		set 2nd line of the lore of {_i} to "&fChance to poison victim on damage."
+		set 3rd line of the lore of {_i} to "&8&o'Precise and deadly infectious.'"
+		set 4rd line of the lore of {_i} to "&8%{_n}%"
+		chance of 50%:
+			set 1st line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+function hvest() :: itemtype:
+	set {_i} to leather chestplate
+	dye {_i} red
+	set name of {_i} to "&bHunger Vest"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with protection 4, blast protection 2 and projectile protection 2
+	chance of 50%:
+		enchant {_i} with protection 5
+		chance of 60%:
+			enchant {_i} with protection 6
+	set 1st line of the lore of {_i} to "&fWhen enemy killed, feed and heal you by 2."
+	set 2nd line of the lore of {_i} to "&8&o'You can hear it asking for blood and flesh.'"
+	set 3rd line of the lore of {_i} to "&8%{_n}%"
+	chance of 50%:
+		set 1st line of the lore of {_i} to "&7Resistance +"
+		set 2nd line of the lore of {_i} to "&fWhen enemy killed, feed and heal you by 2."
+		set 3rd line of the lore of {_i} to "&8&o'You can hear it asking for blood and flesh.'"
+		set 4th line of the lore of {_i} to "&8%{_n}%"
+		chance of 30%:
+			set 1st line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+function liplu() :: itemtype:
+	set {_i} to diamond pickaxe
+	set name of {_i} to "&dLimb-Plucker"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with sharpness 4
+	enchant {_i} with knockback 2
+	enchant {_i} with bane of arthropods 3
+	chance of 33%:
+		enchant {_i} with sharpness 5
+		chance of 25%:
+			enchant {_i} with sharpness 6
+	chance of 25%:
+		enchant {_i} with efficiency 2
+	chance of 33%:
+		enchant {_i} with bane of arthropods 4
+		chance of 50%:
+			enchant {_i} with bane of arthropods 5
+	chance of 50%:
+		enchant {_i} with knockback 3
+	set 1st line of the lore of {_i} to "&fChance to dismember victim on damage."
+	set 2nd line of the lore of {_i} to "&8&o'Grab and pull, Easy as that.'"
+	set 3rd line of the lore of {_i} to "&8%{_n}%"
+	chance of 50%:
+		set 1st line of the lore of {_i} to "&7Damage +"
+		set 2nd line of the lore of {_i} to "&fChance to dismember victim on damage."
+		set 3rd line of the lore of {_i} to "&8&o'Grab and pull, Easy as that.'"
+		set 4th line of the lore of {_i} to "&8%{_n}%"
+	chance of 20%:
+		set 1st line of the lore of {_i} to "&7Damage &a++"
+		chance of 12.5%:
+			set 1st line of the lore of {_i} to "&7Damage &6+++"
+	return {_i}
+
+function mask() :: itemtype:
+	set {_i} to ("KiFaBu" parsed as offline player)'s skull
+	set name of {_i} to "&dThe Ent's Maskara"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&fChance to reflect 150%% damage taken"
+	set 2nd line of the lore of {_i} to "&fChance to heal or feed you periodicaly"
+	set 3rd line of the lore of {_i} to "&fChance to repair your held item periodicaly"
+	set 4th line of the lore of {_i} to "&8&o'This elder mask was once part of a powerfull entity.'"
+	set 5th line of the lore of {_i} to "&8%{_n}%"
+	return {_i}
+
+function cash1() :: itemtype:
+	set {_i} to ("MrSnowDK" parsed as offline player)'s skull
+	set name of {_i} to "&fBag of Coins"
+	set {_n} to a random number between 0 and 50000
+	set 2nd line of the lore of {_i} to "&8%{_n}%"
+	set 1st line of the lore of {_i} to "&7Right-Click to recieve some &eKE$."
+	return {_i}
+
+function stgpik() :: itemtype:
+	set {_i} to iron pickaxe
+	set name of {_i} to "&fStrange Pickaxe"
+	chance of 33%:
+		enchant {_i} with efficiency 1
+		chance of 50%:
+			enchant {_i} with efficiency 2	
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&fChance for Haste I on mine."
+	set 2nd line of the lore of {_i} to "&fChance to damage user by 1 on mine."
+	set 3rd line of the lore of {_i} to "&8'Grip covered with spiked deep red gems'"
+	set 4th line of the lore of {_i} to "&8%{_n}%"  
+	return {_i}
+
+function dg2wep() :: itemtype:
+	set {_i} to golden hoe
+	set name of {_i} to "&dElder Lifebringer"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with sharpness 7
+	ennchant {_i} with unbreaking 2
+	chance of 33%:
+		enchant {_i} with sharpness 8
+		chance of 25%:
+			enchant {_i} with sharpness 9
+	chance of 25%:
+		enchant {_i} with unbreaking 5
+		chance of 33%:
+			enchant {_i} with unbreaking 6
+	chance of 60%:
+		enchant {_i} with mending
+	chance of 85%:
+		enchant {_i} with looting 2
+		chance of 65%:
+			enchant {_i} with looting 3
+			chance of 10%:
+				enchant {_i} with looting 4
+	set 1st line of the lore of {_i} to "&fChance to enroot victim on damage"
+	set 2nd line of the lore of {_i} to "&fChance to Lifesteal on damage"
+	set 3rd line of the lore of {_i} to "&fChance to increase crop output"
+	set 4th line of the lore of {_i} to "&8&o'Covered in sigils, powerfull scyth bound with the"
+	set 5th line of the lore of {_i} to "&8&oarcane magic of the forest.'"
+	set 6th line of the lore of {_i} to "&8%{_n}%"
+	chance of 50%:
+		set 1st line of the lore of {_i} to "&7Damage +"
+		set 2nd line of the lore of {_i} to "&fChance to enroot victim on damage"
+		set 3rd line of the lore of {_i} to "&fChance to Lifesteal on damage"
+		set 4th line of the lore of {_i} to "&fChance to increase crop output"
+		set 5th line of the lore of {_i} to "&8&o'Covered in sigils, powerfull scyth bound with the"
+		set 6th line of the lore of {_i} to "&8&oarcane magic of the forest.'"
+		set 7th line of the lore of {_i} to "&8%{_n}%"
+	chance of 20%:
+		set 1st line of the lore of {_i} to "&7Damage &a++"
+		chance of 12.5%:
+			set 1st line of the lore of {_i} to "&7Damage &6+++"
+	return {_i}
+
+function leafcross() :: itemtype:
+	set {_i} to crossbow
+	set name of {_i} to "&bLeafy Bolter"
+	chance of 33%:
+		enchant {_i} with quick charge 2
+		chance of 50%:
+			enchant {_i} with quick charge 3
+	chance of 100%:
+		enchant {_i} with multishot 1
+	chance of 50%:
+		enchant {_i} with unbreaking 2
+		chance of 33%:
+			enchant {_i} with unbreaking 3
+			chance of 85%:
+				enchant {_i} with unbreaking 4
+	chance of 100%:
+		enchant {_i} with mending 1
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&fChance to enroot victim on ground."
+	set 2nd line of the lore of {_i} to "&8'Leafs and spouts all over it blooming in life.'"
+	set 3rd line of the lore of {_i} to "&8%{_n}%"  
+	return {_i}
+
+function windshoes() :: itemtype:
+	set {_i} to netherite boots
+	set name of {_i} to "&bShoes of the wind"
+	enchant {_i} with protection 2
+	enchant {_i} with soul speed 2
+	chance of 20%:
+		enchant {_i} with feather falling 3
+	chance of 50%:
+		enchant {_i} with soul speed 3
+	chance of 60%:
+		enchant {_i} with protection 3
+		chance of 33%:
+			enchant {_i} with protection 4
+	chance of 50%:
+		enchant {_i} with unbreaking 2
+		chance of 33%:
+			enchant {_i} with unbreaking 3
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&fWhen attacked, chance to apply speed and haste."
+	set 2nd line of the lore of {_i} to "&fLoses durability way faster."
+	set 3rd line of the lore of {_i} to "&8'Magic Shoes made out of the darkest wood engraved with ancient runes.'"
+	set 4th line of the lore of {_i} to "&8%{_n}%"  
+	return {_i}
+
+command /azt:
+	permission: op
+	trigger:
+		give azthe() to player
+
+function azthe() :: itemtype:
+	set {_i} to netherite sword
+	set name of {_i} to "&e'Azthellar, Night Banisher'"
+	enchant {_i} with sharpness 4
+	enchant {_i} with smite 6
+	chance of 50%:
+		enchant {_i} with unbreaking 2
+		chance of 33%:
+			enchant {_i} with unbreaking 3
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&fChance to heal attacker on damage."
+	set 2nd line of the lore of {_i} to "&fChance to blind victim on damage"
+	set 3rd line of the lore of {_i} to "&fEvery hit apply 1 'Dark Root' mark on attacker up to 6 marks."
+	set 4th line of the lore of {_i} to "&fChance clear marks and Putrefy victim (2.5%% per mark)"
+	set 5th line of the lore of {_i} to "&fLoses durability way faster."
+	set 6th line of the lore of {_i} to "&8'This corrupted blade, once held by a legendary forest sentinnel"
+	set 7th line of the lore of {_i} to "&8now found its way back to the hands of an powerfull adventurer.'"
+	set 8th line of the lore of {_i} to "&8%{_n}%"  
+	return {_i}
+
+function bloochest() :: itemtype:
+	set {_i} to leather chestplate
+	dye {_i} magenta
+	set name of {_i} to "&fFlorid Tunic"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&8&o(Chest, Leggs)&eSet Bonus: +5 Damage with Wooden Swords"
+	set 2nd line of the lore of {_i} to "&8'Cute florid piece of equipment.'"
+	set 3rd line of the lore of {_i} to "&8%{_n}%"  
+	return {_i}
+
+function blooleggs() :: itemtype:
+	set {_i} to leather leggings
+	dye {_i} magenta
+	set name of {_i} to "&fFlorid Pants"
+	set {_n} to a random number between 0 and 50000
+	set 1st line of the lore of {_i} to "&8&o(Chest, Leggs)&eSet Bonus: +5 Damage with Wooden Swords"
+	set 2nd line of the lore of {_i} to "&8'Cute florid piece of equipment.'"
+	set 3rd line of the lore of {_i} to "&8%{_n}%"  
+	return {_i}
+
+function dg2helm() :: itemtype:
+	set {_i} to leather helmet
+	dye {_i} white
+	set name of {_i} to "&dWhitefoster Hood"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with blast protection 5
+	chance of 50%:
+		enchant {_i} with protection 2
+		chance of 25%:
+			enchant {_i} with protection 3
+	chance of 85%:
+		enchant {_i} with unbreaking 4
+		chance of 50%:
+			enchant {_i} with unbreaking 5
+	enchant {_i} with thorns 3
+	chance of 50%:
+		enchant {_i} with thorns 4
+	set 1st line of the lore of {_i} to "&7Armor +"
+	set 2nd line of the lore of {_i} to "&7Resistance +"
+	set 3rd line of the lore of {_i} to "&fChance to drop two logs when wood cutting."
+	set 4th line of the lore of {_i} to "&fChance to repair itself over time."
+	set 4th line of the lore of {_i} to "&fIncreased defence vs Swords."
+	set 5th line of the lore of {_i} to "&eSet Bonus: +10%% Success chance when logging, +4 Heart containers, Negate Enroot."
+	set 7th line of the lore of {_i} to "&8&o'Old piece of equipment made from a bark fragment of the Elder Whitefoster tree.'"
+	set 8th line of the lore of {_i} to "&8%{_n}%"
+	chance of 10%:
+		enchant {_i} with curse of vanishing
+	chance of 33%:
+		set 1st line of the lore of {_i} to "&7Armor &a++"
+	chance of 33%:
+		set 2nd line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+function dg2chest() :: itemtype:
+	set {_i} to leather chestplate
+	dye {_i} white
+	set name of {_i} to "&dWhitefoster Tunic"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with blast protection 5
+	chance of 50%:
+		enchant {_i} with protection 2
+		chance of 25%:
+			enchant {_i} with protection 3
+	chance of 85%:
+		enchant {_i} with unbreaking 4
+		chance of 50%:
+			enchant {_i} with unbreaking 5
+	enchant {_i} with thorns 3
+	chance of 50%:
+		enchant {_i} with thorns 4
+	set 1st line of the lore of {_i} to "&7Armor +"
+	set 2nd line of the lore of {_i} to "&7Resistance +"
+	set 3rd line of the lore of {_i} to "&fChance to drop two logs when wood cutting."
+	set 4th line of the lore of {_i} to "&fChance to repair itself over time."
+	set 4th line of the lore of {_i} to "&fIncreased defence vs Swords."
+	set 5th line of the lore of {_i} to "&eSet Bonus: +10%% Success chance when logging, +4 Heart containers, Negate Enroot."
+	set 7th line of the lore of {_i} to "&8&o'Old piece of equipment made from a bark fragment of the Elder Whitefoster tree.'"
+	set 8th line of the lore of {_i} to "&8%{_n}%"
+	chance of 10%:
+		enchant {_i} with curse of vanishing
+	chance of 33%:
+		set 1st line of the lore of {_i} to "&7Armor &a++"
+	chance of 33%:
+		set 2nd line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+function dg2leggs() :: itemtype:
+	set {_i} to leather leggings
+	dye {_i} white
+	set name of {_i} to "&dWhitefoster Pants"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with blast protection 5
+	chance of 50%:
+		enchant {_i} with protection 2
+		chance of 25%:
+			enchant {_i} with protection 3
+	chance of 85%:
+		enchant {_i} with unbreaking 4
+		chance of 50%:
+			enchant {_i} with unbreaking 5
+	enchant {_i} with thorns 3
+	chance of 50%:
+		enchant {_i} with thorns 4
+	set 1st line of the lore of {_i} to "&7Armor +"
+	set 2nd line of the lore of {_i} to "&7Resistance +"
+	set 3rd line of the lore of {_i} to "&fChance to drop two logs when wood cutting."
+	set 4th line of the lore of {_i} to "&fChance to repair itself over time."
+	set 4th line of the lore of {_i} to "&fIncreased defence vs Swords."
+	set 5th line of the lore of {_i} to "&eSet Bonus: +10%% Success chance when logging, +4 Heart containers, Negate Enroot."
+	set 7th line of the lore of {_i} to "&8&o'Old piece of equipment made from a bark fragment of the Elder Whitefoster tree.'"
+	set 8th line of the lore of {_i} to "&8%{_n}%"
+	chance of 10%:
+		enchant {_i} with curse of vanishing
+	chance of 33%:
+		set 1st line of the lore of {_i} to "&7Armor &a++"
+	chance of 33%:
+		set 2nd line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+function dg2boots() :: itemtype:
+	set {_i} to leather boots
+	dye {_i} white
+	set name of {_i} to "&dWhitefoster Boots"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with blast protection 5
+	chance of 50%:
+		enchant {_i} with protection 2
+		chance of 25%:
+			enchant {_i} with protection 3
+	chance of 85%:
+		enchant {_i} with unbreaking 4
+		chance of 50%:
+			enchant {_i} with unbreaking 5
+	enchant {_i} with thorns 3
+	chance of 50%:
+		enchant {_i} with thorns 4
+	set 1st line of the lore of {_i} to "&7Armor +"
+	set 2nd line of the lore of {_i} to "&7Resistance +"
+	set 3rd line of the lore of {_i} to "&fChance to drop two logs when wood cutting."
+	set 4th line of the lore of {_i} to "&fChance to repair itself over time."
+	set 4th line of the lore of {_i} to "&fIncreased defence vs Swords."
+	set 5th line of the lore of {_i} to "&eSet Bonus: +10%% Success chance when logging, +4 Heart containers, Negate Enroot."
+	set 7th line of the lore of {_i} to "&8&o'Old piece of equipment made from a bark fragment of the Elder Whitefoster tree.'"
+	set 8th line of the lore of {_i} to "&8%{_n}%"
+	chance of 10%:
+		enchant {_i} with curse of vanishing
+	chance of 33%:
+		set 1st line of the lore of {_i} to "&7Armor &a++"
+	chance of 33%:
+		set 2nd line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+function kes() :: itemtype:
+	set {_i} to sunflower
+	set name of {_i} to "&eGold Kesaf"
+	set 1st line of the lore of {_i} to "&7'Shiny, Valuable Ke$."
+	return {_i}
+
+
+command /dg1loot:
+	permission: op
+	trigger:
+		give dg1plate() to player
+		give dg1helm() to player
+		give dg1leggs() to player
+		give dg1boots() to player
+		give cash1() to player
+
+command /dg2loot:
+	permission: op
+	trigger:
+		give dg2chest() to player
+		give dg2leggs() to player
+		give dg2helm() to player
+		give dg2boots() to player
+
+function dg1plate() :: itemtype:
+	set {_i} to iron chestplate
+	dye {_i} red
+	set name of {_i} to "&dBloodgem Carved Chestguard"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with protection 3 and blast protection 4
+	set 1st line of the lore of {_i} to "&7Armor +"
+	set 2nd line of the lore of {_i} to "&7Resistance +"
+	set 3rd line of the lore of {_i} to "&fWhen Mining +3%% success chance collecting ores."
+	set 4th line of the lore of {_i} to "&fChance to negate durability loss."
+	set 5th line of the lore of {_i} to "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores"
+	set 6th line of the lore of {_i} to "&8&o'Corrupted piece of equipment carved with crimson pulsating gems.'"
+	set 7th line of the lore of {_i} to "&8%{_n}%"
+	chance of 50%:
+		enchant {_i} with unbreaking 2
+		chance of 25%:
+			enchant {_i} with unbreaking 3
+	chance of 50%:
+		enchant {_i} with protection 4
+		chance of 33%:
+			enchant {_i} with protection 5
+	chance of 33%:
+		enchant {_i} with blast protection 5
+	chance of 10%:
+		enchant {_i} with curse of vanishing
+	chance of 33%:
+		set 1st line of the lore of {_i} to "&7Armor &a++"
+	chance of 33%:
+		set 2nd line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+
+function dg1helm() :: itemtype:
+	set {_i} to iron helmet
+	set name of {_i} to "&dBloodgem Carved Visage"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with protection 3 and blast protection 4
+	set 1st line of the lore of {_i} to "&7Armor +"
+	set 2nd line of the lore of {_i} to "&7Resistance +"
+	set 3rd line of the lore of {_i} to "&fWhen Mining +3%% success chance collecting ores."
+	set 4th line of the lore of {_i} to "&fChance to negate durability loss."
+	set 5th line of the lore of {_i} to "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores"
+	set 6th line of the lore of {_i} to "&8&o'Corrupted piece of equipment carved with crimson pulsating gems.'"
+	set 7th line of the lore of {_i} to "&8%{_n}%"
+	chance of 50%:
+		enchant {_i} with unbreaking 2
+		chance of 25%:
+			enchant {_i} with unbreaking 3
+	chance of 50%:
+		enchant {_i} with protection 4
+		chance of 33%:
+			enchant {_i} with protection 5
+	chance of 33%:
+		enchant {_i} with blast protection 5
+	chance of 10%:
+		enchant {_i} with curse of vanishing
+	chance of 33%:
+		set 1st line of the lore of {_i} to "&7Armor &a++"
+	chance of 33%:
+		set 2nd line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+function dg1leggs() :: itemtype:
+	set {_i} to iron leggings
+	set name of {_i} to "&dBloodgem Carved Leggings"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with protection 3 and blast protection 4
+	set 1st line of the lore of {_i} to "&7Armor +"
+	set 2nd line of the lore of {_i} to "&7Resistance +"
+	set 3rd line of the lore of {_i} to "&fWhen Mining +3%% success chance collecting ores."
+	set 4th line of the lore of {_i} to "&fChance to negate durability loss."
+	set 5th line of the lore of {_i} to "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores"
+	set 6th line of the lore of {_i} to "&8&o'Corrupted piece of equipment carved with crimson pulsating gems.'"
+	set 7th line of the lore of {_i} to "&8%{_n}%"
+	chance of 50%:
+		enchant {_i} with unbreaking 2
+		chance of 25%:
+			enchant {_i} with unbreaking 3
+	chance of 50%:
+		enchant {_i} with protection 4
+		chance of 33%:
+			enchant {_i} with protection 5
+	chance of 33%:
+		enchant {_i} with blast protection 5
+	chance of 10%:
+		enchant {_i} with curse of vanishing
+	chance of 33%:
+		set 1st line of the lore of {_i} to "&7Armor &a++"
+	chance of 33%:
+		set 2nd line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+function dg1boots() :: itemtype:
+	set {_i} to iron boots
+	set name of {_i} to "&dBloodgem Carved Cothurnus"
+	set {_n} to a random number between 0 and 50000
+	enchant {_i} with protection 3 and blast protection 4
+	set 1st line of the lore of {_i} to "&7Armor +"
+	set 2nd line of the lore of {_i} to "&7Resistance +"
+	set 3rd line of the lore of {_i} to "&fWhen Mining +3%% success chance collecting ores."
+	set 4th line of the lore of {_i} to "&fChance to negate durability loss."
+	set 5th line of the lore of {_i} to "&eSet Bonus: +3 Damage with Pickaxes, +3%% success chance collecting ores"
+	set 6th line of the lore of {_i} to "&8&o'Corrupted piece of equipment carved with crimson pulsating gems.'"
+	set 7th line of the lore of {_i} to "&8%{_n}%"
+	chance of 50%:
+		enchant {_i} with unbreaking 2
+		chance of 25%:
+			enchant {_i} with unbreaking 3
+	chance of 50%:
+		enchant {_i} with protection 4
+		chance of 33%:
+			enchant {_i} with protection 5
+	chance of 33%:
+		enchant {_i} with blast protection 5
+	chance of 10%:
+		enchant {_i} with curse of vanishing
+	chance of 33%:
+		set 1st line of the lore of {_i} to "&7Armor &a++"
+	chance of 33%:
+		set 2nd line of the lore of {_i} to "&7Resistance &a++"
+	return {_i}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

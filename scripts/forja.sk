@@ -1,0 +1,336 @@
+
+                                                                                                                 
+                                                                                                                 
+#EEEEEEEEEEEEEEEEEEEEEE                     CCCCCCCCCCCCC                                                         
+#E::::::::::::::::::::E                  CCC::::::::::::C                                                         
+#E::::::::::::::::::::E                CC:::::::::::::::C                                                         
+#EE::::::EEEEEEEEE::::E               C:::::CCCCCCCC::::C                                                         
+#  E:::::E       EEEEEE              C:::::C       CCCCCCrrrrr   rrrrrrrrryyyyyyy           yyyyyyy  ssssssssss   
+#  E:::::E                          C:::::C              r::::rrr:::::::::ry:::::y         y:::::y ss::::::::::s  
+#  E::::::EEEEEEEEEE                C:::::C              r:::::::::::::::::ry:::::y       y:::::yss:::::::::::::s 
+#  E:::::::::::::::E                C:::::C              rr::::::rrrrr::::::ry:::::y     y:::::y s::::::ssss:::::s
+#  E:::::::::::::::E                C:::::C               r:::::r     r:::::r y:::::y   y:::::y   s:::::s  ssssss 
+#  E::::::EEEEEEEEEE                C:::::C               r:::::r     rrrrrrr  y:::::y y:::::y      s::::::s      
+#  E:::::E                          C:::::C               r:::::r               y:::::y:::::y          s::::::s   
+#  E:::::E       EEEEEE              C:::::C       CCCCCC r:::::r                y:::::::::y     ssssss   s:::::s 
+#EE::::::EEEEEEEE:::::E               C:::::CCCCCCCC::::C r:::::r                 y:::::::y      s:::::ssss::::::s
+#E::::::::::::::::::::E ......         CC:::::::::::::::C r:::::r                  y:::::y       s::::::::::::::s 
+#E::::::::::::::::::::E .::::.           CCC::::::::::::C r:::::r                 y:::::y         s:::::::::::ss  
+#EEEEEEEEEEEEEEEEEEEEEE ......              CCCCCCCCCCCCC rrrrrrr                y:::::y           sssssssssss    
+#                                                                               y:::::y                           
+#                                                                              y:::::y                            
+#                                                                             y:::::y                             
+#                                                                            y:::::y                              
+#                                                                           yyyyyyy                               
+                                                                                                                 
+                    
+
+
+on inventory click:
+	if event-inventoryaction is swap with cursor:
+		if cursor slot of player is amethyst shard named "&eEnchanted Shard":
+			set {_i} to cursor slot of event-player
+			set {_a::*} to event-player's cursor slot's enchantments
+			set {_b} to the clicked slot
+			clear cursor slot of event-player
+			set {_exp} to player's level
+			if {_exp} is bigger or equal to 27:
+				set {_chance} to 100
+				remove 27 from event-player's level
+			else:
+				set {_chance} to {_exp}*3.7
+				clear player's level
+			chance of {_chance}%:
+				enchant clicked slot with {_a::*}
+			else:
+				send "&cEnchantment failed."
+			cancel event
+
+on inventory click:
+	if event-inventoryaction is swap with cursor:	
+		if cursor slot of player is firework star named "&fRepair Kit":
+			cancel event
+			clear cursor slot of event-player
+			repair clicked slot by 60
+
+
+
+on rightclick:
+	clicked block is anvil:
+		player's tool is large amethyst bud:
+			cancel event
+			set {_name} to the name of player's tool
+			set {_type} to the player's tool
+			set {_enchants::*} to player's tool's enchantments
+			set {_i} to the size of {_enchants::*}
+			set {anvilitem.%player%} to {_type}
+			enchant {anvilitem.%player%} with {_enchants::*}
+			set name of {anvilitem.%player%} to {_name}
+			if player can hold 5 shulker box:
+				set {ingui.%player%} to true
+				set {inanvil.%player%} to true
+				set {cluster.%player%} to true
+				clear player's tool
+				send "&e<!> &aWant to break this Enchantment Cluster?"
+				set {k.cost.%player%} to {_i}*8
+				set {d.cost.%player%} to {_i}*2
+				set {l.cost.%player%} to {_i}*16
+				send "&aCost: &f%{k.cost.%player%}% &e&oKE$&f, &f%{d.cost.%player%}% &b&oDiamonds &aAnd &f%{l.cost.%player%}% &1&oLapis-Lazuli"
+				send "&aY yes &f/ &cN no"
+			else:
+				send "&cYou don't have enough space to open this Enchantment Cluster"
+				clear {k.cost.%player%}
+				clear {d.cost.%player%}
+				clear {l.cost.%player%}
+				stop
+		player's tool is amethyst cluster:
+			cancel event
+			set {_name} to the name of player's tool
+			set {_type} to the player's tool
+			set {_enchants::*} to player's tool's enchantments
+			set {_i} to the size of {_enchants::*}
+			set {anvilitem.%player%} to {_type}
+			enchant {anvilitem.%player%} with {_enchants::*}
+			set name of {anvilitem.%player%} to {_name}
+			if player can hold 5 shulker box:
+				set {ingui.%player%} to true
+				set {inanvil.%player%} to true
+				set {cluster2.%player%} to true
+				clear player's tool
+				send "&e<!> &aWant to break this Enchantment Cluster?"
+				set {k.cost.%player%} to {_i}*32
+				set {a.cost.%player%} to {_i}*72
+				set {s.cost.%player%} to {_i}*1
+				send "&aCost: &f%{k.cost.%player%}% &e&oKE$&f, &f%{a.cost.%player%}% &d&oAmethyst Shards &aAnd &f%{s.cost.%player%}% &f&oNether Star(s)"
+				send "&aY yes &f/ &cN no"
+
+			
+
+			else:
+				send "&cYou don't have enough space to open this Superior Enchantment Cluster"
+				clear {k.cost.%player%}
+				clear {s.cost.%player%}
+				clear {a.cost.%player%}
+				stop
+
+                                                                                              
+#   SSSSSSSSSSSSSSS                                                                            
+# SS:::::::::::::::S                                                                           
+#S:::::SSSSSS::::::S                                                                           
+#S:::::S     SSSSSSS                                                                           
+#S:::::S                ccccccccccccccccrrrrr   rrrrrrrrr   aaaaaaaaaaaaa  ppppp   ppppppppp   
+#S:::::S              cc:::::::::::::::cr::::rrr:::::::::r  a::::::::::::a p::::ppp:::::::::p  
+# S::::SSSS          c:::::::::::::::::cr:::::::::::::::::r aaaaaaaaa:::::ap:::::::::::::::::p 
+#  SS::::::SSSSS    c:::::::cccccc:::::crr::::::rrrrr::::::r         a::::app::::::ppppp::::::p
+#    SSS::::::::SS  c::::::c     ccccccc r:::::r     r:::::r  aaaaaaa:::::a p:::::p     p:::::p
+#       SSSSSS::::S c:::::c              r:::::r     rrrrrrraa::::::::::::a p:::::p     p:::::p
+#            S:::::Sc:::::c              r:::::r           a::::aaaa::::::a p:::::p     p:::::p
+#            S:::::Sc::::::c     ccccccc r:::::r          a::::a    a:::::a p:::::p    p::::::p
+#SSSSSSS     S:::::Sc:::::::cccccc:::::c r:::::r          a::::a    a:::::a p:::::ppppp:::::::p
+#S::::::SSSSSS:::::S c:::::::::::::::::c r:::::r          a:::::aaaa::::::a p::::::::::::::::p 
+#S:::::::::::::::SS   cc:::::::::::::::c r:::::r           a::::::::::aa:::ap::::::::::::::pp  
+# SSSSSSSSSSSSSSS       cccccccccccccccc rrrrrrr            aaaaaaaaaa  aaaap::::::pppppppp    
+#                                                                           p:::::p            
+#                                                                           p:::::p            
+#                                                                          p:::::::p           
+#                                                                          p:::::::p           
+#                                                                          p:::::::p           
+#                                                                          ppppppppp           
+                                                                                   
+		player is sneaking:
+			player's tool is iron sword, iron pickaxe, iron shovel, iron hoe, iron chestplate, iron leggings, iron boots, iron helmet or iron axe:
+				cancel event
+				set {_name} to the name of player's tool
+				set {_type} to the player's tool
+				set {_enchants::*} to player's tool's enchantments
+				set {_i} to 2
+				set {anvilitem.%player%} to {_type}
+				enchant {anvilitem.%player%} with {_enchants::*}
+				set name of {anvilitem.%player%} to {_name}
+				if player can hold 2 shulker box:
+					set {ingui.%player%} to true
+					set {inanvil.%player%} to true
+					set {scrapiron.%player%} to true
+					clear player's tool
+					send "&e<!> &aWant to scrap this &f%{_type}%&a?"
+					set {c.cost.%player%} to {_i}
+					send "&aCost: &6%{c.cost.%player%}% Copper(s)&a."
+					send "&aY yes &f/ &cN no"
+			player's tool is diamond sword, diamond pickaxe, diamond shovel, diamond hoe, diamond chestplate, diamond leggings, diamond boots, diamond helmet or diamond axe:
+				cancel event
+				set {_name} to the name of player's tool
+				set {_type} to the player's tool
+				set {_enchants::*} to player's tool's enchantments
+				set {_i} to 6
+				set {anvilitem.%player%} to {_type}
+				enchant {anvilitem.%player%} with {_enchants::*}
+				set name of {anvilitem.%player%} to {_name}
+				if player can hold 2 shulker box:
+					set {ingui.%player%} to true
+					set {inanvil.%player%} to true
+					set {scrapdia.%player%} to true
+					clear player's tool
+					send "&e<!> &aWant to scrap this &f%{_type}%&a?"
+					set {c.cost.%player%} to {_i}
+					send "&aCost: &6%{c.cost.%player%}% Copper(s)&a."
+					send "&aY yes &f/ &cN no"
+			player's tool is netherite sword, netherite pickaxe, netherite shovel, netherite hoe, netherite chestplate, netherite leggings, netherite boots, netherite helmet or netherite axe:
+				cancel event
+				set {_name} to the name of player's tool
+				set {_type} to the player's tool
+				set {_enchants::*} to player's tool's enchantments
+				set {_i} to 18
+				set {anvilitem.%player%} to {_type}
+				enchant {anvilitem.%player%} with {_enchants::*}
+				set name of {anvilitem.%player%} to {_name}
+				if player can hold 2 shulker box:
+					set {ingui.%player%} to true
+					set {inanvil.%player%} to true
+					set {scrapnet.%player%} to true
+					clear player's tool
+					send "&e<!> &aWant to scrap this &f%{_type}%&a?"
+					set {c.cost.%player%} to {_i}
+					send "&aCost: &6%{c.cost.%player%}% Copper(s)&a."
+					send "&aY yes &f/ &cN no"
+
+
+on unequip:
+	if {armortimer.%player%} is 1:
+		send "&ctoo quick" to player
+		cancel event
+		stop
+	else:
+		if lore of event-item contains "&7Health &c---":
+			add 3 to player's max health
+		if lore of event-item contains "&7Health &e--":
+			add 2 to player's max health
+		if lore of event-item contains "&7Health -":
+			add 1 to player's max health
+		if lore of event-item contains "&7Health +":
+			remove 1 from player's max health
+		if lore of event-item contains "&7Health &a++":
+			remove 2 from player's max health
+		if lore of event-item contains "&7Health &6+++":
+			remove 3 from player's max health
+
+		if lore of event-item contains "&7Speed &c---":
+			add 0.03 to player's walk speed
+		if lore of event-item contains "&7Speed &e--":
+			add 0.02 to player's walk speed
+		if lore of event-item contains "&7Speed -":
+			add 0.01 to player's walk speed
+		if lore of event-item contains "&7Speed +":
+			remove 0.01 from player's walk speed
+		if lore of event-item contains "&7Speed &a++":
+			remove 0.02 from player's walk speed
+		if lore of event-item contains "&7Speed &6+++":
+			remove 0.03 from player's walk speed
+	set {armortimer.%player%} to 1
+	wait 1 second
+	set {armortimer.%player%} to 0
+on death:
+	if lore of event-item contains "&7Health &c---":
+		add 3 to player's max health
+	if lore of event-item contains "&7Health &e--":
+		add 2 to player's max health
+	if lore of event-item contains "&7Health -":
+		add 1 to player's max health
+	if lore of event-item contains "&7Health +":
+		remove 1 from player's max health
+	if lore of event-item contains "&7Health &a++":
+		remove 2 from player's max health
+	if lore of event-item contains "&7Health &6+++":
+		remove 3 from player's max health
+
+	if lore of event-item contains "&7Speed &c---":
+		add 0.03 to player's walk speed
+	if lore of event-item contains "&7Speed &e--":
+		add 0.02 to player's walk speed
+	if lore of event-item contains "&7Speed -":
+		add 0.01 to player's walk speed
+	if lore of event-item contains "&7Speed +":
+		remove 0.01 from player's walk speed
+	if lore of event-item contains "&7Speed &a++":
+		remove 0.02 from player's walk speed
+	if lore of event-item contains "&7Speed &6+++":
+		remove 0.03 from player's walk speed
+
+on equip:
+	if {armortimer.%player%} is 1:
+		send "&ctoo quick" to player
+		cancel event
+		stop
+	else:
+		if lore of event-item contains "&7Health &c---":
+			remove 3 from player's max health
+		if lore of event-item contains "&7Health &e--":
+			remove 2 from player's max health
+		if lore of event-item contains "&7Health -":
+			remove 1 from player's max health
+		if lore of event-item contains "&7Health +":
+			add 1 to player's max health
+		if lore of event-item contains "&7Health &a++":
+			add 2 to player's max health
+		if lore of event-item contains "&7Health &6+++":
+			add 3 to player's max health
+
+		if lore of event-item contains "&7Speed &c---":
+			remove 0.03 from player's walk speed
+		if lore of event-item contains "&7Speed &e--":
+			remove 0.02 from player's walk speed
+		if lore of event-item contains "&7Speed -":
+			remove 0.01 from player's walk speed
+		if lore of event-item contains "&7Speed +":
+			add 0.01 to player's walk speed
+		if lore of event-item contains "&7Speed &a++":
+			add 0.02 to player's walk speed
+		if lore of event-item contains "&7Speed &6+++":
+			add 0.03 to player's walk speed
+
+
+command /debugmaxhp:
+	permission: op
+	trigger:
+		set player's max health to 10
+
+every 2 seconds:
+	loop all players:
+		set {_i} to loop-player's health
+		set {_i} to rounded {_i}
+		set loop-player tab name to "&b%{lv.%loop-player%}% &f%loop-player%&c ❤ &c&o%{_i}%"
+		wait 1 second
+
+command /testt:
+	trigger:
+		set {_i} to diamond chestplate
+		set 1st line of the lore of {_i} to "&7Speed &6+++"
+		give {_i} to player
+
+command /testt0:
+	trigger:
+		set {_i} to diamond chestplate
+		set 1st line of the lore of {_i} to "&7Speed &c---"
+		give {_i} to player
+
+
+
+
+
+function spawnItemInGround(location:location, item:item):
+	add -0.75 to y-coord of {_location}
+	spawn armor stand at {_location}:
+		set byte tag "Marker" of nbt of entity to 1
+		set byte tag "Invisible" of nbt of entity to 1
+		set float list tag "Roation" of nbt of entity to (pitch of {_location}), (yaw of {_location})
+		set float list tag "Pose;RightArm" of nbt of entity to (90, 0, 0)
+		set entity's tool to {_item}
+	set {_entity} to last spawned armor stand
+	wait 10 seconds
+	kill {_entity}
+
+
+command /spawn_armourstand <item:item=%player's tool%>:
+	executable by: players # Just wanting to fix issues with console
+	permission: op
+	trigger:
+		spawnItemInGround(player's location, {_item})

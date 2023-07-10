@@ -1,0 +1,1972 @@
+
+                                                                              
+                                                                              
+#VVVVVVVV           VVVVVVVV                                                   
+#V::::::V           V::::::V                                                   
+#V::::::V           V::::::V                                                   
+#V::::::V           V::::::V                                                   
+# V:::::V           V:::::Vaaaaaaaaaaaaa  rrrrr   rrrrrrrrr       ssssssssss   
+#  V:::::V         V:::::V a::::::::::::a r::::rrr:::::::::r    ss::::::::::s  
+#   V:::::V       V:::::V  aaaaaaaaa:::::ar:::::::::::::::::r ss:::::::::::::s 
+#    V:::::V     V:::::V            a::::arr::::::rrrrr::::::rs::::::ssss:::::s
+#     V:::::V   V:::::V      aaaaaaa:::::a r:::::r     r:::::r s:::::s  ssssss 
+#      V:::::V V:::::V     aa::::::::::::a r:::::r     rrrrrrr   s::::::s      
+#       V:::::V:::::V     a::::aaaa::::::a r:::::r                  s::::::s   
+#        V:::::::::V     a::::a    a:::::a r:::::r            ssssss   s:::::s 
+#         V:::::::V      a::::a    a:::::a r:::::r            s:::::ssss::::::s
+#          V:::::V       a:::::aaaa::::::a r:::::r            s::::::::::::::s 
+#           V:::V         a::::::::::aa:::ar:::::r             s:::::::::::ss  
+#            VVV           aaaaaaaaaa  aaaarrrrrrr              sssssssssss    
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+
+
+
+
+on skript start:
+	clear {d.att::*} 
+	add "&7Armor -" to {d.att::*} 
+	add "&7Armor &e--" to {d.att::*} 
+	add "&7Armor &c---" to {d.att::*}
+	add "&7Resistance -" to {d.att::*} 
+	add "&7Resistance &e--" to {d.att::*} 
+	add "&7Resistance &c---" to {d.att::*}
+	add "&7Luck &c-" to {d.att::*}
+	clear {d.wep.att::*}
+	add "&7Damage -" to {d.wep.att::*} 
+	add "&7Damage &e--" to {d.wep.att::*} 
+	add "&7Damage &c---" to {d.wep.att::*}
+	add "&7Resistance -" to {d.wep.att::*} 
+	add "&7Resistance &e--" to {d.wep.att::*} 
+	add "&7Resistance &c---" to {d.wep.att::*}
+	clear {d.wep.ench::*}
+	add sharpness 1 to {d.wep.ench::*}
+	add unbreaking 1 to {d.wep.ench::*}
+	add knockback 1 to {d.wep.ench::*}
+	add bane of arthropods 1 to {d.wep.ench::*}
+	add smite 1 to {d.wep.ench::*}
+	add smite 2 to {d.wep.ench::*}
+	add bane of arthropods 2 to {d.wep.ench::*}
+	add sweeping edge 1 to {d.wep.ench::*}
+	clear {d.ench::*}
+	add unbreaking 1 to {d.ench::*}
+	add protection 1 to {d.ench::*}
+	add fire protection 1 to {d.ench::*}
+	add blast protection 1 to {d.ench::*}
+	add fire protection 1 to {d.ench::*}
+	add projectile protection 1 to {d.ench::*}
+	add thorns 1 to {d.ench::*}
+	clear {1.tools::*}
+	add air to {1.tools::*}
+	add air to {1.tools::*}
+	add wooden shovel to {1.tools::*}
+	add wooden pickaxe to {1.tools::*}	
+	add wooden hoe to {1.tools::*}
+	add wooden sword to {1.tools::*}
+	add wooden axe to {1.tools::*}
+	clear {c.wep.ench::*}
+	add sharpness 1 to {c.wep.ench::*}
+	add sharpness 2 to {c.wep.ench::*}
+	add unbreaking 1 to {c.wep.ench::*}
+	add knockback 1 to {c.wep.ench::*}
+	add bane of arthropods 1 to {c.wep.ench::*}
+	add bane of arthropods 3 to {c.wep.ench::*}
+	add smite 1 to {c.wep.ench::*}
+	add smite 2 to {c.wep.ench::*}
+	add smite 3 to {c.wep.ench::*}
+	add bane of arthropods 2 to {c.wep.ench::*}
+	add sweeping edge 1 to {c.wep.ench::*}
+	clear {2.tools::*}
+	add air to {2.tools::*}
+	add air to {2.tools::*}
+	add wooden shovel to {2.tools::*}
+	add wooden pickaxe to {2.tools::*}	
+	add wooden hoe to {2.tools::*}
+	add wooden sword to {2.tools::*}
+	add wooden axe to {2.tools::*}
+	add stone shovel to {2.tools::*}
+	add stone pickaxe to {2.tools::*}	
+	add stone hoe to {2.tools::*}
+	add stone sword to {2.tools::*}
+	add stone axe to {2.tools::*}
+	clear {c.ench::*}
+	add unbreaking 1 to {c.ench::*}
+	add protection 1 to {c.ench::*}
+	add protection 2 to {c.ench::*}
+	add fire protection 1 to {c.ench::*}
+	add fire protection 2 to {c.ench::*}
+	add blast protection 1 to {c.ench::*}
+	add blast protection 2 to {c.ench::*}
+	add projectile protection 1 to {c.ench::*}
+	add projectile protection 2 to {c.ench::*}
+	add thorns 1 to {c.ench::*}
+	clear {c.att::*} 
+	add "&7Armor -" to {c.att::*} 
+	add "&7Armor &e--" to {c.att::*} 
+	add "&7Armor &c---" to {c.att::*}
+	add "&7Resistance -" to {c.att::*} 
+	add "&7Resistance &e--" to {c.att::*} 
+	add "&7Resistance &c---" to {c.att::*}
+	add "&7Luck &c-" to {c.att::*}
+	clear {c.wep.att::*}
+	add "&7Damage -" to {c.wep.att::*} 
+	add "&7Damage &e--" to {c.wep.att::*} 
+	add "&7Damage &c---" to {c.wep.att::*}
+	add "&7Resistance -" to {c.wep.att::*} 
+	add "&7Resistance &e--" to {c.wep.att::*} 
+	add "&7Resistance &c---" to {c.wep.att::*}
+	clear {b.wep.ench::*}
+	add sharpness 2 to {b.wep.ench::*}
+	add sharpness 3 to {b.wep.ench::*}
+	add unbreaking 2 to {b.wep.ench::*}
+	add knockback 2 to {b.wep.ench::*}
+	add fire aspect 1 to {b.wep.ench::*}
+	add unbreaking 1 to {b.wep.ench::*}
+	add knockback 1 to {b.wep.ench::*}
+	add bane of arthropods 1 to {b.wep.ench::*}
+	add bane of arthropods 3 to {b.wep.ench::*}
+	add smite 1 to {b.wep.ench::*}
+	add smite 2 to {b.wep.ench::*}
+	add smite 3 to {b.wep.ench::*}
+	add bane of arthropods 2 to {b.wep.ench::*}
+	add sweeping edge 1 to {b.wep.ench::*}
+	clear {3.tools::*}
+	add iron shovel to {3.tools::*}
+	add iron pickaxe to {3.tools::*}	
+	add iron hoe to {3.tools::*}
+	add iron sword to {3.tools::*}
+	add iron axe to {3.tools::*}
+	add stone shovel to {3.tools::*}
+	add stone pickaxe to {3.tools::*}	
+	add stone hoe to {3.tools::*}
+	add stone sword to {3.tools::*}
+	add stone axe to {3.tools::*}
+	clear {b.ench::*}
+	add unbreaking 1 to {b.ench::*}
+	add protection 1 to {b.ench::*}
+	add protection 2 to {b.ench::*}
+	add protection 3 to {b.ench::*}
+	add fire protection 3 to {b.ench::*}
+	add blast protection 3 to {b.ench::*}
+	add thorns 2 to {b.ench::*}
+	add projectile protection 3 to {b.ench::*}
+	add fire protection 1 to {b.ench::*}
+	add fire protection 2 to {b.ench::*}
+	add blast protection 1 to {b.ench::*}
+	add blast protection 2 to {b.ench::*}
+	add projectile protection 1 to {b.ench::*}
+	add projectile protection 2 to {b.ench::*}
+	add thorns 1 to {b.ench::*}
+	clear {b.att::*} 
+	add "&7Armor -" to {b.att::*} 
+	add "&7Armor +" to {b.att::*} 
+	add "&7Armor &e--" to {b.att::*} 
+	add "&7Armor &c---" to {b.att::*}
+	add "&7Resistance -" to {b.att::*}
+	add "&7Resistance +" to {b.att::*} 
+	add "&7Resistance &e--" to {b.att::*} 
+	add "&7Resistance &c---" to {b.att::*}
+	add "&7Luck &c-" to {b.att::*}
+	clear {b.wep.att::*}
+	add "&7Damage -" to {b.wep.att::*}
+	add "&7Damage +" to {b.wep.att::*} 
+	add "&7Damage &e--" to {b.wep.att::*} 
+	add "&7Damage &c---" to {b.wep.att::*}
+	add "&7Resistance -" to {b.wep.att::*}
+	add "&7Resistance +" to {b.wep.att::*} 
+	add "&7Resistance &e--" to {b.wep.att::*} 
+	add "&7Resistance &c---" to {b.wep.att::*}
+	clear {a.wep.ench::*}
+	add sharpness 2 to {a.wep.ench::*}
+	add sharpness 4 to {a.wep.ench::*}
+	add unbreaking 2 to {a.wep.ench::*}
+	add smite 4 to {a.wep.ench::*}
+	add bane of arthropods 4 to {a.wep.ench::*}
+	add sweeping edge 2 to {a.wep.ench::*}
+	add sharpness 3 to {a.wep.ench::*}
+	add unbreaking 2 to {a.wep.ench::*}
+	add knockback 2 to {a.wep.ench::*}
+	add fire aspect 1 to {a.wep.ench::*}
+	add knockback 1 to {a.wep.ench::*}
+	add bane of arthropods 3 to {a.wep.ench::*}
+	add smite 2 to {a.wep.ench::*}
+	add smite 3 to {a.wep.ench::*}
+	add bane of arthropods 2 to {a.wep.ench::*}
+	add sweeping edge 1 to {a.wep.ench::*}
+	clear {4.tools::*}
+	add iron shovel to {4.tools::*}
+	add iron pickaxe to {4.tools::*}	
+	add iron sword to {4.tools::*}
+	add iron axe to {4.tools::*}
+	add diamond shovel to {4.tools::*}
+	add diamond pickaxe to {4.tools::*}	
+	add diamond sword to {4.tools::*}
+	add diamond axe to {4.tools::*}
+	clear {a.ench::*}
+	add unbreaking 2 to {a.ench::*}
+	add protection 4 to {a.ench::*}
+	add protection 2 to {a.ench::*}
+	add protection 3 to {a.ench::*}
+	add fire protection 3 to {a.ench::*}
+	add blast protection 3 to {a.ench::*}
+	add projectile protection 3 to {a.ench::*}
+	add fire protection 4 to {a.ench::*}
+	add fire protection 2 to {a.ench::*}
+	add blast protection 4 to {a.ench::*}
+	add blast protection 2 to {a.ench::*}
+	add projectile protection 4 to {a.ench::*}
+	add projectile protection 2 to {a.ench::*}
+	add thorns 1 to {a.ench::*}
+	add thorns 2 to {a.ench::*}
+	add thorns 3 to {a.ench::*}
+	clear {a.att::*} 
+	add "&7Armor -" to {a.att::*} 
+	add "&7Armor +" to {a.att::*} 
+	add "&7Armor &a++" to {a.att::*} 
+	add "&7Armor &e--" to {a.att::*} 
+	add "&7Armor &c---" to {a.att::*}
+	add "&7Resistance -" to {a.att::*}
+	add "&7Resistance +" to {a.att::*} 
+	add "&7Resistance &a++" to {a.att::*} 
+	add "&7Resistance &e--" to {a.att::*} 
+	add "&7Resistance &c---" to {a.att::*}
+	add "&7Luck &c-" to {a.att::*}
+	add "&7Luck &6+" to {a.att::*}
+	clear {a.wep.att::*}
+	add "&7Damage -" to {a.wep.att::*}
+	add "&7Damage +" to {a.wep.att::*}
+	add "&7Damage &a++" to {a.wep.att::*}
+	add "&7Damage &e--" to {a.wep.att::*} 
+	add "&7Damage &c---" to {a.wep.att::*}
+	add "&7Resistance -" to {a.wep.att::*}
+	add "&7Resistance +" to {a.wep.att::*} 
+	add "&7Resistance &a++" to {a.wep.att::*} 
+	add "&7Resistance &e--" to {a.wep.att::*} 
+	add "&7Resistance &c---" to {a.wep.att::*}
+	clear {s.wep.ench::*}
+	add sharpness 5 to {s.wep.ench::*}
+	add sharpness 4 to {a.wep.ench::*}
+	add sharpness 6 to {s.wep.ench::*}
+	add unbreaking 4 to {s.wep.ench::*}
+	add smite 6 to {s.wep.ench::*}
+	add unbreaking 3 to {s.wep.ench::*}
+	add smite 4 to {s.wep.ench::*}
+	add bane of arthropods 4 to {s.wep.ench::*}
+	add sweeping edge 2 to {s.wep.ench::*}
+	add sharpness 3 to {s.wep.ench::*}
+	add unbreaking 4 to {s.wep.ench::*}
+	add knockback 2 to {s.wep.ench::*}
+	add fire aspect 2 to {s.wep.ench::*}
+	add knockback 3 to {s.wep.ench::*}
+	add bane of arthropods 3 to {s.wep.ench::*}
+	add smite 5 to {s.wep.ench::*}
+	add smite 3 to {s.wep.ench::*}
+	add bane of arthropods 5 to {s.wep.ench::*}
+	add sweeping edge 3 to {s.wep.ench::*}
+	clear {5.tools::*}
+	add iron sword to {5.tools::*}
+	add iron axe to {5.tools::*}
+	add diamond sword to {5.tools::*}
+	add diamond axe to {5.tools::*}
+	add netherite sword to {5.tools::*}
+	clear {s.ench::*}
+	add protection 4 to {s.ench::*}
+	add protection 3 to {s.ench::*}
+	add fire protection 3 to {s.ench::*}
+	add blast protection 3 to {s.ench::*}
+	add projectile protection 3 to {s.ench::*}
+	add fire protection 4 to {s.ench::*}
+	add blast protection 4 to {s.ench::*}
+	add projectile protection 5 to {s.ench::*}
+	add blast protection 5 to {s.ench::*}
+	add protection 5 to {s.ench::*}
+	add unbreaking 3 to {s.ench::*}
+	add unbreaking 4 to {s.ench::*}
+	add fire protection 5 to {s.ench::*}
+	add projectile protection 4 to {s.ench::*}
+	add projectile protection 2 to {s.ench::*}
+	add thorns 4 to {s.ench::*}
+	add thorns 3 to {s.ench::*}
+	clear {s.att::*} 
+	add "&7Armor -" to {s.att::*} 
+	add "&7Armor +" to {s.att::*} 
+	add "&7Armor &a++" to {s.att::*} 
+	add "&7Armor &6+++" to {s.att::*} 
+	add "&7Armor &e--" to {s.att::*} 
+	add "&7Resistance -" to {s.att::*}
+	add "&7Resistance +" to {s.att::*} 
+	add "&7Resistance &a++" to {s.att::*} 
+	add "&7Resistance &6+++" to {s.att::*} 
+	add "&7Resistance &e--" to {s.att::*} 
+	add "&7Luck &c-" to {s.att::*}
+	add "&7Luck &6+" to {s.att::*}
+	add "&7Health &6+++" to {s.att::*}
+	add "&7Health -" to {s.att::*}
+	add "&7Health +" to {s.att::*}
+	add "&7Health &a++" to {s.att::*}
+	add "&7Health &e--" to {s.att::*}
+	add "&7Speed &6+++" to {s.att::*}
+	add "&7Speed -" to {s.att::*}
+	add "&7Speed +" to {s.att::*}
+	add "&7Speed &a++" to {s.att::*}
+	add "&7Speed &e--" to {s.att::*}
+	clear {s.wep.att::*}
+	add "&7Damage -" to {s.wep.att::*}
+	add "&7Damage +" to {s.wep.att::*}
+	add "&7Damage &a++" to {s.wep.att::*}
+	add "&7Damage &6+++" to {s.wep.att::*}
+	add "&7Damage &e--" to {s.wep.att::*}
+	add "&7Resistance &6+++" to {s.wep.att::*}
+	add "&7Resistance -" to {s.wep.att::*}
+	add "&7Resistance +" to {s.wep.att::*}
+	add "&7Resistance &a++" to {s.wep.att::*}
+	add "&7Resistance &e--" to {s.wep.att::*}
+	clear {50::*}
+	add 1 to {50::*}
+	add 2 to {50::*}
+
+
+                                                                                     
+                                                                                     
+#EEEEEEEEEEEEEEEEEEEEEE                           iiii  lllllll                       
+#E::::::::::::::::::::E                          i::::i l:::::l                       
+#E::::::::::::::::::::E                           iiii  l:::::l                       
+#EE::::::EEEEEEEEE::::E                                 l:::::l                       
+#  E:::::E       EEEEEEvvvvvvv           vvvvvvviiiiiii  l::::l                       
+#  E:::::E              v:::::v         v:::::v i:::::i  l::::l                       
+#  E::::::EEEEEEEEEE     v:::::v       v:::::v   i::::i  l::::l                       
+#  E:::::::::::::::E      v:::::v     v:::::v    i::::i  l::::l                       
+#  E:::::::::::::::E       v:::::v   v:::::v     i::::i  l::::l                       
+#  E::::::EEEEEEEEEE        v:::::v v:::::v      i::::i  l::::l                       
+#  E:::::E                   v:::::v:::::v       i::::i  l::::l                       
+#  E:::::E       EEEEEE       v:::::::::v        i::::i  l::::l                       
+#EE::::::EEEEEEEE:::::E        v:::::::v        i::::::il::::::l                      
+#E::::::::::::::::::::E         v:::::v         i::::::il::::::l                      
+#E::::::::::::::::::::E          v:::v          i::::::il::::::l                      
+#EEEEEEEEEEEEEEEEEEEEEE           vvv           iiiiiiiillllllll                      
+                                                                                     
+                                                                                     
+                                                                                     
+                                                                                     
+                                                                                     
+                                                                                     
+                                                                                     
+                                                                                     
+                                                                                     
+#        CCCCCCCCCCCCC                                                                
+#     CCC::::::::::::C                                                                
+#   CC:::::::::::::::C                                                                
+#  C:::::CCCCCCCC::::C                                                                
+# C:::::C       CCCCCCrrrrr   rrrrrrrrr       eeeeeeeeeeee    aaaaaaaaaaaaa           
+#C:::::C              r::::rrr:::::::::r    ee::::::::::::ee  a::::::::::::a          
+#C:::::C              r:::::::::::::::::r  e::::::eeeee:::::eeaaaaaaaaa:::::a         
+#C:::::C              rr::::::rrrrr::::::re::::::e     e:::::e         a::::a         
+#C:::::C               r:::::r     r:::::re:::::::eeeee::::::e  aaaaaaa:::::a         
+#C:::::C               r:::::r     rrrrrrre:::::::::::::::::e aa::::::::::::a         
+#C:::::C               r:::::r            e::::::eeeeeeeeeee a::::aaaa::::::a         
+# C:::::C       CCCCCC r:::::r            e:::::::e         a::::a    a:::::a         
+#  C:::::CCCCCCCC::::C r:::::r            e::::::::e        a::::a    a:::::a         
+#   CC:::::::::::::::C r:::::r             e::::::::eeeeeeeea:::::aaaa::::::a  ...... 
+#     CCC::::::::::::C r:::::r              ee:::::::::::::e a::::::::::aa:::a .::::. 
+#        CCCCCCCCCCCCC rrrrrrr                eeeeeeeeeeeeee  aaaaaaaaaa  aaaa ...... 
+                                                                                     
+
+
+
+
+command /mobtrash:
+	permission: op
+	trigger:
+		set {mobtrash} to player's location
+
+command /forcenames:
+	permission: op
+	trigger:
+		#skeletons:
+		clear {skeleton.name.list::*}
+		add "Bony Brute" to {skeleton.name.list::*}
+		add "Rattle Ribs" to {skeleton.name.list::*}
+		add "Skeletal Specter" to {skeleton.name.list::*}
+		add "Creepy Cranium" to {skeleton.name.list::*}
+		add "Dry Dust" to {skeleton.name.list::*}
+		add "Haunt Hallucination" to {skeleton.name.list::*}
+		add "Ominous Ossuary" to {skeleton.name.list::*}
+		add "Macabre Marrow" to {skeleton.name.list::*}
+		add "Spooky Skeleton" to {skeleton.name.list::*}
+		add "Gnarled Noggin" to {skeleton.name.list::*}
+		add "Decrepit Death" to {skeleton.name.list::*}
+		add "Frightening Frame" to {skeleton.name.list::*}
+		add "Ghostly Grip" to {skeleton.name.list::*}
+		add "Shatter Skull" to {skeleton.name.list::*}
+		add "Risen Remains" to {skeleton.name.list::*}
+		add "Hissing Haunches" to {skeleton.name.list::*}
+		add "Eldritch Entity" to {skeleton.name.list::*}
+		add "Unholy Union" to {skeleton.name.list::*}
+		add "Cursed Calculus" to {skeleton.name.list::*}
+		send "%{skeleton.name.list::*}%" to player
+
+		#zombies:
+		clear {zombies.name.list::*}
+		add "Rotten Abomination" to {zombies.name.list::*}
+		add "Decay Devourer" to {zombies.name.list::*}
+		add "Putrid Plague" to {zombies.name.list::*}
+		add "Rotting Horror" to {zombies.name.list::*}
+		add "Foul Fiend" to {zombies.name.list::*}
+		add "Noxious Necrotic" to {zombies.name.list::*}
+		add "Pestilent Beast" to {zombies.name.list::*}
+		add "Carrion Crawl" to {zombies.name.list::*}
+		add "Stinking Stalker" to {zombies.name.list::*}
+		add "Rancid Ruffian" to {zombies.name.list::*}
+		add "Malodorous Menace" to {zombies.name.list::*}
+		add "festering Freak" to {zombies.name.list::*}
+		add "Putrescent Prowler" to {zombies.name.list::*}
+		add "Moldering Mongrel" to {zombies.name.list::*}
+		add "Repugnant Ruffian" to {zombies.name.list::*}
+		add "Filthy Fiend" to {zombies.name.list::*}
+		add "Vile Vulture" to {zombies.name.list::*}
+		add "Putrefied Predator" to {zombies.name.list::*}
+		add "Mephitic Marauder" to {zombies.name.list::*}
+		send "%{zombies.name.list::*}%" to player
+
+		send "&e<&c>@&e &anamelist updated"
+
+
+
+                                                                  
+on death:
+	if name of victim is "&eCreature":
+		if attacker is not a player:
+			clear drops
+	if name of victim is "&cTortured Creature":
+		if attacker is not a player:
+			clear drops
+
+
+
+on spawn:
+	loop all entities in radius 25 of event-entity:
+		wait 5 tick
+		if loop-entity's name contains "&e":
+			if size of entities in radius 25 of event-entity is bigger or equal to 30:
+				if event-entity is a monster:
+					teleport event-entity to {mobtrash}
+
+on spawn:
+	if event-entity is a zombie:
+		chance of 12%:
+			set name of event-entity to "specc"
+			wait 1 minute
+			teleport event-entity to {mobtrash}
+	if event-entity is a skeleton:
+		chance of 12%:
+			set name of event-entity to "specc"
+			wait 1 minute
+			teleport event-entity to {mobtrash}
+	if event-entity is a wither skeleton:
+		chance of 12%:
+			set name of event-entity to "specc"
+			wait 1 minute
+			teleport event-entity to {mobtrash}
+	if event-entity is a husk:
+		chance of 12%:
+			set name of event-entity to "specc"
+			wait 1 minute
+			teleport event-entity to {mobtrash}
+	if event-entity is a drowned:
+		chance of 12%:
+			set name of event-entity to "specc"
+			wait 1 minute
+			teleport event-entity to {mobtrash}
+	if event-entity is a iron golem:
+		chance of 12.5%:
+			set name of event-entity to "c+"
+
+
+every tick:
+	loop all monsters:
+		if name of loop-entity is "c+":
+			set display name of loop-entity to "&c&oColosso"
+			set loop-entity's max health to 100
+			heal loop-entity
+			apply resistance 1 to the loop-entity for 255 days
+			apply regeneration 1 to the loop-entity for 255 days
+			apply strength 2 to the loop-entity for 255 days
+			apply levitation 1 to the loop-entity for 1 second
+			loop all blocks in radius 3 of loop-entity:
+				create a fake explosion at loop-entity's location
+				set loop-block to air
+				loop all players in radius 4 of loop-entity:
+					damage loop-player by 9
+		if loop-entity is a skeleton:
+			if name of loop-entity is "specc":
+				set {_name::*} to a random element out of {skeleton.name.list::*}
+				wait 1 tick
+				set name of loop-entity to "&e%{_name::*}%"
+				set {_rng.tier} to a random number between 1 and 100
+				set {_rng.grade} to a random number between 1 and 100
+				set {_rng.grade} to rounded {_rng.grade}
+				set {_rng.tier} to rounded {_rng.tier}
+				if {_rng.tier} is between 2 and 50:
+					set {_tier} to 1
+				if {_rng.tier} is between 51 and 57:
+					set {_tier} to 4
+				if {_rng.tier} is between 58 and 74:
+					set {_tier} to 3
+				if {_rng.tier} is between 75 and 100:
+					set {_tier} to 2
+				if {_rng.tier} is equal to 1:
+					set {_tier} to 5
+				if {_rng.grade} is between 2 and 50:
+					set {_grade} to 1
+				if {_rng.grade} is between 51 and 57:
+					set {_grade} to 4
+				if {_rng.grade} is between 58 and 74:
+					set {_grade} to 3
+				if {_rng.grade} is between 75 and 100:
+					set {_grade} to 2
+				if {_rng.grade} is equal to 1:
+					set {_grade} to 5
+				if {_tier} is 1:
+					set {_tool} to a random element out of {1.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to air
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+						set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to air
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+						set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to air
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to air
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 2:
+					set {_tool} to a random element out of {2.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to leather helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to leather chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to leather leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to leather boots
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 3:
+					set {_tool} to a random element out of {3.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to chain helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to chain chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to chain leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to chain boots
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 4:
+					set {_tool} to a random element out of {4.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to chain helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to iron helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to chain chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to iron chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to chain leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to iron leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to chain boots
+					if {_rng.b} is equal to 2:
+						set {_b} to iron boots
+				if {_tier} is 5:
+					set {_tool} to a random element out of {5.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to diamond helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to iron helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to diamond chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to iron chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to diamond leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to iron leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to diamond boots
+					if {_rng.b} is equal to 2:
+						set {_b} to iron boots
+				if {_grade} is equal to 1:
+					chance of 10%:
+						enchant {_h} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_c} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_l} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_b} with a random element out of {d.ench::*}
+					chance of 33%:
+						enchant {_tool} with a random element out of {d.wep.ench::*}
+					chance of 20%:
+						add a random element out of {d.wep.att::*} to the lore of {_tool}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_h}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_c}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_l}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_b}
+				if {_grade} is equal to 2:
+					chance of 16%:
+						enchant {_h} with a random element out of {c.ench::*}
+					chance of 16%:
+						enchant {_c} with a random element out of {c.ench::*}
+					chance of 16%:
+						enchant {_l} with a random element out of {c.ench::*}
+					chance of 19%:
+						enchant {_b} with a random element out of {c.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {c.wep.ench::*}
+					chance of 20%:
+						add a random element out of {c.wep.att::*} to the lore of {_tool}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_h}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_c}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_l}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_b}
+				if {_grade} is equal to 3:
+					enchant {_h} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {b.ench::*}
+					enchant {_c} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {b.ench::*}
+					enchant {_l} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {b.ench::*}
+					enchant {_b} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {b.ench::*}
+					enchant {_tool} with a random element out of {b.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {b.wep.ench::*}
+					chance of 50%:
+						add a random element out of {b.wep.att::*} to the lore of {_tool}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_h}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_c}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_l}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_b}
+				if {_grade} is equal to 4:
+					enchant {_h} with a random element out of {a.ench::*}
+					enchant {_h} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {a.ench::*}
+					enchant {_c} with a random element out of {a.ench::*}
+					enchant {_c} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {a.ench::*}
+					enchant {_l} with a random element out of {a.ench::*}
+					enchant {_l} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {a.ench::*}
+					enchant {_b} with a random element out of {a.ench::*}
+					enchant {_b} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {a.ench::*}
+					enchant {_tool} with a random element out of {a.wep.ench::*}
+					enchant {_tool} with a random element out of {a.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {a.wep.ench::*}
+					chance of 50%:
+						add a random element out of {a.wep.att::*} to the lore of {_tool}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_h}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_c}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_l}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_b}
+				if {_grade} is equal to 5:
+					enchant {_h} with a random element out of {s.ench::*}
+					enchant {_h} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {s.ench::*}
+						enchant {_h} with a random element out of {s.ench::*}
+					enchant {_c} with a random element out of {s.ench::*}
+					enchant {_c} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {s.ench::*}
+						enchant {_c} with a random element out of {s.ench::*}
+					enchant {_l} with a random element out of {s.ench::*}
+					enchant {_l} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {s.ench::*}
+						enchant {_l} with a random element out of {s.ench::*}
+					enchant {_b} with a random element out of {s.ench::*}
+					enchant {_b} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {s.ench::*}
+						enchant {_b} with a random element out of {s.ench::*}
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {s.wep.ench::*}
+						enchant {_tool} with a random element out of {s.wep.ench::*}
+					chance of 60%:
+						add a random element out of {s.wep.att::*} to the lore of {_tool}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_h}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_c}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_l}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_b}
+				equip loop-entity with {_h}
+				equip loop-entity with {_c}
+				equip loop-entity with {_l}
+				equip loop-entity with {_b}
+				wait 1 minute
+				teleport loop-entity to {mobtrash}
+				wait 1 minute
+				teleport loop-entity to {mobtrash}
+		if loop-entity is a zombie:
+			if name of loop-entity is "specc":
+				set {_name::*} to a random element out of {zombies.name.list::*}
+				wait 1 tick
+				set name of loop-entity to "&e%{_name::*}%"
+				set {_rng.tier} to a random number between 1 and 100
+				set {_rng.grade} to a random number between 1 and 100
+				set {_rng.grade} to rounded {_rng.grade}
+				set {_rng.tier} to rounded {_rng.tier}
+				if {_rng.tier} is between 2 and 50:
+					set {_tier} to 1
+				if {_rng.tier} is between 51 and 57:
+					set {_tier} to 4
+				if {_rng.tier} is between 58 and 74:
+					set {_tier} to 3
+				if {_rng.tier} is between 75 and 100:
+					set {_tier} to 2
+				if {_rng.tier} is equal to 1:
+					set {_tier} to 5
+				if {_rng.grade} is between 2 and 50:
+					set {_grade} to 1
+				if {_rng.grade} is between 51 and 57:
+					set {_grade} to 4
+				if {_rng.grade} is between 58 and 74:
+					set {_grade} to 3
+				if {_rng.grade} is between 75 and 100:
+					set {_grade} to 2
+				if {_rng.grade} is equal to 1:
+					set {_grade} to 5
+				if {_tier} is 1:
+					set {_tool} to a random element out of {1.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to air
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+						set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to air
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+						set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to air
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to air
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 2:
+					set {_tool} to a random element out of {2.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to leather helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to leather chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to leather leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to leather boots
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 3:
+					set {_tool} to a random element out of {3.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to chain helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to chain chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to chain leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to chain boots
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 4:
+					set {_tool} to a random element out of {4.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to chain helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to iron helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to chain chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to iron chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to chain leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to iron leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to chain boots
+					if {_rng.b} is equal to 2:
+						set {_b} to iron boots
+				if {_tier} is 5:
+					set {_tool} to a random element out of {5.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to diamond helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to iron helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to diamond chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to iron chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to diamond leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to iron leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to diamond boots
+					if {_rng.b} is equal to 2:
+						set {_b} to iron boots
+				if {_grade} is equal to 1:
+					chance of 10%:
+						enchant {_h} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_c} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_l} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_b} with a random element out of {d.ench::*}
+					chance of 33%:
+						enchant {_tool} with a random element out of {d.wep.ench::*}
+					chance of 20%:
+						add a random element out of {d.wep.att::*} to the lore of {_tool}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_h}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_c}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_l}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_b}
+				if {_grade} is equal to 2:
+					chance of 16%:
+						enchant {_h} with a random element out of {c.ench::*}
+					chance of 16%:
+						enchant {_c} with a random element out of {c.ench::*}
+					chance of 16%:
+						enchant {_l} with a random element out of {c.ench::*}
+					chance of 19%:
+						enchant {_b} with a random element out of {c.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {c.wep.ench::*}
+					chance of 20%:
+						add a random element out of {c.wep.att::*} to the lore of {_tool}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_h}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_c}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_l}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_b}
+				if {_grade} is equal to 3:
+					enchant {_h} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {b.ench::*}
+					enchant {_c} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {b.ench::*}
+					enchant {_l} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {b.ench::*}
+					enchant {_b} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {b.ench::*}
+					enchant {_tool} with a random element out of {b.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {b.wep.ench::*}
+					chance of 50%:
+						add a random element out of {b.wep.att::*} to the lore of {_tool}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_h}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_c}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_l}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_b}
+				if {_grade} is equal to 4:
+					enchant {_h} with a random element out of {a.ench::*}
+					enchant {_h} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {a.ench::*}
+					enchant {_c} with a random element out of {a.ench::*}
+					enchant {_c} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {a.ench::*}
+					enchant {_l} with a random element out of {a.ench::*}
+					enchant {_l} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {a.ench::*}
+					enchant {_b} with a random element out of {a.ench::*}
+					enchant {_b} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {a.ench::*}
+					enchant {_tool} with a random element out of {a.wep.ench::*}
+					enchant {_tool} with a random element out of {a.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {a.wep.ench::*}
+					chance of 50%:
+						add a random element out of {a.wep.att::*} to the lore of {_tool}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_h}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_c}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_l}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_b}
+				if {_grade} is equal to 5:
+					enchant {_h} with a random element out of {s.ench::*}
+					enchant {_h} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {s.ench::*}
+						enchant {_h} with a random element out of {s.ench::*}
+					enchant {_c} with a random element out of {s.ench::*}
+					enchant {_c} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {s.ench::*}
+						enchant {_c} with a random element out of {s.ench::*}
+					enchant {_l} with a random element out of {s.ench::*}
+					enchant {_l} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {s.ench::*}
+						enchant {_l} with a random element out of {s.ench::*}
+					enchant {_b} with a random element out of {s.ench::*}
+					enchant {_b} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {s.ench::*}
+						enchant {_b} with a random element out of {s.ench::*}
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {s.wep.ench::*}
+						enchant {_tool} with a random element out of {s.wep.ench::*}
+					chance of 60%:
+						add a random element out of {s.wep.att::*} to the lore of {_tool}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_h}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_c}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_l}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_b}
+				equip loop-entity with {_h}
+				equip loop-entity with {_c}
+				equip loop-entity with {_l}
+				equip loop-entity with {_b}
+				wait 1 minute
+				teleport loop-entity to {mobtrash}
+		else:
+			if name of loop-entity is "specc":
+				set name of loop-entity to "&eCreature"
+				set {_rng.tier} to a random number between 1 and 100
+				set {_rng.grade} to a random number between 1 and 100
+				set {_rng.grade} to rounded {_rng.grade}
+				set {_rng.tier} to rounded {_rng.tier}
+				if {_rng.tier} is between 2 and 50:
+					set {_tier} to 1
+				if {_rng.tier} is between 51 and 57:
+					set {_tier} to 4
+				if {_rng.tier} is between 58 and 74:
+					set {_tier} to 3
+				if {_rng.tier} is between 75 and 100:
+					set {_tier} to 2
+				if {_rng.tier} is equal to 1:
+					set {_tier} to 5
+				if {_rng.grade} is between 2 and 50:
+					set {_grade} to 1
+				if {_rng.grade} is between 51 and 57:
+					set {_grade} to 4
+				if {_rng.grade} is between 58 and 74:
+					set {_grade} to 3
+				if {_rng.grade} is between 75 and 100:
+					set {_grade} to 2
+				if {_rng.grade} is equal to 1:
+					set {_grade} to 5
+				if {_tier} is 1:
+					set {_tool} to a random element out of {1.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to air
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+						set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to air
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+						set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to air
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to air
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 2:
+					set {_tool} to a random element out of {2.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to leather helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to leather chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to leather leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to leather boots
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 3:
+					set {_tool} to a random element out of {3.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to chain helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to leather helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to chain chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to leather chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to chain leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to leather leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to chain boots
+					if {_rng.b} is equal to 2:
+						set {_b} to leather boots
+				if {_tier} is 4:
+					set {_tool} to a random element out of {4.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to chain helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to iron helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to chain chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to iron chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to chain leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to iron leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to chain boots
+					if {_rng.b} is equal to 2:
+						set {_b} to iron boots
+				if {_tier} is 5:
+					set {_tool} to a random element out of {5.tools::*}
+					set {_rng.h} to a random element out of {50::*}
+					if {_rng.h} is equal to 1:
+						set {_h} to diamond helmet
+					if {_rng.h} is equal to 2:
+						set {_h} to iron helmet
+					set {_rng.c} to a random element out of {50::*}
+					if {_rng.c} is equal to 1:
+						set {_c} to diamond chestplate
+					if {_rng.c} is equal to 2:
+						set {_c} to iron chestplate
+					set {_rng.l} to a random element out of {50::*}
+					if {_rng.l} is equal to 1:
+						set {_l} to diamond leggings
+					if {_rng.l} is equal to 2:
+						set {_l} to iron leggings
+					set {_rng.b} to a random element out of {50::*}
+					if {_rng.b} is equal to 1:
+						set {_b} to diamond boots
+					if {_rng.b} is equal to 2:
+						set {_b} to iron boots
+				if {_grade} is equal to 1:
+					chance of 10%:
+						enchant {_h} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_c} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_l} with a random element out of {d.ench::*}
+					chance of 10%:
+						enchant {_b} with a random element out of {d.ench::*}
+					chance of 33%:
+						enchant {_tool} with a random element out of {d.wep.ench::*}
+					chance of 20%:
+						add a random element out of {d.wep.att::*} to the lore of {_tool}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_h}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_c}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_l}
+					chance of 20%:
+						add a random element out of {d.att::*} to the lore of {_b}
+				if {_grade} is equal to 2:
+					chance of 16%:
+						enchant {_h} with a random element out of {c.ench::*}
+					chance of 16%:
+						enchant {_c} with a random element out of {c.ench::*}
+					chance of 16%:
+						enchant {_l} with a random element out of {c.ench::*}
+					chance of 19%:
+						enchant {_b} with a random element out of {c.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {c.wep.ench::*}
+					chance of 20%:
+						add a random element out of {c.wep.att::*} to the lore of {_tool}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_h}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_c}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_l}
+					chance of 20%:
+						add a random element out of {c.att::*} to the lore of {_b}
+				if {_grade} is equal to 3:
+					enchant {_h} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {b.ench::*}
+					enchant {_c} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {b.ench::*}
+					enchant {_l} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {b.ench::*}
+					enchant {_b} with a random element out of {b.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {b.ench::*}
+					enchant {_tool} with a random element out of {b.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {b.wep.ench::*}
+					chance of 50%:
+						add a random element out of {b.wep.att::*} to the lore of {_tool}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_h}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_c}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_l}
+					chance of 50%:
+						add a random element out of {b.att::*} to the lore of {_b}
+				if {_grade} is equal to 4:
+					enchant {_h} with a random element out of {a.ench::*}
+					enchant {_h} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {a.ench::*}
+					enchant {_c} with a random element out of {a.ench::*}
+					enchant {_c} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {a.ench::*}
+					enchant {_l} with a random element out of {a.ench::*}
+					enchant {_l} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {a.ench::*}
+					enchant {_b} with a random element out of {a.ench::*}
+					enchant {_b} with a random element out of {a.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {a.ench::*}
+					enchant {_tool} with a random element out of {a.wep.ench::*}
+					enchant {_tool} with a random element out of {a.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {a.wep.ench::*}
+					chance of 50%:
+						add a random element out of {a.wep.att::*} to the lore of {_tool}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_h}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_c}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_l}
+					chance of 50%:
+						add a random element out of {a.att::*} to the lore of {_b}
+				if {_grade} is equal to 5:
+					enchant {_h} with a random element out of {s.ench::*}
+					enchant {_h} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_h} with a random element out of {s.ench::*}
+						enchant {_h} with a random element out of {s.ench::*}
+					enchant {_c} with a random element out of {s.ench::*}
+					enchant {_c} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_c} with a random element out of {s.ench::*}
+						enchant {_c} with a random element out of {s.ench::*}
+					enchant {_l} with a random element out of {s.ench::*}
+					enchant {_l} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_l} with a random element out of {s.ench::*}
+						enchant {_l} with a random element out of {s.ench::*}
+					enchant {_b} with a random element out of {s.ench::*}
+					enchant {_b} with a random element out of {s.ench::*}
+					chance of 25%:
+						enchant {_b} with a random element out of {s.ench::*}
+						enchant {_b} with a random element out of {s.ench::*}
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+					chance of 50%:
+						enchant {_tool} with a random element out of {s.wep.ench::*}
+						enchant {_tool} with a random element out of {s.wep.ench::*}
+					chance of 60%:
+						add a random element out of {s.wep.att::*} to the lore of {_tool}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_h}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_c}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_l}
+					chance of 60%:
+						add a random element out of {s.att::*} to the lore of {_b}
+				equip loop-entity with {_h}
+				equip loop-entity with {_c}
+				equip loop-entity with {_l}
+				equip loop-entity with {_b}
+				wait 1 minute
+				teleport loop-entity to {mobtrash}
+		if name of loop-entity is "specc2":
+			set name of loop-entity to "&cTortured Creature"
+			apply resistance 2 to the loop-entity for 255 days
+			set {_rng.tier} to a random number between 1 and 55
+			set {_rng.grade} to a random number between 1 and 55
+			set {_rng.grade} to rounded {_rng.grade}
+			set {_rng.tier} to rounded {_rng.tier}
+			if {_rng.tier} is between 31 and 49:
+				set {_tier} to 4
+			if {_rng.tier} is between 1 and 30:
+				set {_tier} to 3
+			if {_rng.tier} is between 50 and 55 :
+				set {_tier} to 5
+			if {_rng.grade} is between 31 and 49:
+				set {_grade} to 4
+			if {_rng.grade} is between 1 and 30:
+				set {_grade} to 3
+			if {_rng.grade} is between 50 and 55:
+				set {_grade} to 5
+			if {_tier} is 3:
+				set {_tool} to a random element out of {3.tools::*}
+				set {_rng.h} to a random element out of {50::*}
+				if {_rng.h} is equal to 1:
+					set {_h} to chain helmet
+				if {_rng.h} is equal to 2:
+					set {_h} to leather helmet
+				set {_rng.c} to a random element out of {50::*}
+				if {_rng.c} is equal to 1:
+					set {_c} to chain chestplate
+				if {_rng.c} is equal to 2:
+					set {_c} to leather chestplate
+				set {_rng.l} to a random element out of {50::*}
+				if {_rng.l} is equal to 1:
+					set {_l} to chain leggings
+				if {_rng.l} is equal to 2:
+					set {_l} to leather leggings
+				set {_rng.b} to a random element out of {50::*}
+				if {_rng.b} is equal to 1:
+					set {_b} to chain boots
+				if {_rng.b} is equal to 2:
+					set {_b} to leather boots
+			if {_tier} is 4:
+				set {_tool} to a random element out of {4.tools::*}
+				set {_rng.h} to a random element out of {50::*}
+				if {_rng.h} is equal to 1:
+					set {_h} to chain helmet
+				if {_rng.h} is equal to 2:
+					set {_h} to iron helmet
+				set {_rng.c} to a random element out of {50::*}
+				if {_rng.c} is equal to 1:
+					set {_c} to chain chestplate
+				if {_rng.c} is equal to 2:
+					set {_c} to iron chestplate
+				set {_rng.l} to a random element out of {50::*}
+				if {_rng.l} is equal to 1:
+					set {_l} to chain leggings
+				if {_rng.l} is equal to 2:
+					set {_l} to iron leggings
+				set {_rng.b} to a random element out of {50::*}
+				if {_rng.b} is equal to 1:
+					set {_b} to chain boots
+				if {_rng.b} is equal to 2:
+					set {_b} to iron boots
+			if {_tier} is 5:
+				set {_tool} to a random element out of {5.tools::*}
+				set {_rng.h} to a random element out of {50::*}
+				if {_rng.h} is equal to 1:
+					set {_h} to diamond helmet
+				if {_rng.h} is equal to 2:
+					set {_h} to iron helmet
+				set {_rng.c} to a random element out of {50::*}
+				if {_rng.c} is equal to 1:
+					set {_c} to diamond chestplate
+				if {_rng.c} is equal to 2:
+					set {_c} to iron chestplate
+				set {_rng.l} to a random element out of {50::*}
+				if {_rng.l} is equal to 1:
+					set {_l} to diamond leggings
+				if {_rng.l} is equal to 2:
+					set {_l} to iron leggings
+				set {_rng.b} to a random element out of {50::*}
+				if {_rng.b} is equal to 1:
+					set {_b} to diamond boots
+				if {_rng.b} is equal to 2:
+					set {_b} to iron boots
+			if {_grade} is equal to 3:
+				enchant {_h} with a random element out of {b.ench::*}
+				chance of 25%:
+					enchant {_h} with a random element out of {b.ench::*}
+				enchant {_c} with a random element out of {b.ench::*}
+				chance of 25%:
+					enchant {_c} with a random element out of {b.ench::*}
+				enchant {_l} with a random element out of {b.ench::*}
+				chance of 25%:
+					enchant {_l} with a random element out of {b.ench::*}
+				enchant {_b} with a random element out of {b.ench::*}
+				chance of 25%:
+					enchant {_b} with a random element out of {b.ench::*}
+				enchant {_tool} with a random element out of {b.wep.ench::*}
+				chance of 50%:
+					enchant {_tool} with a random element out of {b.wep.ench::*}
+				chance of 50%:
+					add a random element out of {b.wep.att::*} to the lore of {_tool}
+				chance of 50%:
+					add a random element out of {b.att::*} to the lore of {_h}
+				chance of 50%:
+					add a random element out of {b.att::*} to the lore of {_c}
+				chance of 50%:
+					add a random element out of {b.att::*} to the lore of {_l}
+				chance of 50%:
+					add a random element out of {b.att::*} to the lore of {_b}
+			if {_grade} is equal to 4:
+				enchant {_h} with a random element out of {a.ench::*}
+				enchant {_h} with a random element out of {a.ench::*}
+				chance of 25%:
+					enchant {_h} with a random element out of {a.ench::*}
+				enchant {_c} with a random element out of {a.ench::*}
+				enchant {_c} with a random element out of {a.ench::*}
+				chance of 25%:
+					enchant {_c} with a random element out of {a.ench::*}
+				enchant {_l} with a random element out of {a.ench::*}
+				enchant {_l} with a random element out of {a.ench::*}
+				chance of 25%:
+					enchant {_l} with a random element out of {a.ench::*}
+				enchant {_b} with a random element out of {a.ench::*}
+				enchant {_b} with a random element out of {a.ench::*}
+				chance of 25%:
+					enchant {_b} with a random element out of {a.ench::*}
+				enchant {_tool} with a random element out of {a.wep.ench::*}
+				enchant {_tool} with a random element out of {a.wep.ench::*}
+				chance of 50%:
+					enchant {_tool} with a random element out of {a.wep.ench::*}
+				chance of 50%:
+					add a random element out of {a.wep.att::*} to the lore of {_tool}
+				chance of 50%:
+					add a random element out of {a.att::*} to the lore of {_h}
+				chance of 50%:
+					add a random element out of {a.att::*} to the lore of {_c}
+				chance of 50%:
+					add a random element out of {a.att::*} to the lore of {_l}
+				chance of 50%:
+					add a random element out of {a.att::*} to the lore of {_b}
+			if {_grade} is equal to 5:
+				enchant {_h} with a random element out of {s.ench::*}
+				enchant {_h} with a random element out of {s.ench::*}
+				chance of 25%:
+					enchant {_h} with a random element out of {s.ench::*}
+					enchant {_h} with a random element out of {s.ench::*}
+				enchant {_c} with a random element out of {s.ench::*}
+				enchant {_c} with a random element out of {s.ench::*}
+				chance of 25%:
+					enchant {_c} with a random element out of {s.ench::*}
+					enchant {_c} with a random element out of {s.ench::*}
+				enchant {_l} with a random element out of {s.ench::*}
+				enchant {_l} with a random element out of {s.ench::*}
+				chance of 25%:
+					enchant {_l} with a random element out of {s.ench::*}
+					enchant {_l} with a random element out of {s.ench::*}
+				enchant {_b} with a random element out of {s.ench::*}
+				enchant {_b} with a random element out of {s.ench::*}
+				chance of 25%:
+					enchant {_b} with a random element out of {s.ench::*}
+					enchant {_b} with a random element out of {s.ench::*}
+				enchant {_tool} with a random element out of {s.wep.ench::*}
+				enchant {_tool} with a random element out of {s.wep.ench::*}
+				chance of 50%:
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+				chance of 60%:
+					add a random element out of {s.wep.att::*} to the lore of {_tool}
+				chance of 60%:
+					add a random element out of {s.att::*} to the lore of {_h}
+				chance of 60%:
+					add a random element out of {s.att::*} to the lore of {_c}
+				chance of 60%:
+					add a random element out of {s.att::*} to the lore of {_l}
+				chance of 60%:
+					add a random element out of {s.att::*} to the lore of {_b}
+			equip loop-entity with {_h}
+			equip loop-entity with {_c}
+			equip loop-entity with {_l}
+			equip loop-entity with {_b}
+			set loop-entity's tool to {_tool}
+			wait 1 minute
+			teleport loop-entity to {mobtrash}
+
+		if name of loop-entity is "specc3":
+			set name of loop-entity to "&dElder Monster"
+			apply resistance 2 to the loop-entity for 255 days
+			apply speed 1 to the loop-entity for 25 days
+			set loop-entity's max health to 80
+			heal loop-entity
+			set {_rng.tier} to a random number between 51 and 55
+			set {_rng.grade} to a random number between 51 and 55
+			set {_rng.grade} to rounded {_rng.grade}
+			set {_rng.tier} to rounded {_rng.tier}
+			if {_rng.tier} is between 31 and 49:
+				set {_tier} to 4
+			if {_rng.tier} is between 1 and 30:
+				set {_tier} to 3
+			if {_rng.tier} is between 50 and 55 :
+				set {_tier} to 5
+			if {_rng.grade} is between 31 and 49:
+				set {_grade} to 4
+			if {_rng.grade} is between 1 and 30:
+				set {_grade} to 3
+			if {_rng.grade} is between 50 and 55:
+				set {_grade} to 5
+			if {_tier} is 5:
+				set {_tool} to a random element out of {5.tools::*}
+				set {_rng.h} to a random element out of {50::*}
+				if {_rng.h} is equal to 1:
+					set {_h} to diamond helmet
+				if {_rng.h} is equal to 2:
+					set {_h} to iron helmet
+				set {_rng.c} to a random element out of {50::*}
+				if {_rng.c} is equal to 1:
+					set {_c} to diamond chestplate
+				if {_rng.c} is equal to 2:
+					set {_c} to iron chestplate
+				set {_rng.l} to a random element out of {50::*}
+				if {_rng.l} is equal to 1:
+					set {_l} to diamond leggings
+				if {_rng.l} is equal to 2:
+					set {_l} to iron leggings
+				set {_rng.b} to a random element out of {50::*}
+				if {_rng.b} is equal to 1:
+					set {_b} to diamond boots
+				if {_rng.b} is equal to 2:
+					set {_b} to iron boots
+			if {_grade} is equal to 5:
+				enchant {_h} with a random element out of {s.ench::*}
+				enchant {_h} with a random element out of {s.ench::*}
+				chance of 25%:
+					enchant {_h} with a random element out of {s.ench::*}
+					enchant {_h} with a random element out of {s.ench::*}
+				enchant {_c} with a random element out of {s.ench::*}
+				enchant {_c} with a random element out of {s.ench::*}
+				chance of 25%:
+					enchant {_c} with a random element out of {s.ench::*}
+					enchant {_c} with a random element out of {s.ench::*}
+				enchant {_l} with a random element out of {s.ench::*}
+				enchant {_l} with a random element out of {s.ench::*}
+				chance of 25%:
+					enchant {_l} with a random element out of {s.ench::*}
+					enchant {_l} with a random element out of {s.ench::*}
+				enchant {_b} with a random element out of {s.ench::*}
+				enchant {_b} with a random element out of {s.ench::*}
+				chance of 25%:
+					enchant {_b} with a random element out of {s.ench::*}
+					enchant {_b} with a random element out of {s.ench::*}
+				enchant {_tool} with a random element out of {s.wep.ench::*}
+				enchant {_tool} with a random element out of {s.wep.ench::*}
+				chance of 50%:
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+					enchant {_tool} with a random element out of {s.wep.ench::*}
+				chance of 60%:
+					add a random element out of {s.wep.att::*} to the lore of {_tool}
+				chance of 60%:
+					add a random element out of {s.att::*} to the lore of {_h}
+				chance of 60%:
+					add a random element out of {s.att::*} to the lore of {_c}
+				chance of 60%:
+					add a random element out of {s.att::*} to the lore of {_l}
+				chance of 60%:
+					add a random element out of {s.att::*} to the lore of {_b}
+			equip loop-entity with {_h}
+			equip loop-entity with {_c}
+			equip loop-entity with {_l}
+			equip loop-entity with {_b}
+			set loop-entity's tool to {_tool}
+			wait 1 minute
+			teleport loop-entity to {mobtrash}
+
+
+on death:
+	if victim's name contains "&dElder Monster":
+		chance of 25%:
+			clear victim drops
+
+
+                                                                                                         
+                                                                                                         
+#PPPPPPPPPPPPPPPPP                                                tttt                            lllllll 
+#P::::::::::::::::P                                            ttt:::t                            l:::::l 
+#P::::::PPPPPP:::::P                                           t:::::t                            l:::::l 
+#PP:::::P     P:::::P                                          t:::::t                            l:::::l 
+#  P::::P     P:::::P  ooooooooooo   rrrrr   rrrrrrrrr   ttttttt:::::ttttttt      aaaaaaaaaaaaa    l::::l 
+#  P::::P     P:::::Poo:::::::::::oo r::::rrr:::::::::r  t:::::::::::::::::t      a::::::::::::a   l::::l 
+#  P::::PPPPPP:::::Po:::::::::::::::or:::::::::::::::::r t:::::::::::::::::t      aaaaaaaaa:::::a  l::::l 
+#  P:::::::::::::PP o:::::ooooo:::::orr::::::rrrrr::::::rtttttt:::::::tttttt               a::::a  l::::l 
+#  P::::PPPPPPPPP   o::::o     o::::o r:::::r     r:::::r      t:::::t              aaaaaaa:::::a  l::::l 
+#  P::::P           o::::o     o::::o r:::::r     rrrrrrr      t:::::t            aa::::::::::::a  l::::l 
+#  P::::P           o::::o     o::::o r:::::r                  t:::::t           a::::aaaa::::::a  l::::l 
+#  P::::P           o::::o     o::::o r:::::r                  t:::::t    tttttta::::a    a:::::a  l::::l 
+#PP::::::PP         o:::::ooooo:::::o r:::::r                  t::::::tttt:::::ta::::a    a:::::a l::::::l
+#P::::::::P         o:::::::::::::::o r:::::r                  tt::::::::::::::ta:::::aaaa::::::a l::::::l
+#P::::::::P          oo:::::::::::oo  r:::::r                    tt:::::::::::tt a::::::::::aa:::al::::::l
+#PPPPPPPPPP            ooooooooooo    rrrrrrr                      ttttttttttt    aaaaaaaaaa  aaaallllllll
+                                                                                                         
+                                                                                                         
+                                                                                                         
+                                                                                                         
+                                                                                                         
+                                                                                                         
+
+
+on death:
+	if attacker is not a player:
+		victim is not a player:
+			clear drops                                                             
+
+
+
+
+
+on right-click:
+	event-item is end portal frame:
+		if time is night:
+			cancel event
+			remove event-item from player's inventory
+			set {_lore} to the 1st line of the lore of event-item
+			replace every "&e" with "" in {_lore}
+			replace every "Entities" with "" in {_lore}
+			replace every "&7" with "" in {_lore}
+			replace every ":" with "" in {_lore}
+			replace every " " with "" in {_lore}
+			set {_lore} to {_lore} parsed as an integer
+			wait 1 tick
+			set {_rng} to a random number between 1 and 10
+			set {_rng} to rounded {_rng}
+			if {_rng} is equal to 1, 2 or 3:
+				set {_type} to zombie
+			if {_rng} is equal to 4 or 5:
+				set {_type} to skeleton
+			if {_rng} is equal to 6 or 7:
+				set {_type} to husk
+			if {_rng} is equal to 8:
+				set {_type} to drowned
+			if {_rng} is equal to 9:
+				set {_type} to blaze
+			if {_rng} is equal to 10:
+				set {_type} to wither skeleton
+			wait 1 tick
+			spawn 1 armor stand at player's location
+			set display name of last spawned armor stand to "3"
+			set visibility of last spawned armor stand to false
+			wait 1 second
+			set display name of last spawned armor stand to "2"
+			wait 1 second
+			set display name of last spawned armor stand to "1"
+			wait 1 second
+			loop all entities in radius 8 of event-player:
+				if loop-entity is a armor stand named "1":
+					kill loop-entity
+					if {_rng} is equal to 1, 2 or 3:
+						loop {_lore} times:
+							spawn 1 zombie at loop-entity
+							apply resistance 255 to the last spawned zombie for 0.5 seconds
+							apply invisibility 1 to the last spawned zombie for 0.2 seconds
+							apply speed 5 to the last spawned zombie for 0.5 seconds
+							add 1 to {_amount}
+						send "&eThe Portal summoned &7%{_amount}% &eEntities from the Inferno."
+						create a safe explosion of force 0.1 at loop-entity's location
+					if {_rng} is equal to 4 or 5:
+						loop {_lore} times:
+							spawn 1 skeleton at loop-entity
+							apply resistance 255 to the last spawned zombie for 0.5 seconds
+							apply invisibility 1 to the last spawned zombie for 0.2 seconds
+							apply speed 5 to the last spawned zombie for 0.5 seconds
+							add 1 to {_amount}
+						send "&eThe Portal summoned &7%{_amount}% &eEntities from the Inferno."
+						create a safe explosion of force 0.1 at loop-entity's location
+					if {_rng} is equal to 6 or 10:
+						loop {_lore} times:
+							spawn 1 husk at loop-entity
+							apply resistance 255 to the last spawned zombie for 0.5 seconds
+							apply invisibility 1 to the last spawned zombie for 0.2 seconds
+							apply speed 5 to the last spawned zombie for 0.5 seconds
+							add 1 to {_amount}
+						send "&eThe Portal summoned &7%{_amount}% &eEntities from the Inferno."
+						create a safe explosion of force 0.1 at loop-entity's location
+					if {_rng} is equal to 7:
+						loop {_lore} times:
+							spawn 1 drowned at loop-entity
+							apply resistance 255 to the last spawned zombie for 0.5 seconds
+							apply invisibility 1 to the last spawned zombie for 0.2 seconds
+							apply speed 5 to the last spawned zombie for 0.5 seconds
+							add 1 to {_amount}
+						send "&eThe Portal summoned &7%{_amount}% &eEntities from the Inferno."
+						create a safe explosion of force 0.1 at loop-entity's location
+					if {_rng} is equal to 8:
+						loop {_lore} times:
+							spawn 1 blaze at loop-entity
+							apply resistance 255 to the last spawned zombie for 0.5 seconds
+							apply invisibility 1 to the last spawned zombie for 0.2 seconds
+							apply speed 5 to the last spawned zombie for 0.5 seconds
+							add 1 to {_amount}
+						send "&eThe Portal summoned &7%{_amount}% &eEntities from the Inferno."
+						create a safe explosion of force 0.1 at loop-entity's location
+					if {_rng} is equal to 9:
+						loop {_lore} times:
+							spawn 1 wither skeleton at loop-entity
+							apply resistance 255 to the last spawned zombie for 0.5 seconds
+							apply invisibility 1 to the last spawned zombie for 0.2 seconds
+							apply speed 5 to the last spawned zombie for 0.5 seconds
+							add 1 to {_amount}
+						send "&eThe Portal summoned &7%{_amount}% &eEntities from the Inferno."
+						create a safe explosion of force 0.1 at loop-entity's location
+		else:
+			send "&cThe Portal won't attend you till the sun fall."
+
+
+
+
+                                                 
+                                                 
+#DDDDDDDDDDDDD                     QQQQQQQQQ      
+#D::::::::::::DDD                QQ:::::::::QQ    
+#D:::::::::::::::DD            QQ:::::::::::::QQ  
+#DDD:::::DDDDD:::::D          Q:::::::QQQ:::::::Q 
+#  D:::::D    D:::::D         Q::::::O   Q::::::Q 
+#  D:::::D     D:::::D        Q:::::O     Q:::::Q 
+#  D:::::D     D:::::D        Q:::::O     Q:::::Q 
+#  D:::::D     D:::::D        Q:::::O     Q:::::Q 
+#  D:::::D     D:::::D        Q:::::O     Q:::::Q 
+#  D:::::D     D:::::D        Q:::::O     Q:::::Q 
+#  D:::::D     D:::::D        Q:::::O  QQQQ:::::Q 
+#  D:::::D    D:::::D         Q::::::O Q::::::::Q 
+#DDD:::::DDDDD:::::D          Q:::::::QQ::::::::Q 
+#D:::::::::::::::DD    ......  QQ::::::::::::::Q  
+#D::::::::::::DDD      .::::.    QQ:::::::::::Q   
+#DDDDDDDDDDDDD         ......      QQQQQQQQ::::QQ 
+#                                          Q:::::Q
+#                                           QQQQQQ
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+
+on spawn:
+	if event-entity is a skeleton:
+		loop all entities in radius 3 of event-entity:
+			if loop-entity is a armor stand named "boss1":
+				set name of last spawned entity to "&e&oQüir's Guard"
+				set {_c} to iron chestplate
+				set {_l} to leather leggings
+				set {_b} to leather boots
+				set {_w} to bow
+				dye {_l} white
+				dye {_b} white
+				enchant {_c} with protection 3
+				enchant {_l} with protection 6
+				enchant {_b} with protection 6
+				enchant {_w} with punch 3
+				enchant {_w} with power 6
+				equip event-entity with {_c}
+				equip event-entity with {_l}
+				equip event-entity with {_b}
+				set event-entity's tool to {_w}
+
+
+command /spawnboss1:
+	permission: op
+	trigger:
+		set {guards.in} to false
+		set {minion.dhun.count} to 0
+		spawn 1 stray at {boss1.spawn::*}
+		set max health of last spawned entity to 285
+		heal last spawned entity 
+		set name of last spawned entity to "&eDhun'qüir"
+		set {_h} to gold helmet
+		set {_c} to diamond chestplate
+		set {_l} to diamond leggings
+		set {_b} to leather boots
+		set {_w} to gold sword
+		set {_w2} to bow
+		dye {_b} white
+		enchant {_h} with protection 20
+		enchant {_h} with unbreaking 10
+		equip last spawned entity with {_h}
+		equip last spawned entity with {_c}
+		equip last spawned entity with {_l}
+		equip last spawned entity with {_b}
+		set last spawned entity's tool to {_w}
+		apply levitation 1 to last spawned entity for 2 seconds
+		wait 1.5 seconds
+		apply slow falling 1 to last spawned entity for 3 seconds
+		loop all armor stands in radius 10 of spawned entity:
+			if loop-entity is a armor stand named "op.boss1":
+				set name of loop-entity to "op.boss1.alive"
+		set {dhunquir.hp} to 285
+on damage:
+	victim's name is "&eDhun'qüir":
+		set {_dmg} to damage
+		remove {_dmg} from {dhunquir.hp}
+		add damage to {%attacker%.dhudmg}
+		if {inspec.boss1} is true:
+			add damage to {specboss1heal}
+			set damage to 0
+			heal victim by {specboss1heal}
+			add {specboss1heal} to {dhunquir.hp}
+	attacker's name is "&eDhun'qüir":
+		add 4 to damage
+		chance of 33%:
+			apply slowness 1 to the victim for 2.5 seconds
+		chance of 33%:
+			apply weakness 1 to the victim for 2.5 seconds
+		chance of 33%:
+			apply mining fatigue 2 to the victim for 2.5 seconds
+every tick:
+	loop all armor stands:
+		if loop-entity's name is "op.boss1.alive":
+			loop all strays in radius 50 of loop-entity:
+				set {dhunquir.hp} to the loop-stray's health
+every 12 seconds:
+	loop all armor stands:
+		if loop-entity's name is "op.boss1.alive":
+			set {_rng} to a random number between 1 and 6
+			set {_rng} to rounded {_rng}
+			if {_rng} is 1:
+				loop all players in radius 20 of loop-entity:
+					chance of 30%:
+						send "&eDhun'Qüir&7&o~ &fCloser.... Closer...." to loop-player
+					chance of 30%:
+						send "&eDhun'Qüir&7&o~ &fCome closer child..." to loop-player
+					chance of 30%:
+						send "&eDhun'Qüir&7&o~ &fWhat a brave adventurer! Come here...." to loop-player
+					chance of 30%:
+						send "&eDhun'Qüir&7&o~ &fDont be that far..." to loop-player
+					chance of 30%:
+						send "&eDhun'Qüir&7&o~ &fCome here!" to loop-player
+				loop all strays in radius 50 of loop-entity:
+					teleport loop-stray to location at -3, 74, -111 in world "world"
+				loop all players in radius 3 of loop-entity:
+					push loop-player 1.4 meter up
+					wait 10 ticks
+					apply slowness 6 to loop-player for 5 seconds
+					apply mining fatigue 255 to loop-player for 5 seconds
+			if {_rng} is 2:
+				loop all players in radius 20 of loop-entity:
+					set {_damage} to 8
+					add 0.5 to {_damage}
+					send "&eDhun'Qüir&7&o~ &fWhat a cold night." to loop-player
+					chance of 50%:
+						damage loop-player by {_damage}
+						apply weakness 1 to the loop-player for 3 seconds
+						apply slowness 1 to the loop-player for 3 seconds
+						send "&eDhun'Qüir&7&o~ &fCold! Cold! Colder!" to loop-player
+			if {_rng} is 3:
+				loop all strays in radius 25 of loop-entity:
+					if loop-stray's name contains "&eDhun'Qüir":
+						apply slowness 255 to the loop-stray for 5 seconds
+						apply regeneration 3 to the loop-stray for 5 seconds
+						apply resistance 4 to the loop-stray for 5 seconds
+				loop all players in radius 25 of loop-entity:
+					send "&eDhun'Qüir&7&o~ &fPermafrost never melt" to loop-player
+			if {_rng} is 4:
+				loop all strays in radius 25 of loop-entity:
+					if loop-stray's name contains "&eDhun'Qüir":
+						apply levitation 1 to the loop-entity-1 for 4 seconds
+				loop all players in radius 25 of loop-entity:
+					send "&eDhun'Qüir&7&o~ &fNot even your plates can protect you!" to loop-player		
+					apply slowness 255 to the loop-player for 2 seconds
+					damage loop-player by 10
+					damage loop-player's helmet by 10
+					damage loop-player's chestplate by 18
+					damage loop-player's leggings by 18
+					damage loop-player's boots by 10
+					damage loop-player's tool by 15
+			if {_rng} is 5:
+				loop all players in radius 25 of loop-entity:
+					teleport loop-player to location at -3, 74, -111 in world "world"
+					send "&eDhun'Qüir&7&o~ &fHahahaha! kness on ground" to loop-player
+					apply slowness 3 to the loop-player for 5 seconds
+					apply weakness 2 to the loop-player for 6 seconds
+					loop 16 times:
+						damage loop-player by 0.5
+				loop all strays in radius 25 of loop-entity:
+					apply levitation 1 to the loop-stray for 3 seconds
+					heal loop-stray by 20
+					add 20 to {dhunquir.hp}
+			if {_rng} is 6:
+				if {dhunquir.hp} is between 0 and 125:
+					loop all players in radius 25 of loop-entity:
+						send "&eDhun'Qüir&7&o~ &fYou can't hold this." to loop-player
+					loop all strays in radius 25 of loop-entity:
+						if loop-stray's name contains "&eDhun'qüir":
+							apply invisibility 1 to the loop-stray for 5 seconds
+							set {inspec.boss1} to true
+							wait 4.8 seconds
+							set {inspec.boss1} to false
+							loop all players in radius 20 of loop-stray:
+								damage loop-player by {specboss1heal}
+								clear {specboss1heal}
+								send "&eDhun'Qüir&7&o~ &fTake all this back!." to loop-player
+				else:
+					loop all players in radius 25 of loop-entity:
+						damage loop-player by 6
+						apply slowness 255 to the loop-player for 1 second
+						send "&eDhun'Qüir&7&o~ &fYou are too pathetic for me." to loop-player
+every 10 seconds:
+	loop all armor stands:
+		if loop-entity's name is "op.boss1.alive":
+			set {_rng} to a random number between 1 and 5
+			set {_rng} to rounded {_rng}
+			if {_rng} is 3:
+				if {minion.dhun.count} is between 0 and 5:
+					make console execute command "/minionspawn"
+					add 1 to {minion.dhun.count}
+				else:
+					stop
+			if {dhunquir.hp} is between 0 and 180:
+				if {guards.in} is false:
+					make console execute command "/guardtest"
+					set {guards.in} to true
+on death:
+	if victim's name contains "&eDhun'qüir":
+		loop all armor stands in radius 20 of victim:
+			if name of loop-entity is "op.boss1.alive":
+				set name of loop-entity to "op.boss1"
+				clear {minion.dhun.count}
+				clear {dhunquir.hp}
+				clear {specboss1heal}
+				set {guards.in} to false
+				clear drops
+				clear {%attacker%.dhudmg}

@@ -1,0 +1,827 @@
+
+                                                                              
+#VVVVVVVV           VVVVVVVV                                                   
+#V::::::V           V::::::V                                                   
+#V::::::V           V::::::V                                                   
+#V::::::V           V::::::V                                                   
+# V:::::V           V:::::Vaaaaaaaaaaaaa  rrrrr   rrrrrrrrr       ssssssssss   
+#  V:::::V         V:::::V a::::::::::::a r::::rrr:::::::::r    ss::::::::::s  
+#   V:::::V       V:::::V  aaaaaaaaa:::::ar:::::::::::::::::r ss:::::::::::::s 
+#    V:::::V     V:::::V            a::::arr::::::rrrrr::::::rs::::::ssss:::::s
+#     V:::::V   V:::::V      aaaaaaa:::::a r:::::r     r:::::r s:::::s  ssssss 
+#      V:::::V V:::::V     aa::::::::::::a r:::::r     rrrrrrr   s::::::s      
+#       V:::::V:::::V     a::::aaaa::::::a r:::::r                  s::::::s   
+#        V:::::::::V     a::::a    a:::::a r:::::r            ssssss   s:::::s 
+#         V:::::::V      a::::a    a:::::a r:::::r            s:::::ssss::::::s
+#          V:::::V       a:::::aaaa::::::a r:::::r            s::::::::::::::s 
+#           V:::V         a::::::::::aa:::ar:::::r             s:::::::::::ss  
+#            VVV           aaaaaaaaaa  aaaarrrrrrr              sssssssssss    
+                                                                              
+                                                                              
+                                                                              
+         
+
+
+
+
+
+
+on skript start:
+	clear {material.crates::*}
+	add oak wood to {material.crates::*}
+	add spruce wood to {material.crates::*}
+	add birch wood to {material.crates::*}
+	add nether quartz to {material.crates::*}
+	add white wool to {material.crates::*}
+	add cobblestone to {material.crates::*}
+	add clay to {material.crates::*}
+	add raw iron to {material.crates::*}
+	add raw copper to {material.crates::*}
+	add coal to {material.crates::*}
+	add raw gold to {material.crates::*}
+	add sand to {material.crates::*}
+
+	clear {loot.crates::*}
+	add iron sword to {loot.crates::*}
+	add iron shovel to {loot.crates::*}
+	add iron hoe to {loot.crates::*}
+	add iron axe to {loot.crates::*}
+	add iron pickaxe to {loot.crates::*}
+	add iron chestplate to {loot.crates::*}
+	add iron leggings to {loot.crates::*}
+	add iron boots to {loot.crates::*}
+	add iron helmet to {loot.crates::*}
+	add diamond sword to {loot.crates::*}
+	add diamond shovel to {loot.crates::*}
+	add diamond hoe to {loot.crates::*}
+	add diamond axe to {loot.crates::*}
+	add diamond pickaxe to {loot.crates::*}
+	add diamond chestplate to {loot.crates::*}
+	add diamond leggings to {loot.crates::*}
+	add diamond boots to {loot.crates::*}
+	add diamond helmet to {loot.crates::*}
+	add chain chestplate to {loot.crates::*}
+	add chain leggings to {loot.crates::*}
+	add chain boots to {loot.crates::*}
+	add chain helmet to {loot.crates::*}
+	add diamond to {loot.crates::*}
+	add emerald to {loot.crates::*}
+
+	clear {multi.elite.crates::*}
+	add emerald to {multi.elite.crates::*}
+	add diamond to {multi.elite.crates::*}
+	add obsidian to {multi.elite.crates::*}
+	add raw iron block to {multi.elite.crates::*}
+	add raw gold block to {multi.elite.crates::*}
+	add golden apple to {multi.elite.crates::*}
+
+	clear {elite.crates::*}
+	add diamond sword to {elite.crates::*}
+	add diamond shovel to {elite.crates::*}
+	add diamond hoe to {elite.crates::*}
+	add diamond axe to {elite.crates::*}
+	add diamond pickaxe to {elite.crates::*}
+	add diamond chestplate to {elite.crates::*}
+	add diamond leggings to {elite.crates::*}
+	add diamond boots to {elite.crates::*}
+	add diamond helmet to {elite.crates::*}
+	add netherite sword to {elite.crates::*}
+	add netherite shovel to {elite.crates::*}
+	add netherite hoe to {elite.crates::*}
+	add netherite axe to {elite.crates::*}
+	add netherite pickaxe to {elite.crates::*}
+	add netherite chestplate to {elite.crates::*}
+	add netherite leggings to {elite.crates::*}
+	add netherite boots to {elite.crates::*}
+	add netherite helmet to {elite.crates::*}
+
+	clear {enchant.crates::*}
+	clear {extra.enchant.crates::*}
+	add sharpness 1 to {enchant.crates::*}
+	add sharpness 2 to {enchant.crates::*}
+	add sharpness 3 to {enchant.crates::*}
+	add sharpness 4 to {enchant.crates::*}
+	add sharpness 5 to {enchant.crates::*}
+	add sharpness 6 to {extra.enchant.crates::*}
+	add sharpness 7 to {extra.enchant.crates::*}
+	add efficiency 1 to {enchant.crates::*}
+	add efficiency 2 to {enchant.crates::*}
+	add efficiency 3 to {enchant.crates::*}
+	add efficiency 4 to {enchant.crates::*}
+	add efficiency 5 to {enchant.crates::*}
+	add efficiency 6 to {extra.enchant.crates::*}
+	add efficiency 7 to {extra.enchant.crates::*}
+	add unbreaking 1 to {enchant.crates::*}
+	add unbreaking 2 to {enchant.crates::*}
+	add unbreaking 3 to {enchant.crates::*}
+	add unbreaking 4 to {extra.enchant.crates::*}
+	add unbreaking 5 to {extra.enchant.crates::*}
+	add looting 1 to {enchant.crates::*}
+	add looting 2 to {enchant.crates::*}
+	add looting 3 to {enchant.crates::*}
+	add looting 4 to {extra.enchant.crates::*}
+	add looting 5 to {extra.enchant.crates::*}
+	add sweeping edge 1 to {enchant.crates::*}
+	add sweeping edge 2 to {enchant.crates::*}
+	add fortune 1 to {enchant.crates::*}
+	add fortune 2 to {enchant.crates::*}
+	add fortune 3 to {enchant.crates::*}
+	add fortune 4 to {extra.enchant.crates::*}
+	add fortune 5 to {extra.enchant.crates::*}
+	add smite 1 to {enchant.crates::*}
+	add smite 2 to {enchant.crates::*}
+	add smite 3 to {enchant.crates::*}
+	add smite 4 to {enchant.crates::*}
+	add smite 5 to {enchant.crates::*}
+	add smite 6 to {extra.enchant.crates::*}
+	add smite 7 to {extra.enchant.crates::*}
+	add smite 8 to {extra.enchant.crates::*}
+	add bane of arthropods 1 to {enchant.crates::*}
+	add bane of arthropods 2 to {enchant.crates::*}
+	add bane of arthropods 3 to {enchant.crates::*}
+	add bane of arthropods 4 to {enchant.crates::*}
+	add bane of arthropods 5 to {enchant.crates::*}
+	add bane of arthropods 6 to {extra.enchant.crates::*}
+	add bane of arthropods 7 to {extra.enchant.crates::*}
+	add bane of arthropods 8 to {extra.enchant.crates::*}
+	add protection 1 to {enchant.crates::*}
+	add protection 2 to {enchant.crates::*}
+	add protection 3 to {enchant.crates::*}
+	add protection 4 to {enchant.crates::*}
+	add protection 5 to {extra.enchant.crates::*}
+	add protection 6 to {extra.enchant.crates::*}
+	add fire protection 1 to {enchant.crates::*}
+	add fire protection 2 to {enchant.crates::*}
+	add fire protection 3 to {enchant.crates::*}
+	add fire protection 4 to {enchant.crates::*}
+	add blast protection 1 to {enchant.crates::*}
+	add blast protection 2 to {enchant.crates::*}
+	add blast protection 3 to {enchant.crates::*}
+	add blast protection 4 to {enchant.crates::*}
+	add projectile protection 1 to {enchant.crates::*}
+	add projectile protection 2 to {enchant.crates::*}
+	add projectile protection 3 to {enchant.crates::*}
+	add projectile protection 4 to {enchant.crates::*}
+	add depth strider 1 to {enchant.crates::*}
+	add depth strider 2 to {enchant.crates::*}
+	add fire aspect 1 to {enchant.crates::*}
+	add fire aspect 2 to {enchant.crates::*}
+	add fire aspect 3 to {extra.enchant.crates::*}
+	add fire aspect 4 to {extra.enchant.crates::*}
+	add infinity 1 to {enchant.crates::*}
+	add mending 1 to {enchant.crates::*}
+	add punch 1 to {enchant.crates::*}
+	add punch 2 to {enchant.crates::*}
+	add punch 3 to {enchant.crates::*}
+	add power 1 to {enchant.crates::*}
+	add power 2 to {enchant.crates::*}
+	add power 3 to {enchant.crates::*}
+	add power 4 to {enchant.crates::*}
+	add power 5 to {enchant.crates::*}
+	add power 6 to {extra.enchant.crates::*}
+	add power 7 to {extra.enchant.crates::*}
+	add thorns 1 to {enchant.crates::*}
+	add thorns 2 to {enchant.crates::*}
+	add thorns 3 to {enchant.crates::*}
+	add thorns 4 to {extra.enchant.crates::*}
+	add thorns 5 to {extra.enchant.crates::*}
+	add feather falling 1 to {enchant.crates::*}
+	add feather falling 2 to {enchant.crates::*}
+	add feather falling 3 to {enchant.crates::*}
+	add feather falling 4 to {enchant.crates::*}
+	add flame 1 to {enchant.crates::*}
+	add silk touch 1 to {enchant.crates::*}
+	add respiration 1 to {enchant.crates::*}
+	add respiration 2 to {enchant.crates::*}
+	add respiration 3 to {enchant.crates::*}
+
+
+
+command /forcecrates:
+	permission: op
+	trigger:
+		clear {material.crates::*}
+		add oak wood to {material.crates::*}
+		add spruce wood to {material.crates::*}
+		add birch wood to {material.crates::*}
+		add nether quartz to {material.crates::*}
+		add white wool to {material.crates::*}
+		add cobblestone to {material.crates::*}
+		add clay to {material.crates::*}
+		add raw iron to {material.crates::*}
+		add raw copper to {material.crates::*}
+		add coal to {material.crates::*}
+		add raw gold to {material.crates::*}
+		add sand to {material.crates::*}
+
+		clear {loot.crates::*}
+		add iron sword to {loot.crates::*}
+		add iron shovel to {loot.crates::*}
+		add iron hoe to {loot.crates::*}
+		add iron axe to {loot.crates::*}
+		add iron pickaxe to {loot.crates::*}
+		add iron chestplate to {loot.crates::*}
+		add iron leggings to {loot.crates::*}
+		add iron boots to {loot.crates::*}
+		add iron helmet to {loot.crates::*}
+		add diamond sword to {loot.crates::*}
+		add diamond shovel to {loot.crates::*}
+		add diamond hoe to {loot.crates::*}
+		add diamond axe to {loot.crates::*}
+		add diamond pickaxe to {loot.crates::*}
+		add diamond chestplate to {loot.crates::*}
+		add diamond leggings to {loot.crates::*}
+		add diamond boots to {loot.crates::*}
+		add diamond helmet to {loot.crates::*}
+		add chain chestplate to {loot.crates::*}
+		add chain leggings to {loot.crates::*}
+		add chain boots to {loot.crates::*}
+		add chain helmet to {loot.crates::*}
+		add diamond to {loot.crates::*}
+		add emerald to {loot.crates::*}
+
+		clear {multi.elite.crates::*}
+		add emerald to {multi.elite.crates::*}
+		add diamond to {multi.elite.crates::*}
+		add obsidian to {multi.elite.crates::*}
+		add raw iron block to {multi.elite.crates::*}
+		add raw gold block to {multi.elite.crates::*}
+		add golden apple to {multi.elite.crates::*}
+
+		clear {elite.crates::*}
+		add diamond sword to {elite.crates::*}
+		add diamond shovel to {elite.crates::*}
+		add diamond hoe to {elite.crates::*}
+		add diamond axe to {elite.crates::*}
+		add diamond pickaxe to {elite.crates::*}
+		add diamond chestplate to {elite.crates::*}
+		add diamond leggings to {elite.crates::*}
+		add diamond boots to {elite.crates::*}
+		add diamond helmet to {elite.crates::*}
+		add netherite sword to {elite.crates::*}
+		add netherite shovel to {elite.crates::*}
+		add netherite hoe to {elite.crates::*}
+		add netherite axe to {elite.crates::*}
+		add netherite pickaxe to {elite.crates::*}
+		add netherite chestplate to {elite.crates::*}
+		add netherite leggings to {elite.crates::*}
+		add netherite boots to {elite.crates::*}
+		add netherite helmet to {elite.crates::*}
+
+
+		clear {enchant.crates::*}
+		clear {extra.enchant.crates::*}
+		add sharpness 1 to {enchant.crates::*}
+		add sharpness 2 to {enchant.crates::*}
+		add sharpness 3 to {enchant.crates::*}
+		add sharpness 4 to {enchant.crates::*}
+		add sharpness 5 to {enchant.crates::*}
+		add sharpness 6 to {extra.enchant.crates::*}
+		add sharpness 7 to {extra.enchant.crates::*}
+		add efficiency 1 to {enchant.crates::*}
+		add efficiency 2 to {enchant.crates::*}
+		add efficiency 3 to {enchant.crates::*}
+		add efficiency 4 to {enchant.crates::*}
+		add efficiency 5 to {enchant.crates::*}
+		add efficiency 6 to {extra.enchant.crates::*}
+		add efficiency 7 to {extra.enchant.crates::*}
+		add unbreaking 1 to {enchant.crates::*}
+		add unbreaking 2 to {enchant.crates::*}
+		add unbreaking 3 to {enchant.crates::*}
+		add unbreaking 4 to {extra.enchant.crates::*}
+		add unbreaking 5 to {extra.enchant.crates::*}
+		add looting 1 to {enchant.crates::*}
+		add looting 2 to {enchant.crates::*}
+		add looting 3 to {enchant.crates::*}
+		add looting 4 to {extra.enchant.crates::*}
+		add looting 5 to {extra.enchant.crates::*}
+		add sweeping edge 1 to {enchant.crates::*}
+		add sweeping edge 2 to {enchant.crates::*}
+		add fortune 1 to {enchant.crates::*}
+		add fortune 2 to {enchant.crates::*}
+		add fortune 3 to {enchant.crates::*}
+		add fortune 4 to {extra.enchant.crates::*}
+		add fortune 5 to {extra.enchant.crates::*}
+		add smite 1 to {enchant.crates::*}
+		add smite 2 to {enchant.crates::*}
+		add smite 3 to {enchant.crates::*}
+		add smite 4 to {enchant.crates::*}
+		add smite 5 to {enchant.crates::*}
+		add smite 6 to {extra.enchant.crates::*}
+		add smite 7 to {extra.enchant.crates::*}
+		add smite 8 to {extra.enchant.crates::*}
+		add bane of arthropods 1 to {enchant.crates::*}
+		add bane of arthropods 2 to {enchant.crates::*}
+		add bane of arthropods 3 to {enchant.crates::*}
+		add bane of arthropods 4 to {enchant.crates::*}
+		add bane of arthropods 5 to {enchant.crates::*}
+		add bane of arthropods 6 to {extra.enchant.crates::*}
+		add bane of arthropods 7 to {extra.enchant.crates::*}
+		add bane of arthropods 8 to {extra.enchant.crates::*}
+		add protection 1 to {enchant.crates::*}
+		add protection 2 to {enchant.crates::*}
+		add protection 3 to {enchant.crates::*}
+		add protection 4 to {enchant.crates::*}
+		add protection 5 to {extra.enchant.crates::*}
+		add protection 6 to {extra.enchant.crates::*}
+		add fire protection 1 to {enchant.crates::*}
+		add fire protection 2 to {enchant.crates::*}
+		add fire protection 3 to {enchant.crates::*}
+		add fire protection 4 to {enchant.crates::*}
+		add blast protection 1 to {enchant.crates::*}
+		add blast protection 2 to {enchant.crates::*}
+		add blast protection 3 to {enchant.crates::*}
+		add blast protection 4 to {enchant.crates::*}
+		add projectile protection 1 to {enchant.crates::*}
+		add projectile protection 2 to {enchant.crates::*}
+		add projectile protection 3 to {enchant.crates::*}
+		add projectile protection 4 to {enchant.crates::*}
+		add depth strider 1 to {enchant.crates::*}
+		add depth strider 2 to {enchant.crates::*}
+		add fire aspect 1 to {enchant.crates::*}
+		add fire aspect 2 to {enchant.crates::*}
+		add fire aspect 3 to {extra.enchant.crates::*}
+		add fire aspect 4 to {extra.enchant.crates::*}
+		add infinity 1 to {enchant.crates::*}
+		add mending 1 to {enchant.crates::*}
+		add punch 1 to {enchant.crates::*}
+		add punch 2 to {enchant.crates::*}
+		add punch 3 to {enchant.crates::*}
+		add power 1 to {enchant.crates::*}
+		add power 2 to {enchant.crates::*}
+		add power 3 to {enchant.crates::*}
+		add power 4 to {enchant.crates::*}
+		add power 5 to {enchant.crates::*}
+		add power 6 to {extra.enchant.crates::*}
+		add power 7 to {extra.enchant.crates::*}
+		add thorns 1 to {enchant.crates::*}
+		add thorns 2 to {enchant.crates::*}
+		add thorns 3 to {enchant.crates::*}
+		add thorns 4 to {extra.enchant.crates::*}
+		add thorns 5 to {extra.enchant.crates::*}
+		add feather falling 1 to {enchant.crates::*}
+		add feather falling 2 to {enchant.crates::*}
+		add feather falling 3 to {enchant.crates::*}
+		add feather falling 4 to {enchant.crates::*}
+		add flame 1 to {enchant.crates::*}
+		add silk touch 1 to {enchant.crates::*}
+		add respiration 1 to {enchant.crates::*}
+		add respiration 2 to {enchant.crates::*}
+		add respiration 3 to {enchant.crates::*}		
+
+
+
+
+                                                                                                                    
+                                                                                                                    
+#        CCCCCCCCCCCCC                                            tttt                                               
+#     CCC::::::::::::C                                         ttt:::t                                               
+#   CC:::::::::::::::C                                         t:::::t                                               
+#  C:::::CCCCCCCC::::C                                         t:::::t                                               
+# C:::::C       CCCCCCrrrrr   rrrrrrrrr   aaaaaaaaaaaaa  ttttttt:::::ttttttt        eeeeeeeeeeee        ssssssssss   
+#C:::::C              r::::rrr:::::::::r  a::::::::::::a t:::::::::::::::::t      ee::::::::::::ee    ss::::::::::s  
+#C:::::C              r:::::::::::::::::r aaaaaaaaa:::::at:::::::::::::::::t     e::::::eeeee:::::eess:::::::::::::s 
+#C:::::C              rr::::::rrrrr::::::r         a::::atttttt:::::::tttttt    e::::::e     e:::::es::::::ssss:::::s
+#C:::::C               r:::::r     r:::::r  aaaaaaa:::::a      t:::::t          e:::::::eeeee::::::e s:::::s  ssssss 
+#C:::::C               r:::::r     rrrrrrraa::::::::::::a      t:::::t          e:::::::::::::::::e    s::::::s      
+#C:::::C               r:::::r           a::::aaaa::::::a      t:::::t          e::::::eeeeeeeeeee        s::::::s   
+# C:::::C       CCCCCC r:::::r          a::::a    a:::::a      t:::::t    tttttte:::::::e           ssssss   s:::::s 
+#  C:::::CCCCCCCC::::C r:::::r          a::::a    a:::::a      t::::::tttt:::::te::::::::e          s:::::ssss::::::s
+#   CC:::::::::::::::C r:::::r          a:::::aaaa::::::a      tt::::::::::::::t e::::::::eeeeeeee  s::::::::::::::s 
+#     CCC::::::::::::C r:::::r           a::::::::::aa:::a       tt:::::::::::tt  ee:::::::::::::e   s:::::::::::ss  
+#        CCCCCCCCCCCCC rrrrrrr            aaaaaaaaaa  aaaa         ttttttttttt      eeeeeeeeeeeeee    sssssssssss    
+                                                                                                                    
+                                                                                                                    
+                                                                                                                    
+                                                                                                                    
+                                                                                                                    
+                                                                                                                    
+                                                                                                                    
+
+
+
+
+on rightclick:
+	if event-item's name is "&fMaterial Loot-Bundle":
+		clear player's tool
+		cancel event
+		set {_slot1} to a random element out of {material.crates::*}
+		set {_slot2} to a random element out of {material.crates::*}
+		set {_slot3} to a random element out of {material.crates::*}
+		set {_a.slot1} to a random number between 1 and 32
+		set {_a.slot1} to rounded {_a.slot1}
+		set {_a.slot2} to a random number between 1 and 32
+		set {_a.slot2} to rounded {_a.slot2}
+		set {_a.slot3} to a random number between 1 and 32
+		set {_a.slot3} to rounded {_a.slot3}
+		if player can hold 4 shulker box:
+			loop {_a.slot1} times:
+				give {_slot1} to player
+			loop {_a.slot2} times:
+				give {_slot2} to player
+			loop {_a.slot3} times:
+				give {_slot3} to player
+		else:
+			send "&c missing space! you need at least 4 slots to open this crate."
+	if event-item's name is "&fLoot-Bundle":
+		clear player's tool
+		cancel event
+		set {_slot1} to a random element out of {loot.crates::*}
+		set {_slot2} to a random element out of {loot.crates::*}
+		set {_slot3} to a random element out of {loot.crates::*}
+		set {_duraloss} to a random number between 5 and 450
+		set {_duraloss} to rounded {_duraloss}
+		chance of 75%:
+			damage {_slot1} by {_duraloss}
+		chance of 75%:
+			damage {_slot2} by {_duraloss}
+		chance of 75%:
+			damage {_slot3} by {_duraloss}
+		if player can hold 4 shulker box:
+			give {_slot1} to player
+			give {_slot2} to player
+			give {_slot3} to player
+		else:
+			send "&c missing space! you need at least 4 slots to open this crate."
+	if event-item's name is "&fElite Loot-Bundle":
+		clear player's tool
+		cancel event
+		set {_a.slot4} to a random number between 1 and 12
+		set {_a.slot4} to rounded {_a.slot4}
+		set {_slot1} to a random element out of {elite.crates::*}
+		set {_slot2} to a random element out of {elite.crates::*}
+		set {_slot3} to a random element out of {elite.crates::*}
+		set {_slot4} to a random element out of {multi.elite.crates::*}
+		set {_duraloss} to a random number between 120 and 1250
+		set {_duraloss} to rounded {_duraloss}
+		chance of 40%:
+			damage {_slot1} by {_duraloss}
+		chance of 40%:
+			damage {_slot2} by {_duraloss}
+		chance of 40%:
+			damage {_slot3} by {_duraloss}
+		if player can hold 5 shulker box:
+			give {_slot1} to player
+			give {_slot2} to player
+			give {_slot3} to player
+			loop {_a.slot4} times:
+				give {_slot4} to player
+		else:
+			send "&c missing space! you need at least 5 slots to open this crate."
+	if event-item's name is "&fEnchanted Loot-Bundle":
+		clear player's tool
+		cancel event
+		set {_slot1} to large amethyst bud
+		set {_slot2} to large amethyst bud
+		set {_slot3} to large amethyst bud
+		set {_slot4} to large amethyst bud
+		set name of {_slot1}, {_slot2}, {_slot3} and {_slot4} to "&d&oEnchantment Cluster"
+		chance of 100%:
+			set {_slot5} to amethyst cluster
+			set name of {_slot5} to "&dSuperior Enchantment Cluster"
+		chance of 100%:
+			set {_times1} to 2
+		chance of 75%:
+			set {_times1} to 2
+		chance of 50%:
+			set {_times1} to 3
+		chance of 25%:
+			set {_times1} to 4
+		chance of 100%:
+			set {_times2} to 2
+		chance of 75%:
+			set {_times2} to 2
+		chance of 50%:
+			set {_times2} to 3
+		chance of 25%:
+			set {_times2} to 4
+		chance of 100%:
+			set {_times3} to 2
+		chance of 75%:
+			set {_times3} to 2
+		chance of 50%:
+			set {_times3} to 3
+		chance of 25%:
+			set {_times3} to 4
+		chance of 100%:
+			set {_times4} to 2
+		chance of 75%:
+			set {_times4} to 2
+		chance of 50%:
+			set {_times4} to 3
+		chance of 25%:
+			set {_times4} to 4
+		chance of 100%:
+			set {_times5} to 2
+		chance of 33%:
+			set {_times5} to 3
+		loop {_times1} times:
+			enchant {_slot1} with a random element out of {enchant.crates::*}
+		loop {_times2} times:
+			enchant {_slot2} with a random element out of {enchant.crates::*}
+		loop {_times3} times:
+			enchant {_slot3} with a random element out of {enchant.crates::*}
+		loop {_times4} times:
+			enchant {_slot4} with a random element out of {enchant.crates::*}
+		loop {_times5} times:
+			enchant {_slot5} with a random element out of {extra.enchant.crates::*}
+		if player can hold 5 shulker box:
+			give {_slot1} to player
+			give {_slot2} to player
+			give {_slot3} to player
+			give {_slot4} to player
+			chance of 0%:
+				give {_slot5} to player
+				broadcast "&e<!> &a&l%player% &aobtained a &dSuperior Enchantment Cluster&a."
+
+		else:
+			send "&c missing space! you need at least 5 slots to open this crate."
+	if event-item's name is "&dSmall Enchanted Pouch":
+		clear player's tool
+		cancel event
+		set {_slot1} to amethyst shard
+		set {_slot2} to amethyst shard
+		set name of {_slot1} and {_slot2} to "&eEnchanted Shard"
+		set {_r} to a random number between 0 and 50000
+		set 1st line of the lore of {_slot1} to "&8%{_r}%"
+		set 1st line of the lore of {_slot2} to "&8%{_r}%"
+		chance of 100%:
+			set {_times1} to 1
+		chance of 75%:
+			set {_times1} to 1
+		chance of 50%:
+			set {_times1} to 1
+		chance of 25%:
+			set {_times1} to 1
+		chance of 100%:
+			set {_times2} to 1
+		chance of 75%:
+			set {_times2} to 1
+		chance of 50%:
+			set {_times2} to 1
+		chance of 25%:
+			set {_times2} to 1
+		chance of 100%:
+			set {_times3} to 1
+		chance of 75%:
+			set {_times3} to 1
+		chance of 50%:
+			set {_times3} to 1
+		chance of 25%:
+			set {_times3} to 1
+		chance of 100%:
+			set {_times4} to 1
+		chance of 75%:
+			set {_times4} to 1
+		chance of 50%:
+			set {_times4} to 1
+		chance of 25%:
+			set {_times4} to 1
+		chance of 100%:
+			set {_times5} to 1
+		chance of 33%:
+			set {_times5} to 1
+		loop {_times1} times:
+			enchant {_slot1} with a random element out of {enchant.crates::*}
+		loop {_times2} times:
+			enchant {_slot2} with a random element out of {enchant.crates::*}
+		if player can hold 3 shulker box:
+			give {_slot1} to player
+			give {_slot2} to player
+		else:
+			send "&c missing space! you need at least 3 slots to open this crate."
+
+
+
+
+
+
+
+
+
+
+#Treasure map --- | Bad
+#Treasure map -- | Simple
+
+#Treasure map - | Basic
+#Treasure map  | Common
+#Treasure map + | Uncommon
+
+#Treasure map ++ | Rare
+#Treasure map +++ | Legendary
+
+
+
+
+
+on rightclick:
+	event-item's name is "&fTreasure Map &8(&f&o-&8)":
+		cancel event
+		set name of player's tool to "&fTreasure Map &8(&f&o-&8) &a&oI"
+		wait 1 tick
+		set {_x} to random number between -5000 and 5000
+		set {_y} to random number between -10 and 60
+		set {_z} to random number between -5000 and 5000
+		set {_w} to "world"
+		set {_loc} to the location at {_x}, {_y}, {_z} of the world {_w}
+		set {_lore} to "&aLocation: &f%{_x}%, &f%{_y}%, &f%{_z}%"
+		set 2nd line of the lore of player's tool to {_lore}
+		set block at {_loc} to chest
+		set {_treasureblock} to block at {_loc}
+		add 5 torch to {_treasureblock}'s inventory
+		stop
+	event-item's name is "&fTreasure Map &8(&f&o-&8) &a&oI":
+		cancel event
+
+command /givemap:
+	permission: op
+	trigger:
+		give 1 empty map named "&fTreasure Map &8(&f&o-&8)" to player
+
+
+command /site:
+	permission: op
+	trigger:
+		spawn 1 end crystal at player's location
+		set name of last spawned entity to "s1"
+command /site2:
+	permission: op
+	trigger:
+		spawn 1 end crystal at player's location
+		set name of last spawned entity to "s2"
+command /site3:
+	permission: op
+	trigger:
+		spawn 1 end crystal at player's location
+		set name of last spawned entity to "s3"
+command /entcheck:
+	trigger:
+		loop all entities in radius 2 of player:
+			set {_d} to the name of loop-entity
+			send "%{_d}%" to player
+
+on death:
+	victim's display name contains "tortured":
+		if victim's y-coordinate is between -60 and 0:
+			chance of 12%:
+				spawn a end crystal at victim's location
+				set name of last spawned entity to "s1"
+			chance of 6%:
+				spawn a end crystal at victim's location
+				set name of last spawned entity to "s2"
+			chance of 3%:
+				spawn a end crystal at victim's location
+				set name of last spawned entity to "s3"
+
+on death:
+	victim's name is "&eCreature":
+		if victim's y-coordinate is between 71 and 300:
+			chance of 6%:
+				spawn 1 skeleton
+				set name of last spawned entity to "specc2"
+	victim's name is "&eCreature":
+		if victim's y-coordinate is between 51 and 70:
+			chance of 12%:
+				spawn 1 skeleton
+				set name of last spawned entity to "specc2"
+	victim's name is "&eCreature":
+		if victim's y-coordinate is between 20 and 50:
+			chance of 20%:
+				spawn 1 skeleton
+				set name of last spawned entity to "specc2"
+		if victim's y-coordinate is between 0 and 20:
+			chance of 35%:
+				spawn 1 skeleton
+				set name of last spawned entity to "specc2"
+		if victim's y-coordinate is between -30 and -1:
+			chance of 50%:
+				spawn 1 skeleton
+				set name of last spawned entity to "specc2"
+		if victim's y-coordinate is between -60 and -31:
+			chance of 50%:
+				spawn 1 skeleton
+				set name of last spawned entity to "specc2"
+				spawn 1 skeleton
+				set name of last spawned entity to "specc2"
+
+
+
+
+on damage:
+	attacker is a player:
+		victim is a end crystal:
+			victim is a end crystal named "s1":
+				loop all blocks in radius 4 of victim:
+					chance of 1.8%:
+						set loop-block to coal ore
+					chance of 0.5%:
+						set loop-block to iron ore
+					chance of 0.5%:
+						set loop-block to gold ore
+					chance of 0.5%:
+						set loop-block to emerald ore
+					chance of 0.0%:
+						set loop-block to diamond ore
+					chance of 1.3%:
+						set loop-block to lapis lazuli ore
+					chance of 0.8%:
+						set loop-block to amethyst block
+					chance of 0%:
+						set loop-block to ancient debris
+					chance of 0.05%:
+						set loop-block to raw iron block
+					chance of 0.05%:
+						set loop-block to raw gold block
+				apply resistance 255 to attacker for 1 second
+				push attacker backwards at speed 2
+				heal attacker by 4
+				damage attacker's chestplate by 5
+				stop
+			victim is a end crystal named "s2":
+				spawn skeleton at victim's location
+				set name of last spawned skeleton to "oreguard"
+				loop all blocks in radius 5 of victim:
+					chance of 2%:
+						set loop-block to coal ore
+					chance of 1%:
+						set loop-block to iron ore
+					chance of 1%:
+						set loop-block to gold ore
+					chance of 0.4%:
+						set loop-block to emerald ore
+					chance of 0.0%:
+						set loop-block to diamond ore
+					chance of 1%:
+						set loop-block to lapis lazuli ore
+					chance of 2.2%:
+						set loop-block to amethyst block
+					chance of 0.03%:
+						set loop-block to ancient debris
+					chance of 0.08%:
+						set loop-block to raw iron block
+					chance of 0.08%:
+						set loop-block to raw gold block
+				apply resistance 255 to attacker for 1 second
+				push attacker backwards at speed 2
+				heal attacker by 4
+				damage attacker's chestplate by 12
+				loop all blocks in radius 2 of victim:
+					set loop-block to air
+			victim is a end crystal named "s3":
+				loop all blocks in radius 6 of victim:
+					chance of 1.5%:
+						set loop-block to iron ore
+					chance of 1.5%:
+						set loop-block to gold ore
+					chance of 1.6%:
+						set loop-block to emerald ore
+					chance of 0.2%:
+						set loop-block to diamond ore
+					chance of 2.2%:
+						set loop-block to amethyst block
+					chance of 0.08%:
+						set loop-block to ancient debris
+					chance of 0.6%:
+						set loop-block to raw iron block
+					chance of 1%:
+						set loop-block to raw gold block
+				apply resistance 255 to attacker for 1 second
+				push attacker backwards at speed 2
+				heal attacker by 4
+				damage attacker's chestplate by 26
+				wait 10 ticks
+				loop all blocks in radius 2 of victim:
+					set loop-block to air
+
+
+
+
+
+
+on mine of diamond ore:
+	chance of 10%:
+		set event-block to brain coral block
+		add event-block's location to {mineral::*}
+on mine of deepslate diamond ore:
+	chance of 16%:
+		set event-block to brain coral block
+		add event-block's location to {mineral::*}
+
+
+on mine of brain coral block:
+	if {mineral::*} contains event-block's location:
+		loop all blocks in radius 2 of event-block:
+			set loop-block to air
+		send "&d&oMineral Guard&f~ Who are you scum? i'll teach you to never disturb again." to player
+		loop 3 times:
+			spawn 1 skeleton at event-block's location
+			apply invisibility 1 to the last spawned skeleton for 0.8 seconds
+			set name of last spawned skeleton to "oreguard"
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,22 @@
+on skript start:
+	set {kesaf} to 5000
+
+on pickup:
+	event-item is sunflower:
+		name of event-item is "&eGold Kesaf":
+			send "&a+%item amount of event-item% &eKE$" to player
+
+on right-click:
+	if name of event-item is "&fBag of Coins":
+		if player can hold 1 shulker box:
+			cancel event
+			set {_n} to a random number between 5 and 35
+			set {_n} to rounded {_n}
+			loop {_n} times:
+				give kes() to player
+			send "&a+%{_n}% &eKE$ &8&oFrom the bag." to player
+			clear player's tool
+		else:
+			send "&e<!> &cNot enough space."
+
+

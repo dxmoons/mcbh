@@ -1,0 +1,379 @@
+
+on rightclick on entity:
+	if clicked entity is a citizen:
+		if name of entity is "Merchant":
+			make player execute command "shop" 
+
+
+on rightclick on entity:
+	if clicked entity is a citizen:
+		if name of entity is "Guide":
+			send "&eGuide&f~ First of all: Welcome! Feel free to walk around and learn about all aspects by yourself. slowly you will find out what changes are up in this new world" to player 
+			send "&eGuide&f~ Mining: I'll talk a bit about mining." to player 
+			wait 1 second
+			send "&eGuide&f~ Mining has changed: now you have a small chance to get ores from plain stones and a chance to fail collecting ores, both" to player 
+			wait 5 ticks
+			send "&eGuide&f~ chance to collect ores from stones and ores scales with Mining & Forge." to player 
+			wait 5 ticks
+			send "&eGuide&f~ also there are some guardians that protect some ores. i'll let you find em by yourself." to player 
+			wait 5 ticks
+			send "&eGuide&f~ Killing monsters in lower levels can spawn a Ore Site: that is a crystal you can destroy to spawn some ores around it." to player 
+			wait 5 ticks
+			send "  "
+
+			wait 5 seconds
+
+			send "&eGuide&f~ Colecting: Farming and breeding have changed: Now breed animals such as pigs, goats, cows, etc.. have a small chance to" to player 
+			wait 5 ticks
+			send "&eGuide&f~ improve ""genetics"", the more you breed generations the more you recieve when killing it. Goats now have their on meat used on" to player 
+
+			wait 1 second
+
+			send "&eGuide&f~ cooking. Plants have a lesser chance of droping seeds and can't be fertilized with bone meal. chopping wood can also drop a" to player 
+			wait 5 ticks
+			send "&eGuide&f~ stick to you instead of its wood. Both of these scales with Farm & Gather." to player 
+
+			wait 3 seconds
+
+			send "     "
+
+			wait 5 ticks
+			wait 5 ticks 
+			send "&eGuide&f~ Combat: Here now we have few new creatures, some of them spawn naturally underground or around you at night. some requeire you " to player 
+			wait 5 ticks
+			send "&eGuide&f~ to kill something else to spawn it, and others spawn only in minor or major Dungeons, we can talk more about dungeons later. " to player 
+			wait 5 ticks
+			send "&eGuide&f~ These mobs are way more deadly than the normal ones that we are used to, so be carefull. you can get more damage and health by leveling you Combat skill." to player 
+			wait 5 ticks
+			send "    "
+			wait 5 ticks
+			send "&eGuide&f~ Crafting: We have some new crafting recipes here, such as important and usefull tools or new food sources. you can type" to player 
+			wait 5 ticks
+			send "&eGuide&f~ /recipes to check out all our new recipes. some items are dropped from mobs, some are rare outputs from crops, others can be bought at the caravan." to player 
+
+			wait 3 seconds
+
+			send "    "
+			wait 5 ticks
+			send "&eGuide&f~ Reforging: When shift-right-clicking an evil holding an tool or armor you can scrap it for some of its materials back using " to player 
+			wait 5 ticks
+			send "&eGuide&f~ some copper ingot. if this item was enchanted, you have a small chance to recieve a Enchanted Shard enchanted with a random " to player 
+			wait 5 ticks
+			send "&eGuide&f~ enchant that this scraped item had. You can drag-n-drop this Enchanted Shard in your target item to enchant it with the " to player 
+			wait 5 ticks
+			send "&eGuide&f~ enchantment of this Enchanted Shard. each exp level represents around 3.5%% chance of success. when failed you only lose exp" to player 
+			wait 5 ticks
+			send "&eGuide&f~ used and the enchanted shard." to player 
+			wait 5 ticks
+			send "&eGuide&f~ Attributes: Here we have some attributtes in armor and weapons. currently these are:" to player 
+			wait 5 ticks
+			send "&eGuide&f~ Armor: +/- increases or decreases damage taken." to player 
+			wait 5 ticks
+			send "&eGuide&f~ Damage: +/- increases or decreases damage done." to player 
+			wait 5 ticks
+			send "&eGuide&f~ Luck: +/- increases or decreases your general luck." to player 
+			wait 5 ticks
+			send "&eGuide&f~ Resistance: +/- increases or decreases your item's durability." to player 
+			wait 5 ticks
+			send "&eGuide&f~ And more coming soon!" to player 
+			wait 3 seconds
+			send "    "
+			wait 5 ticks
+			send "&eGuide&f~ Minor dungeons:" to player 
+			wait 5 ticks
+			send "&eGuide&f~ these are spread around the starting camp. in Minor dungeons you can find some good loot in chests and barrels and you" to player 
+			wait 5 ticks
+			send "&eGuide&f~ can deal with some special monsters and bosses for rarer items. killing a dungeon mob have a small chance of dropping" to player 
+			wait 5 ticks
+			send "&eGuide&f~ this dungeon leader's soul, used to summon this boss." to player 
+			wait 5 ticks
+			send "&eGuide&f~ Major dungeons:" to player 
+			wait 5 ticks
+			send "&eGuide&f~ these are lesser, and can be found further. actually we dont know any active one of these. but in Major Dungeons you " to player 
+			wait 5 ticks
+			send "&eGuide&f~ will find tough creatures with special mechanics in every room, way bigger than minor dungeons and way rewarding. " to player 
+			wait 5 ticks
+			send "&eGuide&f~ usually Major dungeons bosses have a special condition or puzzle to be summoned." to player 
+			wait 5 ticks
+			send "&eGuide&f~ Thats it for now! This small guide will be updated and improved as this new world changes." to player 
+
+
+on rightclick on entity:
+	if clicked entity is a citizen:
+		if name of entity is "Expeditioner":
+			make player execute command "expe" 
+
+
+command /expe [<text>]:
+	trigger:
+		open chest with 1 row named "&8Expeditioner" to sender
+		wait a tick
+		set {_b} to spruce log
+		set name of {_b} to "&eTeleport to: 50400, 5200"
+		set {_c} to acacia log
+		set name of {_c} to "&eTeleport to: 10000, 6050"
+		set {_d} to grass
+		set name of {_d} to "&eTeleport to: -9900 12250"
+		format slot 2 of sender with {_b} to close then run [make sender execute command "exp1"]
+		format slot 4 of sender with {_c} to close then run [make sender execute command "exp2"]
+		format slot 6 of sender with {_d} to close then run [make sender execute command "exp3"]
+
+command /exp1:
+	trigger:
+		send "&e<!> Teleporting" to player
+		send "&f5..." to player
+		wait 1 second
+		send "&f4..." to player
+		wait 1 second
+		send "&f3..." to player
+		wait 1 second
+		send "&f2..." to player
+		wait 1 second
+		send "&f1..." to player
+		apply nausea 2 to the player for 3 seconds
+		apply blindness 2 to the player for 3 seconds
+		teleport player to {exp1}
+command /exp2:
+	trigger:
+		send "&e<!> Teleporting" to player
+		send "&f5..." to player
+		wait 1 second
+		send "&f4..." to player
+		wait 1 second
+		send "&f3..." to player
+		wait 1 second
+		send "&f2..." to player
+		wait 1 second
+		send "&f1..." to player
+		apply nausea 2 to the player for 3 seconds
+		apply blindness 2 to the player for 3 seconds
+		teleport player to {exp2}
+command /exp3:
+	trigger:
+		send "&e<!> Teleporting" to player
+		send "&f5..." to player
+		wait 1 second
+		send "&f4..." to player
+		wait 1 second
+		send "&f3..." to player
+		wait 1 second
+		send "&f2..." to player
+		wait 1 second
+		send "&f1..." to player
+		apply nausea 2 to the player for 3 seconds
+		apply blindness 2 to the player for 3 seconds
+		teleport player to {exp3}
+
+
+command /setexp1:
+	permission: op
+	trigger:
+		set {exp1} to player's location
+
+command /setexp2:
+	permission: op
+	trigger:
+		set {exp2} to player's location
+
+command /setexp3:
+	permission: op
+	trigger:
+		set {exp3} to player's location
+
+
+command /shop [<text>]:
+	trigger:
+		open chest with 1 row named "&8Merchant" to sender
+		wait a tick
+		set {_b} to enchanted book
+		set name of {_b} to "&eUnassigned Teleportation Tome"
+		set {_a} to bread
+		set name of {_a} to "&fOld Bread &82x"
+		set {_c} to firework star
+		set {_d} to glowing glass bottle
+		set name of {_d} to "&fSmall glowing Vial"
+		set name of {_c} to "&fRepair Kit"
+		set 1st line of the lore of {_a} to "&eMerchant's price: 5 KE$"
+		set 1st line of the lore of {_b} to "&7Right-Click to assign a location to this tome."
+		set 2nd line of the lore of {_b} to "&eMerchant's price: 110 KE$"
+		set 1st line of the lore of {_c} to "&7Drag-n-Drop on target item to repair it by 60."
+		set 2nd line of the lore of {_c} to "&eMerchant's price: 50 KE$"
+		set 1st line of the lore of {_d} to "&7Right-Click to get some experience."
+		set 2nd line of the lore of {_d} to "&eMerchant's price: 20 KE$"
+		format slot 2 of sender with {_b} to close then run [make sender execute command "buytome"]
+		format slot 3 of sender with {_c} to close then run [make sender execute command "buykit"]
+		format slot 5 of sender with {_a} to close then run [make sender execute command "buybread"]
+		format slot 6 of sender with {_d} to close then run [make sender execute command "buyvial"]
+
+on right click:
+	if player's tool is a bottle:
+		if name of player's tool contains "&fSmall glowing Vial":
+			cancel event
+			remove 1 bottle named "&fSmall glowing Vial" from player's inventory
+			set {_n} to a random number between 50 and 120
+			set {_c} to a random number between 20 and 45
+			set {_c} to rounded {_c}
+			loop {_c} times:
+				wait 1 tick
+				spawn {_n} of xp at player
+
+
+
+command /buykit:
+	trigger:
+		if player's inventory contains 50 sunflowers named "&eGold Kesaf":
+			if player can hold 1 shulker box:
+				remove 50 sunflowers named "&eGold Kesaf" from player's inventory
+				give repairkit() to player
+				send "&e<!> &aBought &fRepair Kit&a." to player
+				send "&c-50 &eKE$" to player
+			else:
+				send "&e<!> &cNot enough space"
+		else:
+			send "&e<!> &cNot Enough KE$"
+command /buyvial:
+	trigger:
+		if player's inventory contains 20 sunflowers named "&eGold Kesaf":
+			if player can hold 1 shulker box:
+				remove 20 sunflowers named "&eGold Kesaf" from player's inventory
+				give xpvial() to player
+				send "&e<!> &aBought &fSmall glowing Vial&a." to player
+				send "&c-20 &eKE$" to player
+			else:
+				send "&e<!> &cNot enough space"
+		else:
+			send "&e<!> &cNot Enough KE$"
+command /buytome:
+	trigger:
+		if player's inventory contains 5 sunflowers named "&eGold Kesaf":
+			if player can hold 1 shulker box:
+				remove 110 sunflowers named "&eGold Kesaf" from player's inventory
+				set {_b} to enchanted book
+				set name of {_b} to "&eUnassigned Teleportation Tome"
+				set 1st line of the lore of {_b} to "&7Right-Click to assign a location to this tome."
+				give {_b} to player
+				send "&e<!> &aBought &eUnassigned Teleportation Tome&a." to player
+				send "&c-110 &eKE$" to player
+			else:
+				send "&e<!> &cNot enough space"
+		else:
+			send "&e<!> &cNot Enough KE$"
+command /buybread:
+	trigger:
+		if player's inventory contains 5 sunflowers named "&eGold Kesaf":
+			if player can hold 1 shulker box:
+				remove 5 sunflowers named "&eGold Kesaf" from player's inventory
+				set {_b} to bread
+				set name of {_b} to "&fOld Bread"
+				give 2 of {_b} to player
+				send "&e<!> &aBought &f2x Old Bread(s)&a." to player
+				send "&c-5 &eKE$" to player
+			else:
+				send "&e<!> &cNot enough space"
+		else:
+			send "&e<!> &cNot Enough KE$"
+
+
+
+on drop:
+	event-item is a enchanted book named "&eTome of Teleportation":
+		cancel event
+		send "&e<!>&a This item is soulbound."
+		stop
+
+
+command /opbook:
+	permission: op
+	trigger:
+		send "&e <&c@&e> &aBook of teleportation given to player" to player
+		give 1 empty map named "&eTorn Page" to player
+		give 1 enchanted book named "&eUnassigned Teleportation Tome" to player
+
+
+
+
+command /bookdebug:
+	trigger:
+		set {assig.%player%} to false
+		set {assi.name.%player%} to false
+		set {ingui.%player%} to false
+
+
+on right click:
+	event-item is a enchanted book named "&eUnassigned Teleportation Tome":
+		cancel event
+		if {ingui.%player%} is false:
+			set {ingui.%player%} to true
+			set {assig.%player%} to true
+			send "&e<!> &aAssign this location?" to player
+			send "&e<!> &aYes &f| &cNo" to player
+		else:
+			send "&e<!> &cFinish what you are doing first."
+
+on join:
+	set {in.tp.%player%} to false
+	set {assig.%player%} to false
+
+
+on right click:
+	event-item is a nether star named "1dasdasdsd":
+		set 2nd line of the lore of player's tool to "&aMines"
+		set {_name} to the 2nd line of the lore of event-item
+		set {loc.%player%.%{_name}%} to the player's location
+		send "tpset" to player
+	event-item is a enchanted book named "&eTome of Teleportation":
+		if {in.tp.%player%} is false:
+			if player's inventory contains 12 bones:
+				set {in.tp.%player%} to true
+				remove 12 bones from player's inventory
+				send "&e<!> &aTome of Teleportation consumed 12 &fBone(s)&a."
+				set {_name} to the 2nd line of the lore of event-item
+				replace every "&a" with "" in {_name}
+				wait 1 second
+				send "&f5..."
+				wait 1 second
+				send "&f4..."
+				wait 1 second
+				send "&f3..."
+				wait 1 second
+				send "&f2..."
+				wait 1 second
+				send "&f1..."
+				wait 1 second
+				teleport player to {loc.%player%.%{_name}%}
+				apply blindness 5 to the player for 2 seconds
+				set {in.tp.%player%} to false
+			else:
+				send "&e<!>&c Using this magic book requires 12 bone(s)."
+		else:
+			send "&e<!> &cYou are already teleporting."
+
+
+
+
+command /settp1:
+	permission: op
+	trigger:
+		set {tp1} to the player's location
+command /tp1:
+	permission: op
+	trigger:
+		teleport player to {tp1}
+
+command /settp2:
+	permission: op
+	trigger:
+		set {tp2} to the player's location
+command /tp2:
+	permission: op
+	trigger:
+		teleport player to {tp2}
+
+command /settp3:
+	permission: op
+	trigger:
+		set {tp3} to the player's location
+command /tp3:
+	permission: op
+	trigger:
+		teleport player to {tp3}
